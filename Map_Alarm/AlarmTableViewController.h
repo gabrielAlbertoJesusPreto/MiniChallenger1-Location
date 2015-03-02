@@ -10,4 +10,8 @@
 
 @interface AlarmTableViewController : UITableViewController
 
+- (IBAction)editButton:(id)sender;
+- (IBAction)addButton:(id)sender;
+
+
 @end
