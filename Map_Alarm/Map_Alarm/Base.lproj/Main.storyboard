@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DRy-Kp-QZK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Alarm-->
@@ -62,8 +63,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="ZRy-gY-7k8">
                             <connections>
-                                <action selector="addButton:" destination="2pi-PA-hOw" id="iod-bx-xzW"/>
-                                <segue destination="JJU-Kt-jct" kind="show" id="GOa-Lm-7nN"/>
+                                <segue destination="JJU-Kt-jct" kind="show" id="TTg-Bs-GzZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -106,19 +106,18 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do Alarme:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZP-2T-Zsq">
-                                <rect key="frame" x="233" y="240" width="134" height="20.5"/>
+                                <rect key="frame" x="233" y="240" width="134" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngI-qN-Dxv">
-                                <rect key="frame" x="437" y="386" width="32" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngI-qN-Dxv">
+                                <rect key="frame" x="437" y="395" width="32" height="30"/>
                                 <state key="normal" title="Next">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextButton:" destination="JJU-Kt-jct" eventType="touchUpInside" id="YbI-ev-Oj7"/>
-                                    <segue destination="dNR-q3-iYF" kind="show" id="xec-G4-AVu"/>
+                                    <segue destination="dNR-q3-iYF" kind="show" id="ppn-U3-0wS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -127,13 +126,12 @@
                             <constraint firstItem="I7l-mz-4PF" firstAttribute="top" secondItem="dZP-2T-Zsq" secondAttribute="bottom" constant="59" id="1Xu-WI-ev7"/>
                             <constraint firstItem="dZP-2T-Zsq" firstAttribute="top" secondItem="Uow-Fl-TWQ" secondAttribute="bottom" constant="176" id="QgO-tT-VkY"/>
                             <constraint firstAttribute="centerX" secondItem="dZP-2T-Zsq" secondAttribute="centerX" constant="-0.5" id="Vhe-14-f6P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ngI-qN-Dxv" secondAttribute="trailing" constant="115" id="gRh-bX-oqr"/>
                             <constraint firstAttribute="centerX" secondItem="I7l-mz-4PF" secondAttribute="centerX" id="iZM-zK-u5y"/>
+                            <constraint firstItem="ngI-qN-Dxv" firstAttribute="top" secondItem="I7l-mz-4PF" secondAttribute="bottom" constant="46" id="qrT-bM-v8S"/>
                             <constraint firstAttribute="centerX" secondItem="dZP-2T-Zsq" secondAttribute="centerX" id="zX3-NF-75z"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="nameAlarmTextField" destination="I7l-mz-4PF" id="QC3-Uw-GzD"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3rp-4g-Sba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -151,42 +149,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distância" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZw-WZ-ylS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distância" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZw-WZ-ylS">
                                 <rect key="frame" x="265" y="97" width="71" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XjD-fm-0gJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XjD-fm-0gJ">
                                 <rect key="frame" x="48" y="135" width="504" height="128"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tocar quando estiver a quantos metros?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zc-xF-ABd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tocar quando estiver a quantos metros?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zc-xF-ABd">
                                 <rect key="frame" x="146" y="337" width="309" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-f7-g8P">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-f7-g8P">
                                 <rect key="frame" x="472" y="504" width="34" height="30"/>
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="saveButton:" destination="PIL-OJ-KFV" eventType="touchUpInside" id="0SA-vj-cyy"/>
-                                </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kav-ks-iic">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kav-ks-iic">
                                 <rect key="frame" x="252" y="396" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="2xZ-xn-Uaa"/>
+                                    <constraint firstAttribute="height" constant="30" id="P5y-Nh-8lX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eZw-WZ-ylS" firstAttribute="top" secondItem="s5P-WJ-M06" secondAttribute="bottom" constant="33" id="579-UY-123"/>
+                            <constraint firstAttribute="centerX" secondItem="7zc-xF-ABd" secondAttribute="centerX" constant="-0.5" id="6X3-wv-lLR"/>
+                            <constraint firstItem="eTU-f7-g8P" firstAttribute="top" secondItem="s5P-WJ-M06" secondAttribute="bottom" constant="440" id="Jz4-kR-KHN"/>
+                            <constraint firstItem="eTU-f7-g8P" firstAttribute="top" secondItem="kav-ks-iic" secondAttribute="bottom" constant="78" id="f1k-WB-P1n"/>
+                            <constraint firstAttribute="centerX" secondItem="kav-ks-iic" secondAttribute="centerX" constant="-0.5" id="f5j-Pk-g4c"/>
+                            <constraint firstAttribute="centerX" secondItem="eZw-WZ-ylS" secondAttribute="centerX" constant="-0.5" id="frU-Hq-FGi"/>
+                            <constraint firstItem="7zc-xF-ABd" firstAttribute="top" secondItem="s5P-WJ-M06" secondAttribute="bottom" constant="273" id="gtT-JA-OrW"/>
+                            <constraint firstItem="XjD-fm-0gJ" firstAttribute="top" secondItem="s5P-WJ-M06" secondAttribute="bottom" constant="71" id="jJt-gL-ZEO"/>
+                            <constraint firstAttribute="centerX" secondItem="XjD-fm-0gJ" secondAttribute="centerX" id="oie-sV-Q7w"/>
+                            <constraint firstItem="kav-ks-iic" firstAttribute="top" secondItem="s5P-WJ-M06" secondAttribute="bottom" constant="332" id="rig-k7-Et1"/>
+                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="distanceMeters" destination="kav-ks-iic" id="pgM-Jr-PEJ"/>
-                        <outlet property="imageMap" destination="XjD-fm-0gJ" id="Msh-Ef-7gX"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNz-GG-KNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -204,18 +211,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edF-64-vwY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edF-64-vwY">
                                 <rect key="frame" x="538" y="72" width="32" height="30"/>
                                 <state key="normal" title="Next">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextButton:" destination="dNR-q3-iYF" eventType="touchUpInside" id="Hcd-R6-kGT"/>
-                                    <segue destination="PIL-OJ-KFV" kind="show" id="Z9W-SG-Rly"/>
+                                    <segue destination="PIL-OJ-KFV" kind="show" id="S5v-T8-0KN"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="edF-64-vwY" firstAttribute="top" secondItem="UTz-9d-1Da" secondAttribute="bottom" constant="8" id="ITB-PY-jaD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="edF-64-vwY" secondAttribute="trailing" constant="14" id="gmO-UB-of6"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kx8-8b-yLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
