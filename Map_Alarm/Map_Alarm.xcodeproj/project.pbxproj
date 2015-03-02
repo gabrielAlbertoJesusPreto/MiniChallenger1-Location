@@ -14,6 +14,10 @@
 		02B280581AA483E5001B4B01 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02B280571AA483E5001B4B01 /* Images.xcassets */; };
 		02B2805B1AA483E5001B4B01 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02B280591AA483E5001B4B01 /* LaunchScreen.xib */; };
 		02B280671AA483E5001B4B01 /* Map_AlarmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B280661AA483E5001B4B01 /* Map_AlarmTests.m */; };
+		5E6018C51AA4877300037E45 /* Alarme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6018C41AA4877300037E45 /* Alarme.m */; };
+		5E6018C81AA4888B00037E45 /* ArrayAlarmes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6018C71AA4888B00037E45 /* ArrayAlarmes.m */; };
+		5E6018CA1AA48BF500037E45 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6018C91AA48BF500037E45 /* MapKit.framework */; };
+		5E6018CC1AA48C0400037E45 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6018CB1AA48C0400037E45 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,12 @@
 		02B280601AA483E5001B4B01 /* Map_AlarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Map_AlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B280651AA483E5001B4B01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02B280661AA483E5001B4B01 /* Map_AlarmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Map_AlarmTests.m; sourceTree = "<group>"; };
+		5E6018C31AA4877300037E45 /* Alarme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarme.h; sourceTree = "<group>"; };
+		5E6018C41AA4877300037E45 /* Alarme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarme.m; sourceTree = "<group>"; };
+		5E6018C61AA4888B00037E45 /* ArrayAlarmes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayAlarmes.h; sourceTree = "<group>"; };
+		5E6018C71AA4888B00037E45 /* ArrayAlarmes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayAlarmes.m; sourceTree = "<group>"; };
+		5E6018C91AA48BF500037E45 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5E6018CB1AA48C0400037E45 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E6018CC1AA48C0400037E45 /* CoreLocation.framework in Frameworks */,
+				5E6018CA1AA48BF500037E45 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +75,8 @@
 		02B2803E1AA483E5001B4B01 = {
 			isa = PBXGroup;
 			children = (
+				5E6018CB1AA48C0400037E45 /* CoreLocation.framework */,
+				5E6018C91AA48BF500037E45 /* MapKit.framework */,
 				02B280491AA483E5001B4B01 /* Map_Alarm */,
 				02B280631AA483E5001B4B01 /* Map_AlarmTests */,
 				02B280481AA483E5001B4B01 /* Products */,
@@ -89,6 +103,10 @@
 				02B280571AA483E5001B4B01 /* Images.xcassets */,
 				02B280591AA483E5001B4B01 /* LaunchScreen.xib */,
 				02B2804A1AA483E5001B4B01 /* Supporting Files */,
+				5E6018C31AA4877300037E45 /* Alarme.h */,
+				5E6018C41AA4877300037E45 /* Alarme.m */,
+				5E6018C61AA4888B00037E45 /* ArrayAlarmes.h */,
+				5E6018C71AA4888B00037E45 /* ArrayAlarmes.m */,
 			);
 			path = Map_Alarm;
 			sourceTree = "<group>";
@@ -220,8 +238,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				02B280531AA483E5001B4B01 /* ViewController.m in Sources */,
+				5E6018C51AA4877300037E45 /* Alarme.m in Sources */,
 				02B280501AA483E5001B4B01 /* AppDelegate.m in Sources */,
 				02B2804D1AA483E5001B4B01 /* main.m in Sources */,
+				5E6018C81AA4888B00037E45 /* ArrayAlarmes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +434,7 @@
 				02B2806C1AA483E5001B4B01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		02B2806D1AA483E5001B4B01 /* Build configuration list for PBXNativeTarget "Map_AlarmTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +443,7 @@
 				02B2806F1AA483E5001B4B01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
