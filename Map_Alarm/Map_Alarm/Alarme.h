@@ -17,4 +17,6 @@
 @property NSString *nome;
 @property NSString *destino;
 
+-(instancetype) initWithNome: (NSString *) n AndDestino: (NSString *) d;
+
 @end

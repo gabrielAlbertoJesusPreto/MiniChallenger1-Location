@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AlarmTableViewCell.h"
+#import "ArrayAlarmes.h"
+@class Alarme;
 
 @interface AlarmTableViewController : UITableViewController
+{
+    ArrayAlarmes *alarms;
+}
 
 @end
