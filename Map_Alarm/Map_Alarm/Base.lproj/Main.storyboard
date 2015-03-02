@@ -54,7 +54,19 @@
                             <outlet property="delegate" destination="2pi-PA-hOw" id="wID-Ji-Tsy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Alarm" id="7RE-5l-eTi"/>
+                    <navigationItem key="navigationItem" title="Alarm" id="7RE-5l-eTi">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="edit" id="tWT-HE-Iqb">
+                            <connections>
+                                <action selector="editButton:" destination="2pi-PA-hOw" id="l4b-1N-Rml"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="ZRy-gY-7k8">
+                            <connections>
+                                <action selector="addButton:" destination="2pi-PA-hOw" id="iod-bx-xzW"/>
+                                <segue destination="JJU-Kt-jct" kind="show" id="GOa-Lm-7nN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="QPZ-Qg-Irg" id="kUh-CP-wsI"/>
                     </connections>
@@ -71,6 +83,144 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-142" y="152"/>
+        </scene>
+        <!--Alarm Name View Controller-->
+        <scene sceneID="Y6c-XJ-kFN">
+            <objects>
+                <viewController id="JJU-Kt-jct" customClass="AlarmNameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uow-Fl-TWQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Di-3b-6KA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fbJ-Uc-lpb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I7l-mz-4PF">
+                                <rect key="frame" x="132" y="319" width="337" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="337" id="2Ui-Xd-hYi"/>
+                                    <constraint firstAttribute="height" constant="30" id="Nmp-Ex-H5h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do Alarme:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZP-2T-Zsq">
+                                <rect key="frame" x="233" y="240" width="134" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngI-qN-Dxv">
+                                <rect key="frame" x="437" y="386" width="32" height="30"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButton:" destination="JJU-Kt-jct" eventType="touchUpInside" id="YbI-ev-Oj7"/>
+                                    <segue destination="dNR-q3-iYF" kind="show" id="xec-G4-AVu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I7l-mz-4PF" firstAttribute="top" secondItem="dZP-2T-Zsq" secondAttribute="bottom" constant="59" id="1Xu-WI-ev7"/>
+                            <constraint firstItem="dZP-2T-Zsq" firstAttribute="top" secondItem="Uow-Fl-TWQ" secondAttribute="bottom" constant="176" id="QgO-tT-VkY"/>
+                            <constraint firstAttribute="centerX" secondItem="dZP-2T-Zsq" secondAttribute="centerX" constant="-0.5" id="Vhe-14-f6P"/>
+                            <constraint firstAttribute="centerX" secondItem="I7l-mz-4PF" secondAttribute="centerX" id="iZM-zK-u5y"/>
+                            <constraint firstAttribute="centerX" secondItem="dZP-2T-Zsq" secondAttribute="centerX" id="zX3-NF-75z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameAlarmTextField" destination="I7l-mz-4PF" id="QC3-Uw-GzD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3rp-4g-Sba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="620" y="152"/>
+        </scene>
+        <!--Distance View Controller-->
+        <scene sceneID="nPN-Cr-spk">
+            <objects>
+                <viewController id="PIL-OJ-KFV" customClass="DistanceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s5P-WJ-M06"/>
+                        <viewControllerLayoutGuide type="bottom" id="DRL-Zz-FZD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XXL-Dc-5w5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distância" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZw-WZ-ylS">
+                                <rect key="frame" x="265" y="97" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XjD-fm-0gJ">
+                                <rect key="frame" x="48" y="135" width="504" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tocar quando estiver a quantos metros?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zc-xF-ABd">
+                                <rect key="frame" x="146" y="337" width="309" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-f7-g8P">
+                                <rect key="frame" x="472" y="504" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButton:" destination="PIL-OJ-KFV" eventType="touchUpInside" id="0SA-vj-cyy"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kav-ks-iic">
+                                <rect key="frame" x="252" y="396" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="distanceMeters" destination="kav-ks-iic" id="pgM-Jr-PEJ"/>
+                        <outlet property="imageMap" destination="XjD-fm-0gJ" id="Msh-Ef-7gX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NNz-GG-KNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-142" y="980"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="fsf-II-v3x">
+            <objects>
+                <viewController id="dNR-q3-iYF" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UTz-9d-1Da"/>
+                        <viewControllerLayoutGuide type="bottom" id="cgb-De-VX3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZH3-sl-MEa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edF-64-vwY">
+                                <rect key="frame" x="538" y="72" width="32" height="30"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButton:" destination="dNR-q3-iYF" eventType="touchUpInside" id="Hcd-R6-kGT"/>
+                                    <segue destination="PIL-OJ-KFV" kind="show" id="Z9W-SG-Rly"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kx8-8b-yLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="620" y="980"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sct-HW-Ndl">
