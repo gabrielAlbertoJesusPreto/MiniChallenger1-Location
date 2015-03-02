@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Alarm-->
         <scene sceneID="s9q-n7-csu">
             <objects>
-                <tableViewController id="2pi-PA-hOw" sceneMemberID="viewController">
+                <tableViewController id="2pi-PA-hOw" customClass="AlarmTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="cPl-89-YvN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="Diq-Se-QEr">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="Diq-Se-QEr" customClass="AlarmTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Diq-Se-QEr" id="3i2-8N-bPc">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -43,6 +43,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addressLabel" destination="V92-p7-8bk" id="HqV-jL-51J"/>
+                                    <outlet property="alarmNameLabel" destination="f2J-Pb-7GJ" id="dZX-rw-lv9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -50,7 +54,7 @@
                             <outlet property="delegate" destination="2pi-PA-hOw" id="wID-Ji-Tsy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="7RE-5l-eTi"/>
+                    <navigationItem key="navigationItem" title="Alarm" id="7RE-5l-eTi"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="QPZ-Qg-Irg" id="kUh-CP-wsI"/>
                     </connections>
