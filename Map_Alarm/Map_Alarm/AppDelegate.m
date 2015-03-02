@@ -16,7 +16,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // Override point for customization after application launch.
+    
+    alarms = [ArrayAlarmes instancia];
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"alarms"] != nil)
+    {
+        [alarms addAlarme:[[NSUserDefaults standardUserDefaults] objectForKey:@"alarms"]];
+    }
     return YES;
 }
 
@@ -39,6 +47,8 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+    
+    //[[NSUserDefaults standardUserDefaults] setObject:alarms forKey:@"alarms"];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 

@@ -16,6 +16,9 @@
 
 @property NSMutableArray *arrayAlarmes;
 
++ (ArrayAlarmes*)instancia;
+
+-(void)addAlarmes: (NSMutableArray *) alarms;
 -(void)addAlarme: (Alarme*)alarme;
 -(void)removeAlarmeAtIndex: (NSUInteger)i;
 -(Alarme*)alarmeAtIndex: (NSUInteger)i;

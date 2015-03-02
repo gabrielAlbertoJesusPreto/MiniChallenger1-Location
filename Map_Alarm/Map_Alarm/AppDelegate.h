@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArrayAlarmes.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+    ArrayAlarmes *alarms;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

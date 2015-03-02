@@ -22,11 +22,18 @@ static ArrayAlarmes *instaciaAlarme = nil;
     return self;
 }
 
-+ (ArrayAlarmes*)instancia{
++(ArrayAlarmes*)instancia{
     if(instaciaAlarme == nil){
         instaciaAlarme = [[ArrayAlarmes alloc]init];
     }
     return instaciaAlarme;
+}
+
+-(void)addAlarmes:(ArrayAlarmes*)alarms
+{
+    for (int i = 0; i < [[alarms count] intValue]; i++) {
+        [self addAlarme:[alarms alarmeAtIndex:i]];
+    }
 }
 
 -(void)addAlarme: (Alarme*)alarme{
