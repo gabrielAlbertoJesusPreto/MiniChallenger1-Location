@@ -7,12 +7,15 @@
 //
 
 #import "AlarmNameViewController.h"
+#import "Alarme.h"
 
 @interface AlarmNameViewController ()
 
 @end
 
 @implementation AlarmNameViewController
+
+@synthesize TextFieldName;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,4 +37,8 @@
 }
 */
 
+- (IBAction)ButtonNameNext:(id)sender {
+    Alarme *nalarme = [Alarme instanciaNewAlarme];
+    [nalarme setNome:[TextFieldName text]];
+}
 @end

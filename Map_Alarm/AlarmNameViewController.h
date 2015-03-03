@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AlarmNameViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *TextFieldName;
+- (IBAction)ButtonNameNext:(id)sender;
 
 @end

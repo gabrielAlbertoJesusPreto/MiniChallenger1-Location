@@ -7,16 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+@class CLLocation;
 
 @interface Alarme : NSObject
 {
     NSString *nome;
-    NSString *destino;
+    CLLocation *destino;
+    NSNumber *distance;
 }
 
 @property NSString *nome;
-@property NSString *destino;
+@property CLLocation *destino;
+@property NSNumber *distance;
 
 -(instancetype) initWithNome: (NSString *) n AndDestino: (NSString *) d;
+
++ (Alarme*)instanciaNewAlarme;
 
 @end

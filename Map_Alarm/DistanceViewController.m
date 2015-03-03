@@ -8,14 +8,19 @@
 
 #import "DistanceViewController.h"
 
+
 @interface DistanceViewController ()
 
 @end
 
 @implementation DistanceViewController
 
+@synthesize TextFieldDistance;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    alarms = [ArrayAlarmes instancia];
+    newAlarm = [Alarme instanciaNewAlarme];
     // Do any additional setup after loading the view.
 }
 
@@ -34,4 +39,8 @@
 }
 */
 
+- (IBAction)ButtonSave:(id)sender {
+    [newAlarm setDistance:[NSNumber numberWithInteger:[[TextFieldDistance text] integerValue]]];
+    [alarms addAlarme: newAlarm];
+}
 @end

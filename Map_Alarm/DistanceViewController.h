@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Alarme.h"
+#import "ArrayAlarmes.h"
 
 @interface DistanceViewController : UIViewController
+{
+    Alarme *newAlarm;
+    ArrayAlarmes *alarms;
+}
+@property (weak, nonatomic) IBOutlet UITextField *TextFieldDistance;
+- (IBAction)ButtonSave:(id)sender;
 
 @end
