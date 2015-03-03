@@ -15,7 +15,7 @@
 #import <AVFoundation/AVFoundation.h>
 //@class Alarme;
 
-@interface MapViewController : UIViewController <CLLocationManagerDelegate>
+@interface MapViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 {
     CLLocationManager *locationManager;
     CLGeocoder *geocoder;

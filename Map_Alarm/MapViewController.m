@@ -108,11 +108,14 @@
     if ([nalarme destino] != nil) {
         CLLocationDistance dist = [newLocation distanceFromLocation:[nalarme destino]];
         if (dist < 500) {
-            [audioPlayer play];
-            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+//            [audioPlayer play];
+//            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
             
+        } else
+        {
+//            [audioPlayer stop];
         }
-        NSLog(@"distancia: %f",dist);
+//        NSLog(@"distancia: %f",dist);
 
     }
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -137,9 +140,9 @@
     [worldMap removeAnnotations:[worldMap annotations]];
     [self.worldMap addAnnotation:point1];
     CLLocation *location = [[CLLocation alloc] initWithLatitude:tapPoint.latitude longitude:tapPoint.longitude];
+    NSLog(@"%f, %f", tapPoint.latitude, tapPoint.longitude);
     Alarme *nalarme = [Alarme instanciaNewAlarme];
     [nalarme setDestino:location];
-    
     
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         NSLog(@"%@ - %@", placemarks,error);
@@ -151,4 +154,5 @@
     }];
 
 }
+
 @end

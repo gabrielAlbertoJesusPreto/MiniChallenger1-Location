@@ -6,15 +6,23 @@
 //  Copyright (c) 2015 Lidia Chou. All rights reserved.
 //
 
+#define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
 #import <UIKit/UIKit.h>
 #import "ArrayAlarmes.h"
+#import <CoreLocation/CoreLocation.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 {
     ArrayAlarmes *alarms;
+    CLLocationManager *locationManager;
+    AVAudioPlayer *audioPlayer;
 }
 
 @property (strong, nonatomic) UIWindow *window;
+
+-(void)teste:(NSTimer *)timer;
 
 
 @end

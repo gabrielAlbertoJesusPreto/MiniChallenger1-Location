@@ -19,7 +19,7 @@
     
     alarms = [ArrayAlarmes instancia];
     
-    [alarms addAlarme:[[Alarme alloc] initWithNome:@"Mackenzie" AndDestino:@"teste"]];
+//    [alarms addAlarme:[[Alarme alloc] initWithNome:@"Mackenzie" AndDestino:@"teste"]];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

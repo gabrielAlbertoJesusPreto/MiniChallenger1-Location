@@ -25,6 +25,32 @@
     {
         [alarms addAlarme:[[NSUserDefaults standardUserDefaults] objectForKey:@"alarms"]];
     }
+    
+    
+    locationManager = [[CLLocationManager alloc] init];
+    
+    [locationManager setDelegate:self];
+    
+#ifdef __IPHONE_8_0
+    if(IS_OS_8_OR_LATER) {
+        // Use one or the other, not both. Depending on what you put in info.plist
+        [locationManager requestWhenInUseAuthorization];
+        [locationManager requestAlwaysAuthorization];
+        
+        [locationManager startUpdatingLocation];
+    }
+#endif
+    
+    NSString *path = [NSString stringWithFormat:@"%@/teste.mp3", [[NSBundle mainBundle] resourcePath]];
+    NSURL *soundUrl = [NSURL fileURLWithPath:path];
+    audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:soundUrl error:nil];
+    
+    [NSTimer scheduledTimerWithTimeInterval:2.0
+                                     target:self
+                                   selector:@selector(teste:)
+                                   userInfo:nil
+                                    repeats:YES];
+    
     return YES;
 }
 
@@ -51,5 +77,63 @@
     //[[NSUserDefaults standardUserDefaults] setObject:alarms forKey:@"alarms"];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+-(void)teste:(NSTimer *)timer
+{
+    bool b = false;
+    for (int i = 0; i < [[alarms count] intValue]; i++) {
+        Alarme *a = [alarms alarmeAtIndex:(NSUInteger)i];
+        
+        CLLocationDistance dist = [[locationManager location] distanceFromLocation:[a destino]];
+        if (dist <= [[a distance] intValue]) {
+            NSLog(@"você esta chegando: %@", [a nome]);
+            [audioPlayer play];
+            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+            b = true;
+        }
+    }
+    if (!b) {
+        [audioPlayer stop];
+    }
+//    NSLog(@"%f",[[locationManager location] coordinate].latitude);
+//    NSLog(@"teste");
+}
+
+
+
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager*)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    
+    switch (status) {
+        case kCLAuthorizationStatusNotDetermined: {
+            NSLog(@"User still thinking..");
+        } break;
+        case kCLAuthorizationStatusDenied: {
+            NSLog(@"User hates you");
+        } break;
+        case kCLAuthorizationStatusAuthorizedWhenInUse: {
+            NSLog(@"kCLAuthorizationStatusAuthorizedWhenInUse");
+            //Encontrar as coordenadas de localização atual
+        } break;
+        case kCLAuthorizationStatusAuthorizedAlways: {
+            NSLog(@"kCLAuthorizationStatusAuthorizedAlways");
+            [locationManager startUpdatingLocation]; //Will update location immediately
+            
+        } break;
+        default:{
+            NSLog(@"default");
+        } break;
+    }
+}
+
 
 @end
