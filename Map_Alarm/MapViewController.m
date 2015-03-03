@@ -18,6 +18,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    locationManager = [[CLLocationManager alloc] init];
+    [locationManager setDelegate:self];
+    
+#ifdef __IPHONE_8_0
+    if(IS_OS_8_OR_LATER) {
+        // Use one or the other, not both. Depending on what you put in info.plist
+        [locationManager requestWhenInUseAuthorization];
+        [locationManager requestAlwaysAuthorization];
+        
+        [locationManager startUpdatingLocation];
+        
+        
+        worldMap.showsUserLocation = YES;
+        [worldMap setMapType:MKMapTypeStandard];
+        [worldMap setZoomEnabled:YES];
+        [worldMap setScrollEnabled:YES];
+    }
+#endif
+    
     // Do any additional setup after loading the view.
 }
 
@@ -36,17 +55,59 @@
 }
 */
 
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    NSLog(@"erro %@", error);
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"erro" message:@"Erro em buscar a localização" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
-    [alert show];
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
 }
+
+- (void)locationManager:(CLLocationManager*)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    
+    switch (status) {
+        case kCLAuthorizationStatusNotDetermined: {
+            NSLog(@"User still thinking..");
+        } break;
+        case kCLAuthorizationStatusDenied: {
+            NSLog(@"User hates you");
+        } break;
+        case kCLAuthorizationStatusAuthorizedWhenInUse: {
+            NSLog(@"kCLAuthorizationStatusAuthorizedWhenInUse");
+            //Encontrar as coordenadas de localização atual
+            CLLocationCoordinate2D loc = [[manager location] coordinate];
+            
+            //Determinar região com as coordenadas de localização atual e os limites N/S e L/O no zoom em metros
+            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
+            
+            //Mudar a região atual para visualização de forma animada
+            [worldMap setRegion:region animated:YES ];
+        } break;
+        case kCLAuthorizationStatusAuthorizedAlways: {
+            NSLog(@"kCLAuthorizationStatusAuthorizedAlways");
+            [locationManager startUpdatingLocation]; //Will update location immediately
+            
+        } break;
+        default:{
+            NSLog(@"default");
+        } break;
+    }
+}
+
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     CLLocation *location = newLocation;
-    
+    Alarme *nalarme = [Alarme instanciaNewAlarme];
+    if ([nalarme destino] != nil) {
+        CLLocationDistance dist = [newLocation distanceFromLocation:[nalarme destino]];
+        if (dist < 500) {
+            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+        }
+        NSLog(@"distancia: %f",dist);
+
+    }
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         NSLog(@"%@ - %@", placemarks,error);
         if(error == nil && [placemarks count] > 0)
