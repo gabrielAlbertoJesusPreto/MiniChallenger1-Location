@@ -82,7 +82,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-142" y="152"/>
+            <point key="canvasLocation" x="36" y="-23"/>
         </scene>
         <!--Alarm Name View Controller-->
         <scene sceneID="Y6c-XJ-kFN">
@@ -132,6 +132,9 @@
                             <constraint firstAttribute="centerX" secondItem="dZP-2T-Zsq" secondAttribute="centerX" id="zX3-NF-75z"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nomeAlarmeText" destination="I7l-mz-4PF" id="C0d-AI-7L6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3rp-4g-Sba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -194,6 +197,9 @@
                             <constraint firstItem="kav-ks-iic" firstAttribute="top" secondItem="s5P-WJ-M06" secondAttribute="bottom" constant="332" id="rig-k7-Et1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="distanciaText" destination="kav-ks-iic" id="Eye-Je-D3U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNz-GG-KNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

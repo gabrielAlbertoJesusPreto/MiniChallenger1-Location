@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AlarmNameViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *nomeAlarmeText;
 
 @end

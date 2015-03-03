@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DistanceViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *distanciaText;
 
 @end
