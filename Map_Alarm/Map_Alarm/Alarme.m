@@ -12,4 +12,14 @@
 
 @synthesize nome, destino;
 
+-(instancetype)initWithNome:(NSString *)n AndDestino:(NSString *)d
+{
+    self = [super init];
+    if (self) {
+        nome = n;
+        destino = d;
+    }
+    return self;
+}
+
 @end

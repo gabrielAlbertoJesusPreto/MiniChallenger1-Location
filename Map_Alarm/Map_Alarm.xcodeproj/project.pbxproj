@@ -15,6 +15,9 @@
 		02B280671AA483E5001B4B01 /* Map_AlarmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B280661AA483E5001B4B01 /* Map_AlarmTests.m */; };
 		02B280721AA49623001B4B01 /* AlarmTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B280711AA49623001B4B01 /* AlarmTableViewController.m */; };
 		02B280751AA49748001B4B01 /* AlarmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B280741AA49748001B4B01 /* AlarmTableViewCell.m */; };
+		02B2808A1AA4AFD8001B4B01 /* AlarmNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B280891AA4AFD8001B4B01 /* AlarmNameViewController.m */; };
+		02B2808D1AA4AFF2001B4B01 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B2808C1AA4AFF2001B4B01 /* MapViewController.m */; };
+		02B280901AA4B010001B4B01 /* DistanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B2808F1AA4B010001B4B01 /* DistanceViewController.m */; };
 		5E6018C51AA4877300037E45 /* Alarme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6018C41AA4877300037E45 /* Alarme.m */; };
 		5E6018C81AA4888B00037E45 /* ArrayAlarmes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6018C71AA4888B00037E45 /* ArrayAlarmes.m */; };
 		5E6018CA1AA48BF500037E45 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6018C91AA48BF500037E45 /* MapKit.framework */; };
@@ -47,6 +50,12 @@
 		02B280711AA49623001B4B01 /* AlarmTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmTableViewController.m; path = ../AlarmTableViewController.m; sourceTree = "<group>"; };
 		02B280731AA49748001B4B01 /* AlarmTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmTableViewCell.h; sourceTree = "<group>"; };
 		02B280741AA49748001B4B01 /* AlarmTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmTableViewCell.m; sourceTree = "<group>"; };
+		02B280881AA4AFD8001B4B01 /* AlarmNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlarmNameViewController.h; path = ../AlarmNameViewController.h; sourceTree = "<group>"; };
+		02B280891AA4AFD8001B4B01 /* AlarmNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmNameViewController.m; path = ../AlarmNameViewController.m; sourceTree = "<group>"; };
+		02B2808B1AA4AFF2001B4B01 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = ../MapViewController.h; sourceTree = "<group>"; };
+		02B2808C1AA4AFF2001B4B01 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = ../MapViewController.m; sourceTree = "<group>"; };
+		02B2808E1AA4B010001B4B01 /* DistanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DistanceViewController.h; path = ../DistanceViewController.h; sourceTree = "<group>"; };
+		02B2808F1AA4B010001B4B01 /* DistanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DistanceViewController.m; path = ../DistanceViewController.m; sourceTree = "<group>"; };
 		5E6018C31AA4877300037E45 /* Alarme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarme.h; sourceTree = "<group>"; };
 		5E6018C41AA4877300037E45 /* Alarme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarme.m; sourceTree = "<group>"; };
 		5E6018C61AA4888B00037E45 /* ArrayAlarmes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayAlarmes.h; sourceTree = "<group>"; };
@@ -104,6 +113,12 @@
 				02B280711AA49623001B4B01 /* AlarmTableViewController.m */,
 				02B280731AA49748001B4B01 /* AlarmTableViewCell.h */,
 				02B280741AA49748001B4B01 /* AlarmTableViewCell.m */,
+				02B280881AA4AFD8001B4B01 /* AlarmNameViewController.h */,
+				02B280891AA4AFD8001B4B01 /* AlarmNameViewController.m */,
+				02B2808B1AA4AFF2001B4B01 /* MapViewController.h */,
+				02B2808C1AA4AFF2001B4B01 /* MapViewController.m */,
+				02B2808E1AA4B010001B4B01 /* DistanceViewController.h */,
+				02B2808F1AA4B010001B4B01 /* DistanceViewController.m */,
 				02B280541AA483E5001B4B01 /* Main.storyboard */,
 				02B280571AA483E5001B4B01 /* Images.xcassets */,
 				02B280591AA483E5001B4B01 /* LaunchScreen.xib */,
@@ -244,9 +259,12 @@
 			files = (
 				02B280721AA49623001B4B01 /* AlarmTableViewController.m in Sources */,
 				5E6018C51AA4877300037E45 /* Alarme.m in Sources */,
+				02B280901AA4B010001B4B01 /* DistanceViewController.m in Sources */,
+				02B2808D1AA4AFF2001B4B01 /* MapViewController.m in Sources */,
 				02B280501AA483E5001B4B01 /* AppDelegate.m in Sources */,
 				02B2804D1AA483E5001B4B01 /* main.m in Sources */,
 				5E6018C81AA4888B00037E45 /* ArrayAlarmes.m in Sources */,
+				02B2808A1AA4AFD8001B4B01 /* AlarmNameViewController.m in Sources */,
 				02B280751AA49748001B4B01 /* AlarmTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
