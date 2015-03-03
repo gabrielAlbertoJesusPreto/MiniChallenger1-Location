@@ -304,7 +304,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distância" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZw-WZ-ylS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Distância" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZw-WZ-ylS">
                                 <rect key="frame" x="265" y="97" width="71" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="71" id="8Qz-Mi-nEK"/>
@@ -326,7 +326,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XjD-fm-0gJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XjD-fm-0gJ">
                                 <rect key="frame" x="48" y="135" width="504" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="163" id="89G-uD-xd3"/>
@@ -345,7 +345,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tocar quando estiver a quantos metros?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zc-xF-ABd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Tocar quando estiver a quantos metros?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zc-xF-ABd">
                                 <rect key="frame" x="146" y="337" width="309" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="309" id="P2r-O8-nMl"/>
@@ -367,7 +367,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kav-ks-iic">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kav-ks-iic">
                                 <rect key="frame" x="252" y="396" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="2xZ-xn-Uaa"/>
@@ -377,8 +377,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-<<<<<<< HEAD
-=======
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="4r9-Wn-p4B"/>
@@ -391,9 +389,8 @@
                                         <include reference="U2i-iQ-9CF"/>
                                     </mask>
                                 </variation>
->>>>>>> ff2ebee2089d9783d6f9ced2d83d1bbf250b07f0
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-f7-g8P">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-f7-g8P">
                                 <rect key="frame" x="473" y="475" width="34" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8AY-ML-xtV"/>
@@ -436,11 +433,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="VVf-LP-FWW"/>
-                                <exclude reference="aIE-Re-fMT"/>
                                 <exclude reference="Cde-u6-htw"/>
                                 <exclude reference="Dcd-Op-PgR"/>
                                 <exclude reference="XH9-gR-hf0"/>
+                                <exclude reference="VVf-LP-FWW"/>
+                                <exclude reference="aIE-Re-fMT"/>
                                 <exclude reference="6nC-4G-ndw"/>
                                 <exclude reference="ReD-s3-caE"/>
                                 <exclude reference="SLk-eg-DaW"/>
@@ -452,11 +449,11 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="VVf-LP-FWW"/>
-                                <include reference="aIE-Re-fMT"/>
                                 <include reference="Cde-u6-htw"/>
                                 <include reference="Dcd-Op-PgR"/>
                                 <include reference="XH9-gR-hf0"/>
+                                <include reference="VVf-LP-FWW"/>
+                                <include reference="aIE-Re-fMT"/>
                                 <include reference="6nC-4G-ndw"/>
                                 <include reference="ReD-s3-caE"/>
                                 <include reference="SLk-eg-DaW"/>
