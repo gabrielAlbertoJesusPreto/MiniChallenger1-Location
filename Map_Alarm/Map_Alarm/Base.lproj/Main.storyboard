@@ -117,6 +117,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="ButtonNameNext:" destination="JJU-Kt-jct" eventType="touchUpInside" id="XzC-wR-nAa"/>
                                     <segue destination="dNR-q3-iYF" kind="show" id="ppn-U3-0wS"/>
                                 </connections>
                             </button>
@@ -132,6 +133,9 @@
                             <constraint firstAttribute="centerX" secondItem="dZP-2T-Zsq" secondAttribute="centerX" id="zX3-NF-75z"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="TextFieldName" destination="I7l-mz-4PF" id="OyP-Ur-iOs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3rp-4g-Sba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -164,12 +168,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-f7-g8P">
-                                <rect key="frame" x="472" y="504" width="34" height="30"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kav-ks-iic">
                                 <rect key="frame" x="252" y="396" width="97" height="30"/>
                                 <constraints>
@@ -177,8 +175,17 @@
                                     <constraint firstAttribute="height" constant="30" id="P5y-Nh-8lX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-f7-g8P">
+                                <rect key="frame" x="28" y="72" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ButtonSave:" destination="PIL-OJ-KFV" eventType="touchUpInside" id="dJK-Da-hiS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -194,6 +201,9 @@
                             <constraint firstItem="kav-ks-iic" firstAttribute="top" secondItem="s5P-WJ-M06" secondAttribute="bottom" constant="332" id="rig-k7-Et1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="TextFieldDistance" destination="kav-ks-iic" id="M9b-Gk-uB8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNz-GG-KNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -220,6 +230,13 @@
                                     <segue destination="PIL-OJ-KFV" kind="show" id="S5v-T8-0KN"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TDE-Mm-vFb">
+                                <rect key="frame" x="16" y="102" width="568" height="478"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="psw-ZJ-ghq" appends="YES" id="bAS-Oq-q6u"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -227,8 +244,16 @@
                             <constraint firstAttribute="trailingMargin" secondItem="edF-64-vwY" secondAttribute="trailing" constant="14" id="gmO-UB-of6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="worldMap" destination="TDE-Mm-vFb" id="FsI-sc-b5b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kx8-8b-yLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="psw-ZJ-ghq">
+                    <connections>
+                        <action selector="LongPressMapView:" destination="dNR-q3-iYF" id="k8X-P0-aZd"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="620" y="980"/>
         </scene>
