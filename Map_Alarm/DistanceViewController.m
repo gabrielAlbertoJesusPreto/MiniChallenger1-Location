@@ -29,6 +29,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [TextFieldDistance resignFirstResponder];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -42,5 +46,7 @@
 - (IBAction)ButtonSave:(id)sender {
     [newAlarm setDistance:[NSNumber numberWithInteger:[[TextFieldDistance text] integerValue]]];
     [alarms addAlarme: newAlarm];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
 @end
