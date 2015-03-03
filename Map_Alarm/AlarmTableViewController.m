@@ -56,13 +56,13 @@
 }
 
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
+
 
 /*
 // Override to support editing the table view.
@@ -90,6 +90,18 @@
 }
 */
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //remove the deleted object from your data source.
+        //If your data source is an NSMutableArray, do this
+        //NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+        [alarms removeAlarmeAtIndex:indexPath.row];
+        [tableView deselectRowAtIndexPath:indexPath animated:UITableViewRowAnimationLeft];
+        [tableView reloadData]; // tell table to refresh now
+    }
+}
+
 
 #pragma mark - Navigation
 
@@ -101,8 +113,19 @@
 
 
 - (IBAction)editButton:(id)sender {
+    
+    if(self.editing)
+    {
+        [super setEditing:NO animated:NO];
+        [self refreshControl];
+        
+    }
+    else
+    {
+        [super setEditing:YES animated:YES];
+        [self  refreshControl];
+    }
+    
 }
 
-- (IBAction)addButton:(id)sender {
-}
 @end
