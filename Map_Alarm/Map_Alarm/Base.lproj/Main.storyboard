@@ -63,7 +63,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="ZRy-gY-7k8">
                             <connections>
-                                <segue destination="JJU-Kt-jct" kind="show" id="TTg-Bs-GzZ"/>
+                                <segue destination="JJU-Kt-jct" kind="show" identifier="newAlarm" id="TTg-Bs-GzZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -82,7 +82,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="36" y="-23"/>
+            <point key="canvasLocation" x="-159" y="152"/>
         </scene>
         <!--Alarm Name View Controller-->
         <scene sceneID="Y6c-XJ-kFN">
@@ -117,7 +117,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dNR-q3-iYF" kind="show" id="ppn-U3-0wS"/>
+                                    <segue destination="dNR-q3-iYF" kind="show" identifier="showMap" id="ppn-U3-0wS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -167,12 +167,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-f7-g8P">
-                                <rect key="frame" x="472" y="504" width="34" height="30"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kav-ks-iic">
                                 <rect key="frame" x="252" y="396" width="97" height="30"/>
                                 <constraints>
@@ -182,13 +176,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-f7-g8P">
+                                <rect key="frame" x="473" y="475" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveAlarm:" destination="PIL-OJ-KFV" eventType="touchUpInside" id="8wv-Sc-5Ji"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eZw-WZ-ylS" firstAttribute="top" secondItem="s5P-WJ-M06" secondAttribute="bottom" constant="33" id="579-UY-123"/>
                             <constraint firstAttribute="centerX" secondItem="7zc-xF-ABd" secondAttribute="centerX" constant="-0.5" id="6X3-wv-lLR"/>
-                            <constraint firstItem="eTU-f7-g8P" firstAttribute="top" secondItem="s5P-WJ-M06" secondAttribute="bottom" constant="440" id="Jz4-kR-KHN"/>
-                            <constraint firstItem="eTU-f7-g8P" firstAttribute="top" secondItem="kav-ks-iic" secondAttribute="bottom" constant="78" id="f1k-WB-P1n"/>
+                            <constraint firstItem="eTU-f7-g8P" firstAttribute="top" secondItem="s5P-WJ-M06" secondAttribute="bottom" constant="411" id="YsA-Cf-I0M"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eTU-f7-g8P" secondAttribute="trailing" constant="77" id="a3f-cI-S6E"/>
                             <constraint firstAttribute="centerX" secondItem="kav-ks-iic" secondAttribute="centerX" constant="-0.5" id="f5j-Pk-g4c"/>
                             <constraint firstAttribute="centerX" secondItem="eZw-WZ-ylS" secondAttribute="centerX" constant="-0.5" id="frU-Hq-FGi"/>
                             <constraint firstItem="7zc-xF-ABd" firstAttribute="top" secondItem="s5P-WJ-M06" secondAttribute="bottom" constant="273" id="gtT-JA-OrW"/>
@@ -203,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNz-GG-KNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-142" y="980"/>
+            <point key="canvasLocation" x="-159" y="980"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="fsf-II-v3x">
@@ -223,7 +226,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PIL-OJ-KFV" kind="show" id="S5v-T8-0KN"/>
+                                    <segue destination="PIL-OJ-KFV" kind="show" identifier="setDistance" id="S5v-T8-0KN"/>
                                 </connections>
                             </button>
                         </subviews>

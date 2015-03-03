@@ -38,4 +38,11 @@
 }
 */
 
+
+- (IBAction)saveAlarm:(id)sender {
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+}
+
 @end
