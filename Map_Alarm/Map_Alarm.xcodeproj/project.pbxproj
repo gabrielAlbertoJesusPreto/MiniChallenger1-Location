@@ -18,6 +18,11 @@
 		02B2808A1AA4AFD8001B4B01 /* AlarmNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B280891AA4AFD8001B4B01 /* AlarmNameViewController.m */; };
 		02B2808D1AA4AFF2001B4B01 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B2808C1AA4AFF2001B4B01 /* MapViewController.m */; };
 		02B280901AA4B010001B4B01 /* DistanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B2808F1AA4B010001B4B01 /* DistanceViewController.m */; };
+		5E54EDB21AA5FDBA00683A0C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E54EDB11AA5FDBA00683A0C /* AVFoundation.framework */; };
+		5E54EDB41AA5FDC400683A0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E54EDB31AA5FDC400683A0C /* UIKit.framework */; };
+		5E54EDB61AA5FDCE00683A0C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E54EDB51AA5FDCE00683A0C /* CoreGraphics.framework */; };
+		5E54EDB81AA5FDDD00683A0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E54EDB71AA5FDDD00683A0C /* Foundation.framework */; };
+		5E54EDBB1AA5FED600683A0C /* teste.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E54EDBA1AA5FED600683A0C /* teste.mp3 */; };
 		5E6018C51AA4877300037E45 /* Alarme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6018C41AA4877300037E45 /* Alarme.m */; };
 		5E6018C81AA4888B00037E45 /* ArrayAlarmes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6018C71AA4888B00037E45 /* ArrayAlarmes.m */; };
 		5E6018CA1AA48BF500037E45 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6018C91AA48BF500037E45 /* MapKit.framework */; };
@@ -56,6 +61,11 @@
 		02B2808C1AA4AFF2001B4B01 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = ../MapViewController.m; sourceTree = "<group>"; };
 		02B2808E1AA4B010001B4B01 /* DistanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DistanceViewController.h; path = ../DistanceViewController.h; sourceTree = "<group>"; };
 		02B2808F1AA4B010001B4B01 /* DistanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DistanceViewController.m; path = ../DistanceViewController.m; sourceTree = "<group>"; };
+		5E54EDB11AA5FDBA00683A0C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5E54EDB31AA5FDC400683A0C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5E54EDB51AA5FDCE00683A0C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5E54EDB71AA5FDDD00683A0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5E54EDBA1AA5FED600683A0C /* teste.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = teste.mp3; sourceTree = "<group>"; };
 		5E6018C31AA4877300037E45 /* Alarme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarme.h; sourceTree = "<group>"; };
 		5E6018C41AA4877300037E45 /* Alarme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarme.m; sourceTree = "<group>"; };
 		5E6018C61AA4888B00037E45 /* ArrayAlarmes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayAlarmes.h; sourceTree = "<group>"; };
@@ -69,6 +79,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E54EDB81AA5FDDD00683A0C /* Foundation.framework in Frameworks */,
+				5E54EDB61AA5FDCE00683A0C /* CoreGraphics.framework in Frameworks */,
+				5E54EDB41AA5FDC400683A0C /* UIKit.framework in Frameworks */,
+				5E54EDB21AA5FDBA00683A0C /* AVFoundation.framework in Frameworks */,
 				5E6018CC1AA48C0400037E45 /* CoreLocation.framework in Frameworks */,
 				5E6018CA1AA48BF500037E45 /* MapKit.framework in Frameworks */,
 			);
@@ -87,6 +101,10 @@
 		02B2803E1AA483E5001B4B01 = {
 			isa = PBXGroup;
 			children = (
+				5E54EDB71AA5FDDD00683A0C /* Foundation.framework */,
+				5E54EDB51AA5FDCE00683A0C /* CoreGraphics.framework */,
+				5E54EDB31AA5FDC400683A0C /* UIKit.framework */,
+				5E54EDB11AA5FDBA00683A0C /* AVFoundation.framework */,
 				5E6018CB1AA48C0400037E45 /* CoreLocation.framework */,
 				5E6018C91AA48BF500037E45 /* MapKit.framework */,
 				02B280491AA483E5001B4B01 /* Map_Alarm */,
@@ -107,6 +125,7 @@
 		02B280491AA483E5001B4B01 /* Map_Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				5E54EDB91AA5FEBA00683A0C /* Sound */,
 				02B2804E1AA483E5001B4B01 /* AppDelegate.h */,
 				02B2804F1AA483E5001B4B01 /* AppDelegate.m */,
 				02B280701AA49623001B4B01 /* AlarmTableViewController.h */,
@@ -155,6 +174,14 @@
 				02B280651AA483E5001B4B01 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5E54EDB91AA5FEBA00683A0C /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				5E54EDBA1AA5FED600683A0C /* teste.mp3 */,
+			);
+			name = Sound;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E54EDBB1AA5FED600683A0C /* teste.mp3 in Resources */,
 				02B280561AA483E5001B4B01 /* Main.storyboard in Resources */,
 				02B2805B1AA483E5001B4B01 /* LaunchScreen.xib in Resources */,
 				02B280581AA483E5001B4B01 /* Images.xcassets in Resources */,

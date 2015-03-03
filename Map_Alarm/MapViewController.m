@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface MapViewController ()
 
@@ -36,6 +37,10 @@
         [worldMap setScrollEnabled:YES];
     }
 #endif
+    
+    NSString *path = [NSString stringWithFormat:@"%@/teste.mp3", [[NSBundle mainBundle] resourcePath]];
+    NSURL *soundUrl = [NSURL fileURLWithPath:path];
+    audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:soundUrl error:nil];
     
     // Do any additional setup after loading the view.
 }
@@ -103,7 +108,9 @@
     if ([nalarme destino] != nil) {
         CLLocationDistance dist = [newLocation distanceFromLocation:[nalarme destino]];
         if (dist < 500) {
+            [audioPlayer play];
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+            
         }
         NSLog(@"distancia: %f",dist);
 

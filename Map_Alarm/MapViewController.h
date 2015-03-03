@@ -12,7 +12,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 #import "Alarme.h"
-#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 //@class Alarme;
 
 @interface MapViewController : UIViewController <CLLocationManagerDelegate>
@@ -20,6 +20,7 @@
     CLLocationManager *locationManager;
     CLGeocoder *geocoder;
     CLPlacemark *placemark;
+    AVAudioPlayer *audioPlayer;
 }
 @property (weak, nonatomic) IBOutlet MKMapView *worldMap;
 - (IBAction)LongPressMapView:(UILongPressGestureRecognizer *)sender;
