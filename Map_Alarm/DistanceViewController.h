@@ -16,6 +16,9 @@
     ArrayAlarmes *alarms;
 }
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldDistance;
+@property (weak, nonatomic) IBOutlet UIButton *buttonSave;
+
+- (IBAction)TextFieldMeters:(id)sender;
 - (IBAction)ButtonSave:(id)sender;
 
 @end

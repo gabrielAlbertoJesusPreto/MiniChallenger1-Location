@@ -204,6 +204,9 @@
                                         <include reference="Jic-M6-R4h"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="textFieldChanged:" destination="JJU-Kt-jct" eventType="editingChanged" id="lTV-gD-DV0"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Nome do Alarme:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZP-2T-Zsq">
                                 <rect key="frame" x="233" y="240" width="134" height="21"/>
@@ -286,6 +289,7 @@
                     </view>
                     <connections>
                         <outlet property="TextFieldName" destination="I7l-mz-4PF" id="OyP-Ur-iOs"/>
+                        <outlet property="buttonNext" destination="ngI-qN-Dxv" id="D2l-Le-kO2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3rp-4g-Sba" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -389,6 +393,9 @@
                                         <include reference="U2i-iQ-9CF"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="TextFieldMeters:" destination="PIL-OJ-KFV" eventType="editingChanged" id="c5N-KP-CBZ"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-f7-g8P">
                                 <rect key="frame" x="473" y="475" width="34" height="30"/>
@@ -466,6 +473,7 @@
                     </view>
                     <connections>
                         <outlet property="TextFieldDistance" destination="kav-ks-iic" id="M9b-Gk-uB8"/>
+                        <outlet property="buttonSave" destination="eTU-f7-g8P" id="LUL-2L-CS0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNz-GG-KNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -508,6 +516,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonNext" destination="edF-64-vwY" id="JPD-16-Zi0"/>
                         <outlet property="worldMap" destination="TDE-Mm-vFb" id="FsI-sc-b5b"/>
                     </connections>
                 </viewController>

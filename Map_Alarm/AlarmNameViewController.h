@@ -10,6 +10,9 @@
 
 @interface AlarmNameViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldName;
+@property (weak, nonatomic) IBOutlet UIButton *buttonNext;
+- (IBAction)textFieldChanged:(id)sender;
+
 - (IBAction)ButtonNameNext:(id)sender;
 
 @end

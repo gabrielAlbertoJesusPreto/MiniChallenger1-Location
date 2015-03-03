@@ -15,13 +15,14 @@
 
 @implementation DistanceViewController
 
-@synthesize TextFieldDistance;
+@synthesize TextFieldDistance, buttonSave;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     alarms = [ArrayAlarmes instancia];
     newAlarm = [Alarme instanciaNewAlarme];
     // Do any additional setup after loading the view.
+    [buttonSave setEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +43,17 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)TextFieldMeters:(id)sender {
+    
+    if([TextFieldDistance.text length] != 0){
+        
+        [buttonSave setEnabled:YES];
+        
+    } else{
+        [buttonSave setEnabled:NO];
+    }
+}
 
 - (IBAction)ButtonSave:(id)sender {
     [newAlarm setDistance:[NSNumber numberWithInteger:[[TextFieldDistance text] integerValue]]];

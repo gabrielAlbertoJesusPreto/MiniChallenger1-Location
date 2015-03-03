@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *worldMap;
 - (IBAction)LongPressMapView:(UILongPressGestureRecognizer *)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *buttonNext;
 
 @end
 

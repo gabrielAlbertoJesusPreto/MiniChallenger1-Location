@@ -15,11 +15,12 @@
 
 @implementation AlarmNameViewController
 
-@synthesize TextFieldName;
+@synthesize TextFieldName, buttonNext;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [buttonNext setEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,8 +42,22 @@
 }
 */
 
+- (IBAction)textFieldChanged:(id)sender {
+    if([TextFieldName.text length] != 0){
+        
+        [buttonNext setEnabled:YES];
+        
+    } else{
+        [buttonNext setEnabled:NO];
+    }
+}
+
 - (IBAction)ButtonNameNext:(id)sender {
+    
     Alarme *nalarme = [Alarme instanciaNewAlarme];
     [nalarme setNome:[TextFieldName text]];
+    
 }
+
+
 @end
