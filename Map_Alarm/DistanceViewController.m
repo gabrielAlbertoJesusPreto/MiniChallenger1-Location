@@ -15,7 +15,7 @@
 
 @implementation DistanceViewController
 
-@synthesize TextFieldDistance, buttonSave;
+@synthesize TextFieldDistance, buttonSave, mapImage;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +23,20 @@
     newAlarm = [Alarme instanciaNewAlarme];
     // Do any additional setup after loading the view.
     [buttonSave setEnabled:NO];
+    
+    
+    
+    
+}
+
+-(void) viewDidAppear:(BOOL)animated{
+    [mapImage setMapType:MKMapTypeStandard];
+    [mapImage setRegion:MKCoordinateRegionMakeWithDistance([[[Alarme instanciaNewAlarme] destino] coordinate], 250, 250) animated:NO];
+    MKPointAnnotation *point1 = [[MKPointAnnotation alloc] init];
+    
+    point1.coordinate = [[[Alarme instanciaNewAlarme] destino] coordinate];
+    
+    [mapImage addAnnotation:point1];
 }
 
 - (void)didReceiveMemoryWarning {

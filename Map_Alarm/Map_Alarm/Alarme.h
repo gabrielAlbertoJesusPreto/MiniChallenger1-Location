@@ -15,12 +15,14 @@
     CLLocation *destino;
     NSNumber *distance;
     bool alarmSwitch;
+    bool alertTocou;
 }
 
 @property NSString *nome;
 @property CLLocation *destino;
 @property NSNumber *distance;
 @property bool alarmSwitch;
+@property bool alertTocou;
 
 -(instancetype) initWithNome: (NSString *) n AndDestino: (NSString *) d;
 

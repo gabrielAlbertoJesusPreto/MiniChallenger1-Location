@@ -13,7 +13,6 @@
 #import <MapKit/MapKit.h>
 #import "Alarme.h"
 #import <AVFoundation/AVFoundation.h>
-//@class Alarme;
 
 @interface MapViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 {
@@ -24,6 +23,8 @@
 }
 @property (weak, nonatomic) IBOutlet MKMapView *worldMap;
 - (IBAction)LongPressMapView:(UILongPressGestureRecognizer *)sender;
+
+- (IBAction)addressSearch:(UITextField *)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonNext;
 

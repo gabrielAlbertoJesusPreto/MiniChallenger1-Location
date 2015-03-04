@@ -8,12 +8,15 @@
 
 #import "MapViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "DistanceViewController.h"
 
 @interface MapViewController ()
 
 @end
 
-@implementation MapViewController
+@implementation MapViewController{
+    CLPlacemark *thePlacemark;
+}
 
 @synthesize worldMap;
 
@@ -21,6 +24,8 @@
     [super viewDidLoad];
     locationManager = [[CLLocationManager alloc] init];
     [locationManager setDelegate:self];
+    
+    self.worldMap.delegate = self;
     
 #ifdef __IPHONE_8_0
     if(IS_OS_8_OR_LATER) {
@@ -49,16 +54,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
@@ -153,6 +148,53 @@
         }
     }];
 
+}
+
+- (IBAction)addressSearch:(UITextField *)sender {
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:sender.text completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (error){
+            NSLog(@"%@", error);
+        } else{
+            thePlacemark = [placemarks lastObject];
+            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(thePlacemark.location.coordinate, 250, 250);
+            Alarme *nalarme = [Alarme instanciaNewAlarme];
+            [nalarme setDestino:thePlacemark.location];
+            [worldMap removeAnnotations:[worldMap annotations]];
+            [self.worldMap setRegion:region animated:YES];
+            [self addAnnotation:thePlacemark];
+        }
+        
+    }];
+    
+}
+
+
+- (void) addAnnotation:(CLPlacemark *)placemark {
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude);
+    point.title = [placemark.addressDictionary objectForKey:@"Street"];
+    point.subtitle = [placemark.addressDictionary objectForKey:@"City"];
+    [self.worldMap addAnnotation: point];
+}
+
+-(MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    
+    if([annotation isKindOfClass:[MKPointAnnotation class]]){
+        MKPinAnnotationView *pinView = (MKPinAnnotationView*)[self.worldMap dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
+        if (!pinView){
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
+            pinView.canShowCallout = YES;
+        } else {
+            pinView.annotation = annotation;
+        }
+        return pinView;
+        
+    }
+    return nil;
 }
 
 @end

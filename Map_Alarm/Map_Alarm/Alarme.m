@@ -10,10 +10,9 @@
 
 @implementation Alarme
 
-@synthesize nome, destino, distance, alarmSwitch;
+@synthesize nome, destino, distance, alarmSwitch, alertTocou;
 
 static Alarme* instancianewalarme = nil;
-
 
 -(instancetype)init
 {
@@ -22,6 +21,7 @@ static Alarme* instancianewalarme = nil;
         nome = @"";
         distance = 0;
         alarmSwitch = true;
+        alertTocou = false;
     }
     return self;
 }
