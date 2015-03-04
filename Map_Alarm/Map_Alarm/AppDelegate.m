@@ -17,14 +17,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    // Override point for customization after application launch.
-    
     alarms = [ArrayAlarmes instancia];
     
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"alarms"] != nil)
-    {
-        [alarms addAlarme:[[NSUserDefaults standardUserDefaults] objectForKey:@"alarms"]];
-    }
+
     
     
     locationManager = [[CLLocationManager alloc] init];
@@ -44,12 +39,12 @@
     NSString *path = [NSString stringWithFormat:@"%@/teste.mp3", [[NSBundle mainBundle] resourcePath]];
     NSURL *soundUrl = [NSURL fileURLWithPath:path];
     audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:soundUrl error:nil];
+
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[AVAudioSession sharedInstance] setActive: YES error: nil];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [audioPlayer setVolume:1.0];
     
-    [NSTimer scheduledTimerWithTimeInterval:2.0
-                                     target:self
-                                   selector:@selector(teste:)
-                                   userInfo:nil
-                                    repeats:YES];
     
     return YES;
 }
@@ -60,8 +55,8 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -74,29 +69,9 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     
-    //[[NSUserDefaults standardUserDefaults] setObject:alarms forKey:@"alarms"];
+    [[NSUserDefaults standardUserDefaults] setObject:[alarms getarray]
+                                              forKey:@"alarms"];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
--(void)teste:(NSTimer *)timer
-{
-    bool b = false;
-    for (int i = 0; i < [[alarms count] intValue]; i++) {
-        Alarme *a = [alarms alarmeAtIndex:(NSUInteger)i];
-        
-        CLLocationDistance dist = [[locationManager location] distanceFromLocation:[a destino]];
-        if (dist <= [[a distance] intValue]) {
-            NSLog(@"você esta chegando: %@", [a nome]);
-            [audioPlayer play];
-            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-            b = true;
-        }
-    }
-    if (!b) {
-        [audioPlayer stop];
-    }
-//    NSLog(@"%f",[[locationManager location] coordinate].latitude);
-//    NSLog(@"teste");
 }
 
 
@@ -135,5 +110,34 @@
     }
 }
 
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    CLLocationCoordinate2D loc = [[locationManager location] coordinate];
+    NSLog(@"%f, %f", loc.latitude, loc.longitude);
+    bool b = false;
+    for (int i = 0; i < [[alarms count] intValue]; i++) {
+        Alarme *a = [alarms alarmeAtIndex:(NSUInteger)i];
+        
+        CLLocationDistance dist = [[locationManager location] distanceFromLocation:[a destino]];
+        NSLog(@"%f", dist);
+        if ([a alarmSwitch])
+        if (dist <= [[a distance] intValue]) {
+            NSLog(@"você esta chegando: %@", [a nome]);
+            
+            MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
+            if ([musicPlayer volume] != 1.0f) {
+                [musicPlayer setVolume:1.0f];
+            }
+            
+            //[audioPlayer play];
+            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+            b = true;
+        }
+    }
+    if (!b) {
+        [audioPlayer stop];
+    }
+
+}
 
 @end

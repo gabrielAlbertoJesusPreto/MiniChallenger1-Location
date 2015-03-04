@@ -27,6 +27,7 @@
 		5E6018C81AA4888B00037E45 /* ArrayAlarmes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6018C71AA4888B00037E45 /* ArrayAlarmes.m */; };
 		5E6018CA1AA48BF500037E45 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6018C91AA48BF500037E45 /* MapKit.framework */; };
 		5E6018CC1AA48C0400037E45 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6018CB1AA48C0400037E45 /* CoreLocation.framework */; };
+		90C079891AA73F6A00FD904E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C079881AA73F6A00FD904E /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		5E6018C71AA4888B00037E45 /* ArrayAlarmes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayAlarmes.m; sourceTree = "<group>"; };
 		5E6018C91AA48BF500037E45 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5E6018CB1AA48C0400037E45 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		90C079881AA73F6A00FD904E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90C079891AA73F6A00FD904E /* MediaPlayer.framework in Frameworks */,
 				5E54EDB81AA5FDDD00683A0C /* Foundation.framework in Frameworks */,
 				5E54EDB61AA5FDCE00683A0C /* CoreGraphics.framework in Frameworks */,
 				5E54EDB41AA5FDC400683A0C /* UIKit.framework in Frameworks */,
@@ -101,6 +104,7 @@
 		02B2803E1AA483E5001B4B01 = {
 			isa = PBXGroup;
 			children = (
+				90C079881AA73F6A00FD904E /* MediaPlayer.framework */,
 				5E54EDB71AA5FDDD00683A0C /* Foundation.framework */,
 				5E54EDB51AA5FDCE00683A0C /* CoreGraphics.framework */,
 				5E54EDB31AA5FDC400683A0C /* UIKit.framework */,

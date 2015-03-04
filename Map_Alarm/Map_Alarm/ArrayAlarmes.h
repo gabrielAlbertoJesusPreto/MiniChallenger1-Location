@@ -24,4 +24,6 @@
 -(Alarme*)alarmeAtIndex: (NSUInteger)i;
 -(NSNumber *)count;
 
+-(NSMutableArray *) getarray;
+
 @end

@@ -18,15 +18,10 @@
     [super viewDidLoad];
     
     alarms = [ArrayAlarmes instancia];
-    
-//    [alarms addAlarme:[[Alarme alloc] initWithNome:@"Mackenzie" AndDestino:@"teste"]];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -50,6 +45,7 @@
     AlarmTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"alarmTableCell" forIndexPath:indexPath];
     
     [[cell alarmNameLabel] setText: [[alarms alarmeAtIndex:indexPath.row] nome]];
+    [cell setIndex: indexPath.row];
 
     
     return cell;

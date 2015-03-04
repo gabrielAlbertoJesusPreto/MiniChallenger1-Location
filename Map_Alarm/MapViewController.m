@@ -140,7 +140,7 @@
     [worldMap removeAnnotations:[worldMap annotations]];
     [self.worldMap addAnnotation:point1];
     CLLocation *location = [[CLLocation alloc] initWithLatitude:tapPoint.latitude longitude:tapPoint.longitude];
-    NSLog(@"%f, %f", tapPoint.latitude, tapPoint.longitude);
+//    NSLog(@"%f, %f", tapPoint.latitude, tapPoint.longitude);
     Alarme *nalarme = [Alarme instanciaNewAlarme];
     [nalarme setDestino:location];
     

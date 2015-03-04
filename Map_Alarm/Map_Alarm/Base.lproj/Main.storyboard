@@ -95,6 +95,9 @@
                                                     <include reference="p9M-zC-WUw"/>
                                                 </mask>
                                             </variation>
+                                            <connections>
+                                                <action selector="ChangeSwitch:" destination="Diq-Se-QEr" eventType="valueChanged" id="Naj-mr-W4L"/>
+                                            </connections>
                                         </switch>
                                     </subviews>
                                     <constraints>

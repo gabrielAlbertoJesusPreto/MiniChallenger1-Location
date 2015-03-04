@@ -12,12 +12,15 @@
 #import "ArrayAlarmes.h"
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 {
     ArrayAlarmes *alarms;
     CLLocationManager *locationManager;
     AVAudioPlayer *audioPlayer;
+    AVPlayer *audioPlayer1;
+    UIBackgroundTaskIdentifier *backgroundTask;
 }
 
 @property (strong, nonatomic) UIWindow *window;

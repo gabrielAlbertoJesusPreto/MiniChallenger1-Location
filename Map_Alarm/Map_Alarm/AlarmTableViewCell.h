@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArrayAlarmes.h"
 
 @interface AlarmTableViewCell : UITableViewCell
+{
+    NSInteger index;
+}
+
+@property NSInteger index;
 
 @property (weak, nonatomic) IBOutlet UILabel *alarmNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+- (IBAction)ChangeSwitch:(UISwitch *)sender;
 
 @end

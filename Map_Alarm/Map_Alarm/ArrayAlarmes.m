@@ -29,10 +29,10 @@ static ArrayAlarmes *instaciaAlarme = nil;
     return instaciaAlarme;
 }
 
--(void)addAlarmes:(ArrayAlarmes*)alarms
+-(void)addAlarmes:(NSMutableArray*)alarms
 {
-    for (int i = 0; i < [[alarms count] intValue]; i++) {
-        [self addAlarme:[alarms alarmeAtIndex:i]];
+    for (int i = 0; i < (int)[alarms count]; i++) {
+        [self addAlarme:[alarms objectAtIndex:i]];
     }
 }
 
@@ -50,6 +50,11 @@ static ArrayAlarmes *instaciaAlarme = nil;
 
 -(NSNumber *)count{
     return [NSNumber numberWithInteger:[arrayAlarmes count]];
+}
+
+-(NSMutableArray *) getarray
+{
+    return arrayAlarmes;
 }
 
 @end

@@ -10,6 +10,8 @@
 
 @implementation AlarmTableViewCell
 
+@synthesize index;
+
 - (void)awakeFromNib {
     // Initialization code
 }
@@ -20,4 +22,8 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)ChangeSwitch:(UISwitch *)sender {
+    ArrayAlarmes *alarms = [ArrayAlarmes instancia];
+    [[alarms alarmeAtIndex:index] setAlarmSwitch:sender.on];
+}
 @end

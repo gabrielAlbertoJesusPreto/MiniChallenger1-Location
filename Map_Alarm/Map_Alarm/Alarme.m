@@ -10,9 +10,21 @@
 
 @implementation Alarme
 
-@synthesize nome, destino, distance;
+@synthesize nome, destino, distance, alarmSwitch;
 
 static Alarme* instancianewalarme = nil;
+
+
+-(instancetype)init
+{
+    self = [super init];
+    if (self) {
+        nome = @"";
+        distance = 0;
+        alarmSwitch = true;
+    }
+    return self;
+}
 
 -(instancetype)initWithNome:(NSString *)n AndDestino:(CLLocation *)d
 {
@@ -20,6 +32,7 @@ static Alarme* instancianewalarme = nil;
     if (self) {
         nome = n;
         destino = d;
+        alarmSwitch = true;
     }
     return self;
 }
