@@ -13,7 +13,6 @@
 #import <MapKit/MapKit.h>
 #import "Alarme.h"
 #import <AVFoundation/AVFoundation.h>
-//@class Alarme;
 
 @interface MapViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 {
