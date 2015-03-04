@@ -87,19 +87,38 @@
         CLLocationDistance dist = [[locationManager location] distanceFromLocation:[a destino]];
         if (dist <= [[a distance] intValue]) {
             NSLog(@"você esta chegando: %@", [a nome]);
-            [audioPlayer play];
-            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
             b = true;
+            
+            if (![a alertTocou]) {
+                [audioPlayer play];
+                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+
+                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Acorde! \n Você chegou ao seu destino." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                message.tag = 100;
+                
+                [message show];
+                [a setAlertTocou:true];
+            }
+            
+            
+            //[message release];
+            
         }
     }
     if (!b) {
-        [audioPlayer stop];
-    }
-//    NSLog(@"%f",[[locationManager location] coordinate].latitude);
-//    NSLog(@"teste");
+        [audioPlayer stop];    }
+    NSLog(@"%f",[[locationManager location] coordinate].latitude);
+    NSLog(@"teste");
 }
 
-
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 100) {
+        if (buttonIndex == 0) {
+            [audioPlayer stop];
+            AudioServicesPlayAlertSound(0);
+        }
+    }
+}
 
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error

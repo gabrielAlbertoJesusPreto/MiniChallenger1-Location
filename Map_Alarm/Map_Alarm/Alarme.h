@@ -14,11 +14,13 @@
     NSString *nome;
     CLLocation *destino;
     NSNumber *distance;
+    bool alertTocou;
 }
 
 @property NSString *nome;
 @property CLLocation *destino;
 @property NSNumber *distance;
+@property bool alertTocou;
 
 -(instancetype) initWithNome: (NSString *) n AndDestino: (NSString *) d;
 
