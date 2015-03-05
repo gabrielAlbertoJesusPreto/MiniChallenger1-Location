@@ -41,6 +41,19 @@
 }
 
 
+ - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
+     NSString *noAlarmsMessage = @"";
+     NSInteger numberOfRows = [self tableView:self.tableView numberOfRowsInSection:section];
+ 
+     if (numberOfRows == 0){
+         noAlarmsMessage = @"No alarms found. To add one press '+'";
+     
+     }
+     return noAlarmsMessage;
+ }
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AlarmTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"alarmTableCell" forIndexPath:indexPath];
     

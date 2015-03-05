@@ -164,8 +164,8 @@
             //NSLog(@"você esta chegando: %@", [a nome]);
             
             MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
-            if ([musicPlayer volume] != 0.1f) {
-                [musicPlayer setVolume:0.1f];
+            if ([musicPlayer volume] != 0.4f) {
+                [musicPlayer setVolume:0.4f];
             }
             
             [audioPlayer play];
