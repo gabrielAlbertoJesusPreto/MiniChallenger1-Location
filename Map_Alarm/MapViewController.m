@@ -40,6 +40,7 @@
         [worldMap setMapType:MKMapTypeStandard];
         [worldMap setZoomEnabled:YES];
         [worldMap setScrollEnabled:YES];
+        
     }
 #endif
     
@@ -48,6 +49,9 @@
     audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:soundUrl error:nil];
     
     // Do any additional setup after loading the view.
+    
+    NSLog(@"lOCALITY", );
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -178,6 +182,7 @@
     point.subtitle = [placemark.addressDictionary objectForKey:@"City"];
     [self.worldMap addAnnotation: point];
 }
+
 
 -(MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     if ([annotation isKindOfClass:[MKUserLocation class]])

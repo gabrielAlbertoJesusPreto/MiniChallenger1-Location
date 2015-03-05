@@ -10,7 +10,7 @@
 
 @implementation Alarme
 
-@synthesize nome, destino, distance, alarmSwitch, alertTocou;
+@synthesize nome, destino, distance, alarmSwitch, alertTocou, address;
 
 static Alarme* instancianewalarme = nil;
 

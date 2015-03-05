@@ -45,6 +45,7 @@
     AlarmTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"alarmTableCell" forIndexPath:indexPath];
     
     [[cell alarmNameLabel] setText: [[alarms alarmeAtIndex:indexPath.row] nome]];
+    [[cell addressLabel] setText: [[alarms alarmeAtIndex:indexPath.row] address]];
     [cell setIndex: indexPath.row];
 
     
