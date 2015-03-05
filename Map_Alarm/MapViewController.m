@@ -18,12 +18,14 @@
     CLPlacemark *thePlacemark;
 }
 
-@synthesize worldMap;
+@synthesize worldMap, searchTextField, buttonNext;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     locationManager = [[CLLocationManager alloc] init];
     [locationManager setDelegate:self];
+    
+    [buttonNext setEnabled:NO];
     
     self.worldMap.delegate = self;
     
@@ -40,6 +42,7 @@
         [worldMap setMapType:MKMapTypeStandard];
         [worldMap setZoomEnabled:YES];
         [worldMap setScrollEnabled:YES];
+        
     }
 #endif
     
@@ -48,11 +51,18 @@
     audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:soundUrl error:nil];
     
     // Do any additional setup after loading the view.
+    
+    NSLog(@"lOCALITY", );
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [searchTextField resignFirstResponder];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -119,6 +129,7 @@
         {
             placemark = [placemarks lastObject];
             NSLog(@"%@ %@ \n %@ %@ \n %@ \n %@", placemark.subThoroughfare, placemark.thoroughfare, placemark.postalCode, placemark.locality, placemark.administrativeArea, placemark.country);
+            [buttonNext setEnabled:YES];
         }
     }];
 }
@@ -139,6 +150,8 @@
     Alarme *nalarme = [ArrayAlarmes instanciaNewAlarme];
     [nalarme setDestino:location];
     
+    [buttonNext setEnabled:YES];
+    
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         NSLog(@"%@ - %@", placemarks,error);
         if(error == nil && [placemarks count] > 0)
@@ -156,6 +169,7 @@
     [geocoder geocodeAddressString:sender.text completionHandler:^(NSArray *placemarks, NSError *error) {
         if (error){
             NSLog(@"%@", error);
+            [buttonNext setEnabled:NO];
         } else{
             thePlacemark = [placemarks lastObject];
             MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(thePlacemark.location.coordinate, 250, 250);
@@ -164,6 +178,7 @@
             [worldMap removeAnnotations:[worldMap annotations]];
             [self.worldMap setRegion:region animated:YES];
             [self addAnnotation:thePlacemark];
+            [buttonNext setEnabled:YES];
         }
         
     }];
@@ -177,7 +192,9 @@
     point.title = [placemark.addressDictionary objectForKey:@"Street"];
     point.subtitle = [placemark.addressDictionary objectForKey:@"City"];
     [self.worldMap addAnnotation: point];
+    [buttonNext setEnabled:YES];
 }
+
 
 -(MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     if ([annotation isKindOfClass:[MKUserLocation class]])
@@ -194,6 +211,7 @@
         return pinView;
         
     }
+    [buttonNext setEnabled:YES];
     return nil;
 }
 

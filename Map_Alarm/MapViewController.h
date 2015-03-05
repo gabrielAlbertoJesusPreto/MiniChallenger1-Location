@@ -25,6 +25,7 @@
 - (IBAction)LongPressMapView:(UILongPressGestureRecognizer *)sender;
 
 - (IBAction)addressSearch:(UITextField *)sender;
+@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonNext;
 

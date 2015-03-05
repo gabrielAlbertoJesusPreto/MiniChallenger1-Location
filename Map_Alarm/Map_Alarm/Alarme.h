@@ -14,6 +14,7 @@
     NSString *nome;
     CLLocation *destino;
     NSInteger distance;
+    NSString *address;
     bool alarmSwitch;
     bool alertTocou;
 }
@@ -21,6 +22,7 @@
 @property NSString *nome;
 @property CLLocation *destino;
 @property NSInteger distance;
+@property NSString *address;
 @property bool alarmSwitch;
 @property bool alertTocou;
 
