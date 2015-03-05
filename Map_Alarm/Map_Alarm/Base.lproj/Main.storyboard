@@ -9,10 +9,12 @@
         <scene sceneID="s9q-n7-csu">
             <objects>
                 <tableViewController id="2pi-PA-hOw" customClass="AlarmTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="cPl-89-YvN">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="cPl-89-YvN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.47450980390000003" green="0.054361031320000003" blue="0.098978230020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="wg8-6D-eXz">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -22,7 +24,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmTableCell" rowHeight="72" id="Diq-Se-QEr" customClass="AlarmTableViewCell">
+                            <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmTableCell" rowHeight="72" id="Diq-Se-QEr" customClass="AlarmTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Diq-Se-QEr" id="3i2-8N-bPc">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -225,7 +227,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-159" y="151.5"/>
+            <point key="canvasLocation" x="-159" y="151"/>
         </scene>
         <!--Alarm Name View Controller-->
         <scene sceneID="Y6c-XJ-kFN">
@@ -508,7 +510,7 @@
                                     <action selector="TextFieldMeters:" destination="PIL-OJ-KFV" eventType="editingChanged" id="c5N-KP-CBZ"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(Meters)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAH-Lv-LQr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="(Meters)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAH-Lv-LQr">
                                 <rect key="frame" x="308" y="400" width="62" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -721,10 +723,6 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="C49-Wm-qKL"/>
-                                <exclude reference="M7I-M3-uo5"/>
-                                <exclude reference="Txm-bM-NDe"/>
-                                <exclude reference="h0n-bS-Kln"/>
                                 <exclude reference="ENY-6V-PZv"/>
                                 <exclude reference="JXY-Fo-2iz"/>
                                 <exclude reference="OE7-4T-nu8"/>
@@ -733,46 +731,50 @@
                                 <exclude reference="f6T-AX-i7L"/>
                                 <exclude reference="jYN-pQ-cHr"/>
                                 <exclude reference="km1-qB-byB"/>
+                                <exclude reference="C49-Wm-qKL"/>
+                                <exclude reference="M7I-M3-uo5"/>
+                                <exclude reference="Txm-bM-NDe"/>
+                                <exclude reference="h0n-bS-Kln"/>
                                 <exclude reference="fy0-eJ-SOG"/>
                                 <exclude reference="hCZ-mz-ZmC"/>
                                 <exclude reference="jCr-3I-vFA"/>
                                 <exclude reference="kbW-Ij-tF7"/>
-                                <exclude reference="QhA-ZK-bwC"/>
-                                <exclude reference="i4c-3M-jVQ"/>
                                 <exclude reference="3P5-40-3dM"/>
                                 <exclude reference="9ue-B9-CNe"/>
                                 <exclude reference="i4r-2B-b4n"/>
                                 <exclude reference="wY8-iI-UIC"/>
+                                <exclude reference="QhA-ZK-bwC"/>
+                                <exclude reference="i4c-3M-jVQ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
-                                <include reference="M7I-M3-uo5"/>
-                                <include reference="Txm-bM-NDe"/>
                                 <include reference="ENY-6V-PZv"/>
                                 <include reference="RA8-yU-j5s"/>
                                 <include reference="f6T-AX-i7L"/>
+                                <include reference="M7I-M3-uo5"/>
+                                <include reference="Txm-bM-NDe"/>
                                 <include reference="fy0-eJ-SOG"/>
                                 <include reference="kbW-Ij-tF7"/>
-                                <include reference="QhA-ZK-bwC"/>
                                 <include reference="3P5-40-3dM"/>
                                 <include reference="wY8-iI-UIC"/>
+                                <include reference="QhA-ZK-bwC"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="C49-Wm-qKL"/>
-                                <include reference="h0n-bS-Kln"/>
                                 <include reference="JXY-Fo-2iz"/>
                                 <include reference="OE7-4T-nu8"/>
                                 <include reference="V2y-LJ-xkP"/>
                                 <include reference="jYN-pQ-cHr"/>
                                 <include reference="km1-qB-byB"/>
+                                <include reference="C49-Wm-qKL"/>
+                                <include reference="h0n-bS-Kln"/>
                                 <include reference="hCZ-mz-ZmC"/>
                                 <include reference="jCr-3I-vFA"/>
-                                <include reference="i4c-3M-jVQ"/>
                                 <include reference="9ue-B9-CNe"/>
                                 <include reference="i4r-2B-b4n"/>
+                                <include reference="i4c-3M-jVQ"/>
                             </mask>
                         </variation>
                     </view>
