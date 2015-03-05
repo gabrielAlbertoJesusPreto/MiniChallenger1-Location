@@ -12,8 +12,6 @@
 
 @synthesize nome, destino, distance, alarmSwitch, alertTocou;
 
-static Alarme* instancianewalarme = nil;
-
 -(instancetype)init
 {
     self = [super init];
@@ -26,23 +24,16 @@ static Alarme* instancianewalarme = nil;
     return self;
 }
 
--(instancetype)initWithNome:(NSString *)n AndDestino:(CLLocation *)d
+-(instancetype)initWithNome:(NSString *)n AndDestino: (CLLocation *)d AndDistance:(NSUInteger) dist
 {
     self = [super init];
     if (self) {
-        nome = n;
+        nome = [NSString stringWithString:n];
         destino = d;
+        distance = dist;
         alarmSwitch = true;
     }
     return self;
-}
-
-+ (Alarme *)instanciaNewAlarme
-{
-    if (instancianewalarme == nil) {
-        instancianewalarme = [[Alarme alloc] init];
-    }
-    return instancianewalarme;
 }
 
 

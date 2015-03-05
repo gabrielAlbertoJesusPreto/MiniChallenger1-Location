@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     alarms = [ArrayAlarmes instancia];
-    newAlarm = [Alarme instanciaNewAlarme];
+    newAlarm = [ArrayAlarmes instanciaNewAlarme];
     // Do any additional setup after loading the view.
     [buttonSave setEnabled:NO];
     
@@ -31,10 +31,10 @@
 
 -(void) viewDidAppear:(BOOL)animated{
     [mapImage setMapType:MKMapTypeStandard];
-    [mapImage setRegion:MKCoordinateRegionMakeWithDistance([[[Alarme instanciaNewAlarme] destino] coordinate], 250, 250) animated:NO];
+    [mapImage setRegion:MKCoordinateRegionMakeWithDistance([[[ArrayAlarmes instanciaNewAlarme] destino] coordinate], 250, 250) animated:NO];
     MKPointAnnotation *point1 = [[MKPointAnnotation alloc] init];
     
-    point1.coordinate = [[[Alarme instanciaNewAlarme] destino] coordinate];
+    point1.coordinate = [[[ArrayAlarmes instanciaNewAlarme] destino] coordinate];
     
     [mapImage addAnnotation:point1];
 }
@@ -70,8 +70,9 @@
 }
 
 - (IBAction)ButtonSave:(id)sender {
-    [newAlarm setDistance:[NSNumber numberWithInteger:[[TextFieldDistance text] integerValue]]];
-    [alarms addAlarme: newAlarm];
+    [newAlarm setDistance:[[TextFieldDistance text] integerValue]];
+    Alarme *a = [[Alarme alloc] initWithNome:[newAlarm nome] AndDestino:[newAlarm destino] AndDistance:[newAlarm distance]];
+    [alarms addAlarme: a];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

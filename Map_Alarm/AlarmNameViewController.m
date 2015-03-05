@@ -7,7 +7,7 @@
 //
 
 #import "AlarmNameViewController.h"
-#import "Alarme.h"
+#import "ArrayAlarmes.h"
 
 @interface AlarmNameViewController ()
 
@@ -54,7 +54,7 @@
 
 - (IBAction)ButtonNameNext:(id)sender {
     
-    Alarme *nalarme = [Alarme instanciaNewAlarme];
+    Alarme *nalarme = [ArrayAlarmes instanciaNewAlarme];
     [nalarme setNome:[TextFieldName text]];
     
 }

@@ -14,10 +14,12 @@
 
 static ArrayAlarmes *instaciaAlarme = nil;
 
+static Alarme* instancianewalarme = nil;
+
 -(instancetype)init{
     self = [super init];
     if(self){
-        arrayAlarmes = [[NSMutableArray alloc]init];
+        mutableArrayAlarmes = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -37,24 +39,32 @@ static ArrayAlarmes *instaciaAlarme = nil;
 }
 
 -(void)addAlarme: (Alarme*)alarme{
-    [arrayAlarmes addObject:alarme];
+    [mutableArrayAlarmes addObject:alarme];
 }
 
--(void)removeAlarmeAtIndex: (NSUInteger)i{
-    [arrayAlarmes removeObjectAtIndex:i];
+-(void)removeAlarmeAtIndex: (NSInteger)i{
+    [mutableArrayAlarmes removeObjectAtIndex:i];
 }
 
--(Alarme*)alarmeAtIndex: (NSUInteger)i{
-    return [arrayAlarmes objectAtIndex:i];
+-(Alarme*)alarmeAtIndex: (NSInteger)i{
+    return [mutableArrayAlarmes objectAtIndex:i];
 }
 
 -(NSNumber *)count{
-    return [NSNumber numberWithInteger:[arrayAlarmes count]];
+    return [NSNumber numberWithInteger:[mutableArrayAlarmes count]];
 }
 
 -(NSMutableArray *) getarray
 {
-    return arrayAlarmes;
+    return mutableArrayAlarmes;
+}
+
++ (Alarme *)instanciaNewAlarme
+{
+    if (instancianewalarme == nil) {
+        instancianewalarme = [[Alarme alloc] init];
+    }
+    return instancianewalarme;
 }
 
 @end

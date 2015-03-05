@@ -16,7 +16,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
 {
-    ArrayAlarmes *alarms;
+    ArrayAlarmes *alarms1;
     CLLocationManager *locationManager;
     AVAudioPlayer *audioPlayer;
     AVPlayer *audioPlayer1;

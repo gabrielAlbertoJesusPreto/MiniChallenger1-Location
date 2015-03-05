@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    alarms = [ArrayAlarmes instancia];
+    alarms1 = [ArrayAlarmes instancia];
     
 
     
@@ -69,7 +69,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     
-    [[NSUserDefaults standardUserDefaults] setObject:[alarms getarray]
+    [[NSUserDefaults standardUserDefaults] setObject:[alarms1 getarray]
                                               forKey:@"alarms"];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
@@ -77,11 +77,11 @@
 -(void)teste:(NSTimer *)timer
 {
     bool b = false;
-    for (int i = 0; i < [[alarms count] intValue]; i++) {
-        Alarme *a = [alarms alarmeAtIndex:(NSUInteger)i];
+    for (int i = 0; i < [[alarms1 count] intValue]; i++) {
+        Alarme *a = [alarms1 alarmeAtIndex:(NSUInteger)i];
         
         CLLocationDistance dist = [[locationManager location] distanceFromLocation:[a destino]];
-        if (dist <= [[a distance] intValue]) {
+        if (dist <= [a distance]) {
             NSLog(@"você esta chegando: %@", [a nome]);
             b = true;
             
@@ -152,24 +152,23 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    CLLocationCoordinate2D loc = [[locationManager location] coordinate];
-    NSLog(@"%f, %f", loc.latitude, loc.longitude);
+    //NSLog(@"%f, %f", loc.latitude, loc.longitude);
     bool b = false;
-    for (int i = 0; i < [[alarms count] intValue]; i++) {
-        Alarme *a = [alarms alarmeAtIndex:(NSUInteger)i];
-        
-        CLLocationDistance dist = [[locationManager location] distanceFromLocation:[a destino]];
-        NSLog(@"%f", dist);
-        if ([a alarmSwitch])
-        if (dist <= [[a distance] intValue]) {
-            NSLog(@"você esta chegando: %@", [a nome]);
+    for (NSInteger i = 0; i < [[alarms1 count] intValue]; i++) {
+        Alarme *a = [alarms1 alarmeAtIndex: i];
+        NSLog(@"index %lu,, name: %@ switch: %i", (unsigned long)i, [a nome], [a alarmSwitch]);
+        CLLocationDistance dist = [newLocation distanceFromLocation:[[alarms1 alarmeAtIndex: i] destino]];
+        //NSLog(@"%f", dist);
+        if ([[alarms1 alarmeAtIndex: i] alarmSwitch])
+        if (dist <= [[alarms1 alarmeAtIndex: i] distance]) {
+            //NSLog(@"você esta chegando: %@", [a nome]);
             
             MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
-            if ([musicPlayer volume] != 1.0f) {
-                [musicPlayer setVolume:1.0f];
+            if ([musicPlayer volume] != 0.1f) {
+                [musicPlayer setVolume:0.1f];
             }
             
-            //[audioPlayer play];
+            [audioPlayer play];
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
             b = true;
         }

@@ -99,7 +99,7 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     CLLocation *location = newLocation;
-    Alarme *nalarme = [Alarme instanciaNewAlarme];
+    Alarme *nalarme = [ArrayAlarmes instanciaNewAlarme];
     if ([nalarme destino] != nil) {
         CLLocationDistance dist = [newLocation distanceFromLocation:[nalarme destino]];
         if (dist < 500) {
@@ -136,7 +136,7 @@
     [self.worldMap addAnnotation:point1];
     CLLocation *location = [[CLLocation alloc] initWithLatitude:tapPoint.latitude longitude:tapPoint.longitude];
 //    NSLog(@"%f, %f", tapPoint.latitude, tapPoint.longitude);
-    Alarme *nalarme = [Alarme instanciaNewAlarme];
+    Alarme *nalarme = [ArrayAlarmes instanciaNewAlarme];
     [nalarme setDestino:location];
     
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -159,7 +159,7 @@
         } else{
             thePlacemark = [placemarks lastObject];
             MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(thePlacemark.location.coordinate, 250, 250);
-            Alarme *nalarme = [Alarme instanciaNewAlarme];
+            Alarme *nalarme = [ArrayAlarmes instanciaNewAlarme];
             [nalarme setDestino:thePlacemark.location];
             [worldMap removeAnnotations:[worldMap annotations]];
             [self.worldMap setRegion:region animated:YES];

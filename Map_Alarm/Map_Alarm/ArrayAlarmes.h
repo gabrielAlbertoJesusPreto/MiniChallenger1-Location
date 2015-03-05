@@ -11,7 +11,7 @@
 
 @interface ArrayAlarmes : NSObject
 {
-    NSMutableArray *arrayAlarmes;
+    NSMutableArray *mutableArrayAlarmes;
 }
 
 @property NSMutableArray *arrayAlarmes;
@@ -20,10 +20,12 @@
 
 -(void)addAlarmes: (NSMutableArray *) alarms;
 -(void)addAlarme: (Alarme*)alarme;
--(void)removeAlarmeAtIndex: (NSUInteger)i;
--(Alarme*)alarmeAtIndex: (NSUInteger)i;
+-(void)removeAlarmeAtIndex: (NSInteger)i;
+-(Alarme*)alarmeAtIndex: (NSInteger)i;
 -(NSNumber *)count;
 
 -(NSMutableArray *) getarray;
+
++ (Alarme*)instanciaNewAlarme;
 
 @end

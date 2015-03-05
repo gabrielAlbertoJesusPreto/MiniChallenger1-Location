@@ -13,19 +13,17 @@
 {
     NSString *nome;
     CLLocation *destino;
-    NSNumber *distance;
+    NSInteger distance;
     bool alarmSwitch;
     bool alertTocou;
 }
 
 @property NSString *nome;
 @property CLLocation *destino;
-@property NSNumber *distance;
+@property NSInteger distance;
 @property bool alarmSwitch;
 @property bool alertTocou;
 
--(instancetype) initWithNome: (NSString *) n AndDestino: (NSString *) d;
-
-+ (Alarme*)instanciaNewAlarme;
+-(instancetype) initWithNome: (NSString *) n AndDestino: (CLLocation *) d AndDistance: (NSInteger) dist;
 
 @end

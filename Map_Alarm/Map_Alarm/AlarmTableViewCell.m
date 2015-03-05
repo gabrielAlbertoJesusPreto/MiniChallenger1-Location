@@ -23,7 +23,16 @@
 }
 
 - (IBAction)ChangeSwitch:(UISwitch *)sender {
-    ArrayAlarmes *alarms = [ArrayAlarmes instancia];
-    [[alarms alarmeAtIndex:index] setAlarmSwitch:sender.on];
+    ArrayAlarmes *as = [ArrayAlarmes instancia];
+    Alarme *a = [as alarmeAtIndex:index];
+    [a setAlarmSwitch:sender.on];
+    NSLog(@"index: %li, switch: %i", (long)index, [a alarmSwitch]);
+    if (sender.on) {
+        [self setBackgroundColor:[UIColor whiteColor]];
+    }
+    else
+    {
+        [self setBackgroundColor:[UIColor grayColor]];
+    }
 }
 @end
