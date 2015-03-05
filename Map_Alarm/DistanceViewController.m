@@ -61,9 +61,7 @@
 - (IBAction)TextFieldMeters:(id)sender {
     
     if([TextFieldDistance.text length] != 0){
-        
         [buttonSave setEnabled:YES];
-        
     } else{
         [buttonSave setEnabled:NO];
     }

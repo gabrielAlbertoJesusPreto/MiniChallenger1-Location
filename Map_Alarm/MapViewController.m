@@ -24,7 +24,7 @@
     [super viewDidLoad];
     locationManager = [[CLLocationManager alloc] init];
     [locationManager setDelegate:self];
-    
+    placemark = [[CLPlacemark alloc] initWithPlacemark:thePlacemark];
     [buttonNext setEnabled:NO];
     
     self.worldMap.delegate = self;
@@ -52,7 +52,7 @@
     
     // Do any additional setup after loading the view.
     
-    NSLog(@"lOCALITY");
+    NSLog(@"lOCALITY%@", placemark.locality);
     
 }
 
@@ -179,12 +179,16 @@
             [self.worldMap setRegion:region animated:YES];
             [self addAnnotation:thePlacemark];
             [buttonNext setEnabled:YES];
+            
+            //set address Alarme
+            NSString *completeAddress = thePlacemark.thoroughfare;
+            NSLog(@"TESTE%@", thePlacemark.thoroughfare);
+            [nalarme setAddress:completeAddress];
         }
         
     }];
     
 }
-
 
 - (void) addAnnotation:(CLPlacemark *)placemark {
     MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
