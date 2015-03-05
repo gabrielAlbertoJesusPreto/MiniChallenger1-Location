@@ -476,7 +476,7 @@
                                     <action selector="ButtonSave:" destination="PIL-OJ-KFV" eventType="touchUpInside" id="dJK-Da-hiS"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yto-nz-3Ku">
+                            <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yto-nz-3Ku">
                                 <rect key="frame" x="124" y="139" width="368" height="166"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="368" id="4nS-CC-zfe"/>
@@ -632,6 +632,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="TouchUpButtonNext:" destination="dNR-q3-iYF" eventType="touchUpInside" id="Ube-mx-xzB"/>
                                     <segue destination="PIL-OJ-KFV" kind="show" identifier="setDistance" id="S5v-T8-0KN"/>
                                 </connections>
                             </button>

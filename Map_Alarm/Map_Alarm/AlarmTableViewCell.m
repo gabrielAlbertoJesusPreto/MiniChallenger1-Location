@@ -32,7 +32,7 @@
     }
     else
     {
-        [self setBackgroundColor:[UIColor grayColor]];
+        [self setBackgroundColor:[UIColor lightGrayColor]];
     }
 }
 @end

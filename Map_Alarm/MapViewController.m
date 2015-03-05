@@ -151,16 +151,25 @@
     [nalarme setDestino:location];
     
     [buttonNext setEnabled:YES];
-    
-    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-        NSLog(@"%@ - %@", placemarks,error);
+
+
+}
+
+- (IBAction)TouchUpButtonNext:(id)sender {
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    Alarme *nalarme = [ArrayAlarmes instanciaNewAlarme];
+    [geocoder reverseGeocodeLocation: [nalarme destino] completionHandler:^(NSArray *placemarks, NSError *error) {
         if(error == nil && [placemarks count] > 0)
         {
-            placemark = [placemarks lastObject];
-            NSLog(@"%@ %@ \n %@ %@ \n %@ \n %@", placemark.subThoroughfare, placemark.thoroughfare, placemark.postalCode, placemark.locality, placemark.administrativeArea, placemark.country);
+            thePlacemark = [placemarks lastObject];
+            NSString *completeAddress = [NSString stringWithFormat:@"%@ %@ - %@ - %@ - %@", thePlacemark.subThoroughfare, thePlacemark.thoroughfare, thePlacemark.locality, thePlacemark.administrativeArea, thePlacemark.country];
+            [nalarme setAddress:completeAddress];
+        }
+        else
+        {
+            NSLog(@"%@ - %@", placemarks,error);
         }
     }];
-
 }
 
 - (IBAction)addressSearch:(UITextField *)sender {
@@ -181,8 +190,7 @@
             [buttonNext setEnabled:YES];
             
             //set address Alarme
-            NSString *completeAddress = thePlacemark.thoroughfare;
-            NSLog(@"TESTE%@", thePlacemark.thoroughfare);
+            NSString *completeAddress = [NSString stringWithFormat:@"%@ %@ \n %@ %@ \n %@ \n %@", thePlacemark.subThoroughfare, thePlacemark.thoroughfare, thePlacemark.postalCode, thePlacemark.locality, thePlacemark.administrativeArea, thePlacemark.country];
             [nalarme setAddress:completeAddress];
         }
         

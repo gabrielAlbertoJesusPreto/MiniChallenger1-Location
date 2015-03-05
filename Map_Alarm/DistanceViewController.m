@@ -69,8 +69,11 @@
 
 - (IBAction)ButtonSave:(id)sender {
     [newAlarm setDistance:[[TextFieldDistance text] integerValue]];
+    
     Alarme *a = [[Alarme alloc] initWithNome:[newAlarm nome] AndDestino:[newAlarm destino] AndDistance:[newAlarm distance]];
-    [newAlarm setAddress:placemark.locality];
+    [a setAddress:[newAlarm address]];
+    
+    
     [alarms addAlarme: a];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

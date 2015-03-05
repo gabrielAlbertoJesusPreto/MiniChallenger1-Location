@@ -23,6 +23,7 @@
 }
 @property (weak, nonatomic) IBOutlet MKMapView *worldMap;
 - (IBAction)LongPressMapView:(UILongPressGestureRecognizer *)sender;
+- (IBAction)TouchUpButtonNext:(id)sender;
 
 - (IBAction)addressSearch:(UITextField *)sender;
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
