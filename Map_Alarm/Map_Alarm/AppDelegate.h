@@ -25,8 +25,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
--(void)teste:(NSTimer *)timer;
-
 
 @end
 

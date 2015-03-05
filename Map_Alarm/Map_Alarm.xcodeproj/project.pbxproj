@@ -104,13 +104,7 @@
 		02B2803E1AA483E5001B4B01 = {
 			isa = PBXGroup;
 			children = (
-				90C079881AA73F6A00FD904E /* MediaPlayer.framework */,
-				5E54EDB71AA5FDDD00683A0C /* Foundation.framework */,
-				5E54EDB51AA5FDCE00683A0C /* CoreGraphics.framework */,
-				5E54EDB31AA5FDC400683A0C /* UIKit.framework */,
-				5E54EDB11AA5FDBA00683A0C /* AVFoundation.framework */,
-				5E6018CB1AA48C0400037E45 /* CoreLocation.framework */,
-				5E6018C91AA48BF500037E45 /* MapKit.framework */,
+				901535D51AA8FBC3006E5E5E /* Frameworks */,
 				02B280491AA483E5001B4B01 /* Map_Alarm */,
 				02B280631AA483E5001B4B01 /* Map_AlarmTests */,
 				02B280481AA483E5001B4B01 /* Products */,
@@ -186,6 +180,20 @@
 				5E54EDBA1AA5FED600683A0C /* teste.mp3 */,
 			);
 			name = Sound;
+			sourceTree = "<group>";
+		};
+		901535D51AA8FBC3006E5E5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				90C079881AA73F6A00FD904E /* MediaPlayer.framework */,
+				5E54EDB71AA5FDDD00683A0C /* Foundation.framework */,
+				5E54EDB51AA5FDCE00683A0C /* CoreGraphics.framework */,
+				5E54EDB31AA5FDC400683A0C /* UIKit.framework */,
+				5E54EDB11AA5FDBA00683A0C /* AVFoundation.framework */,
+				5E6018CB1AA48C0400037E45 /* CoreLocation.framework */,
+				5E6018C91AA48BF500037E45 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

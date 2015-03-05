@@ -18,6 +18,18 @@
     [super viewDidLoad];
     
     alarms = [ArrayAlarmes instancia];
+    
+    UILabel *label = [[UILabel alloc] init];
+    [label setTextColor:[UIColor lightGrayColor]];
+    [label setText:@"No alarms found.\nTo add one press '+'"];
+    label.numberOfLines = 2;
+    [label sizeToFit];
+    label.frame = CGRectMake((self.tableView.bounds.size.width - label.bounds.size.width) / 2.0f,
+                             (self.tableView.bounds.size.width - label.bounds.size.height) / 2.0f,
+                             label.bounds.size.width,
+                             label.bounds.size.height);
+    [self.tableView insertSubview:label atIndex:0];
+    
 }
 
 
@@ -29,28 +41,6 @@
 }
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return [[alarms count] integerValue];
-}
-
-
- - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
-     NSString *noAlarmsMessage = @"";
-     NSInteger numberOfRows = [self tableView:self.tableView numberOfRowsInSection:section];
- 
-     if (numberOfRows == 0){
-         noAlarmsMessage = @"No alarms found. To add one press '+'";
-     
-     }
-     return noAlarmsMessage;
- }
 
 
 

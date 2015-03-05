@@ -29,38 +29,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Diq-Se-QEr" id="3i2-8N-bPc">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Mackenzie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2J-Pb-7GJ">
-                                            <rect key="frame" x="39" y="6" width="286" height="32"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="32" id="9We-39-2ne"/>
-                                                <constraint firstAttribute="width" constant="402" id="9pK-p7-RXL"/>
-                                                <constraint firstAttribute="height" constant="32" id="DSL-NH-3pJ"/>
-                                                <constraint firstAttribute="width" constant="229" id="rG8-h6-bdX"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="9We-39-2ne"/>
-                                                    <exclude reference="9pK-p7-RXL"/>
-                                                    <exclude reference="DSL-NH-3pJ"/>
-                                                    <exclude reference="rG8-h6-bdX"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=compact">
-                                                <mask key="constraints">
-                                                    <include reference="9pK-p7-RXL"/>
-                                                    <include reference="DSL-NH-3pJ"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="constraints">
-                                                    <include reference="9We-39-2ne"/>
-                                                    <include reference="rG8-h6-bdX"/>
-                                                </mask>
-                                            </variation>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Rua da Consolação, 200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V92-p7-8bk">
                                             <rect key="frame" x="39" y="46" width="286" height="15"/>
                                             <constraints>
@@ -131,6 +99,38 @@
                                                 <action selector="ChangeSwitch:" destination="Diq-Se-QEr" eventType="valueChanged" id="Naj-mr-W4L"/>
                                             </connections>
                                         </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Mackenzie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2J-Pb-7GJ">
+                                            <rect key="frame" x="39" y="6" width="286" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="9We-39-2ne"/>
+                                                <constraint firstAttribute="width" constant="402" id="9pK-p7-RXL"/>
+                                                <constraint firstAttribute="height" constant="32" id="DSL-NH-3pJ"/>
+                                                <constraint firstAttribute="width" constant="229" id="rG8-h6-bdX"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="9We-39-2ne"/>
+                                                    <exclude reference="9pK-p7-RXL"/>
+                                                    <exclude reference="DSL-NH-3pJ"/>
+                                                    <exclude reference="rG8-h6-bdX"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="9pK-p7-RXL"/>
+                                                    <include reference="DSL-NH-3pJ"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="9We-39-2ne"/>
+                                                    <include reference="rG8-h6-bdX"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="V92-p7-8bk" firstAttribute="top" secondItem="f2J-Pb-7GJ" secondAttribute="bottom" constant="8" id="1ue-53-iGo"/>

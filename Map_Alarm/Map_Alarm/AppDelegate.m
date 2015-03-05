@@ -19,17 +19,12 @@
     
     alarms1 = [ArrayAlarmes instancia];
     
-
-    
-    
     locationManager = [[CLLocationManager alloc] init];
     
     [locationManager setDelegate:self];
     
 #ifdef __IPHONE_8_0
     if(IS_OS_8_OR_LATER) {
-        // Use one or the other, not both. Depending on what you put in info.plist
-        [locationManager requestWhenInUseAuthorization];
         [locationManager requestAlwaysAuthorization];
         
         [locationManager startUpdatingLocation];
@@ -44,7 +39,6 @@
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [audioPlayer setVolume:1.0];
-    
     
     return YES;
 }
@@ -69,42 +63,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     
-    [[NSUserDefaults standardUserDefaults] setObject:[alarms1 getarray]
-                                              forKey:@"alarms"];
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
--(void)teste:(NSTimer *)timer
-{
-    bool b = false;
-    for (int i = 0; i < [[alarms1 count] intValue]; i++) {
-        Alarme *a = [alarms1 alarmeAtIndex:(NSUInteger)i];
-        
-        CLLocationDistance dist = [[locationManager location] distanceFromLocation:[a destino]];
-        if (dist <= [a distance]) {
-            NSLog(@"você esta chegando: %@", [a nome]);
-            b = true;
-            
-            if (![a alertTocou]) {
-                [audioPlayer play];
-                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-
-                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Acorde! \n Você chegou ao seu destino." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                message.tag = 100;
-                
-                [message show];
-                [a setAlertTocou:true];
-            }
-            
-            
-            //[message release];
-            
-        }
-    }
-    if (!b) {
-        [audioPlayer stop];    }
-    NSLog(@"%f",[[locationManager location] coordinate].latitude);
-    NSLog(@"teste");
+    [[NSUserDefaults standardUserDefaults] setObject:[alarms1 getarray] forKey:@"alarms"];
 }
 
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
@@ -157,22 +116,27 @@
     for (NSInteger i = 0; i < [[alarms1 count] intValue]; i++) {
         Alarme *a = [alarms1 alarmeAtIndex: i];
         NSLog(@"index %lu,, name: %@ switch: %i", (unsigned long)i, [a nome], [a alarmSwitch]);
-        CLLocationDistance dist = [newLocation distanceFromLocation:[[alarms1 alarmeAtIndex: i] destino]];
-        //NSLog(@"%f", dist);
-        if ([[alarms1 alarmeAtIndex: i] alarmSwitch])
-        if (dist <= [[alarms1 alarmeAtIndex: i] distance]) {
-            //NSLog(@"você esta chegando: %@", [a nome]);
-            
+        CLLocationDistance dist = [newLocation distanceFromLocation:[a destino]];
+        if (![a alertTocou])
+        if ([a alarmSwitch])
+        if (dist <= [a distance]) {
             MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
             if ([musicPlayer volume] != 0.4f) {
                 [musicPlayer setVolume:0.4f];
             }
+            
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Acorde! \n Você chegou ao seu destino." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            message.tag = 100;
+            
+            [message show];
+            [a setAlertTocou:true];
             
             [audioPlayer play];
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
             b = true;
         }
     }
+    
     if (!b) {
         [audioPlayer stop];
     }
