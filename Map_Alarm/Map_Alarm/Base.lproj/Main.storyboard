@@ -578,6 +578,7 @@
                     </view>
                     <connections>
                         <outlet property="buttonNext" destination="edF-64-vwY" id="JPD-16-Zi0"/>
+                        <outlet property="searchTextField" destination="nd3-bd-9x7" id="5P7-of-Aex"/>
                         <outlet property="worldMap" destination="TDE-Mm-vFb" id="FsI-sc-b5b"/>
                     </connections>
                 </viewController>
