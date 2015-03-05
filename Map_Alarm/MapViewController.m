@@ -52,7 +52,7 @@
     
     // Do any additional setup after loading the view.
     
-    NSLog(@"lOCALITY", );
+    NSLog(@"lOCALITY");
     
 }
 
