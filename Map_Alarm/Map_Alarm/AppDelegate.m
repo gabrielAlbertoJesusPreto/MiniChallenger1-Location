@@ -66,15 +66,6 @@
     [[NSUserDefaults standardUserDefaults] setObject:[alarms1 getarray] forKey:@"alarms"];
 }
 
--(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (alertView.tag == 100) {
-        if (buttonIndex == 0) {
-            [audioPlayer stop];
-            AudioServicesPlayAlertSound(0);
-        }
-    }
-}
-
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
@@ -117,22 +108,30 @@
         Alarme *a = [alarms1 alarmeAtIndex: i];
         NSLog(@"index %lu,, name: %@ switch: %i", (unsigned long)i, [a nome], [a alarmSwitch]);
         CLLocationDistance dist = [newLocation distanceFromLocation:[a destino]];
-        if (![a alertTocou])
         if ([a alarmSwitch])
         if (dist <= [a distance]) {
+            [a setDisparado:true];
+            if (![a alertTocou])
+            {
+                UIAlertView *message = [[UIAlertView alloc] initWithTitle:[a nome] message:@"Você chegou ao seu destino." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            message.tag = i+100;
+            
+                [message show];
+                [a setAlertTocou:true];
+            }
             MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
             if ([musicPlayer volume] != 0.4f) {
                 [musicPlayer setVolume:0.4f];
             }
-            
-            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Acorde! \n Você chegou ao seu destino." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            message.tag = 100;
-            
-            [message show];
-            [a setAlertTocou:true];
-            
+
             [audioPlayer play];
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+        }
+        else
+        {
+            [a setAlarmSwitch:true];
+        }
+        if ([a disparado]) {
             b = true;
         }
     }
@@ -142,5 +141,23 @@
     }
 
 }
+
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
+    if (alertView.tag >= 100) {
+        if (buttonIndex == 0) {
+            Alarme *a = [alarms1 alarmeAtIndex: alertView.tag-100];
+            [audioPlayer stop];
+            AudioServicesPlayAlertSound(0);
+            [a setDisparado:false];
+            [a setAlarmSwitch:false];
+            NSLog(@"%li",alertView.tag-100);
+        }
+    }
+}
+
+
+
 
 @end

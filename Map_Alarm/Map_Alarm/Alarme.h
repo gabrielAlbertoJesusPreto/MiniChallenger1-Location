@@ -17,6 +17,7 @@
     NSString *address;
     bool alarmSwitch;
     bool alertTocou;
+    bool disparado;
 }
 
 @property NSString *nome;
@@ -25,6 +26,7 @@
 @property NSString *address;
 @property bool alarmSwitch;
 @property bool alertTocou;
+@property bool disparado;
 
 -(instancetype) initWithNome: (NSString *) n AndDestino: (CLLocation *) d AndDistance: (NSInteger) dist;
 

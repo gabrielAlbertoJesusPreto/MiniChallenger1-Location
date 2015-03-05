@@ -17,23 +17,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    alarms = [ArrayAlarmes instancia];
-    
     UILabel *label = [[UILabel alloc] init];
     [label setTextColor:[UIColor lightGrayColor]];
     [label setText:@"No alarms found.\nTo add one press '+'"];
     label.numberOfLines = 2;
+    [label setTextAlignment: NSTextAlignmentCenter];
     [label sizeToFit];
     label.frame = CGRectMake((self.tableView.bounds.size.width - label.bounds.size.width) / 2.0f,
-                             (self.tableView.bounds.size.width - label.bounds.size.height) / 2.0f,
+                             (self.tableView.bounds.size.height - label.bounds.size.height) / 2.0f,
                              label.bounds.size.width,
                              label.bounds.size.height);
     [self.tableView insertSubview:label atIndex:0];
     
+    alarms = [ArrayAlarmes instancia];
 }
 
 
-
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    UILabel *label = [[self.tableView subviews] objectAtIndex:0];
+    label.frame = CGRectMake((size.width - label.bounds.size.width) / 2.0f,
+                             (size.height - label.bounds.size.height) / 2.0f,
+                             label.bounds.size.width,
+                             label.bounds.size.height);
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -43,6 +51,12 @@
 #pragma mark - Table view data source
 
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    UILabel *label = [[self.tableView subviews] objectAtIndex:0];
+    [label setHidden:([[alarms count] integerValue] != 0)];
+    return [[alarms count] integerValue];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AlarmTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"alarmTableCell" forIndexPath:indexPath];

@@ -29,6 +29,7 @@
     NSLog(@"index: %li, switch: %i", (long)index, [a alarmSwitch]);
     if (sender.on) {
         [self setBackgroundColor:[UIColor whiteColor]];
+        [a setAlertTocou:false];
     }
     else
     {

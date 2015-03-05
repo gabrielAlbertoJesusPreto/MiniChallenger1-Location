@@ -97,6 +97,15 @@
         case kCLAuthorizationStatusAuthorizedAlways: {
             NSLog(@"kCLAuthorizationStatusAuthorizedAlways");
             [locationManager startUpdatingLocation]; //Will update location immediately
+            //Encontrar as coordenadas de localização atual
+            CLLocationCoordinate2D loc = [[manager location] coordinate];
+            
+            //Determinar região com as coordenadas de localização atual e os limites N/S e L/O no zoom em metros
+            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
+            
+            //Mudar a região atual para visualização de forma animada
+            [worldMap setRegion:region animated:YES ];
+
             
         } break;
         default:{
