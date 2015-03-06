@@ -22,4 +22,14 @@ static Engine * instanciaEngine = nil;
     return instanciaEngine;
 }
 
+-(instancetype)init
+{
+    self = [super init];
+    if (self) {
+
+
+    }
+    return self;
+}
+
 @end

@@ -11,7 +11,6 @@
 #import <MapKit/MapKit.h>
 #import "Alarme.h"
 #import "ArrayAlarmes.h"
-#import <AVFoundation/AVFoundation.h>
 
 @interface DistanceViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 {
@@ -25,8 +24,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldDistance;
 @property (weak, nonatomic) IBOutlet UIButton *buttonSave;
 @property (weak, nonatomic) IBOutlet MKMapView *mapImage;
+@property (weak, nonatomic) IBOutlet UILabel *DistanceLabel;
 
 - (IBAction)TextFieldMeters:(id)sender;
 - (IBAction)ButtonSave:(id)sender;
+
+-(BOOL)isStringNumeric:(NSString *)s;
 
 @end

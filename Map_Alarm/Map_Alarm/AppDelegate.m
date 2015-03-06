@@ -20,7 +20,6 @@
     alarms1 = [ArrayAlarmes instancia];
     
     locationManager = [[CLLocationManager alloc] init];
-    
     [locationManager setDelegate:self];
     
 #ifdef __IPHONE_8_0
@@ -29,8 +28,7 @@
     }
 #endif
     
-    [locationManager startUpdatingLocation];
-    [locationManager setPausesLocationUpdatesAutomatically:NO];
+    
     
     NSString *path = [NSString stringWithFormat:@"%@/teste.mp3", [[NSBundle mainBundle] resourcePath]];
     NSURL *soundUrl = [NSURL fileURLWithPath:path];

@@ -202,7 +202,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How far from there to sound the alarm?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zc-xF-ABd">
-                                <rect key="frame" x="149" y="264" width="302" height="21"/>
+                                <rect key="frame" x="150" y="265" width="302" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -216,8 +216,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kav-ks-iic">
-                                <rect key="frame" x="200" y="300" width="100" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kav-ks-iic">
+                                <rect key="frame" x="250" y="300" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="XgB-ke-MmR"/>
                                 </constraints>
@@ -230,8 +230,11 @@
                                     <action selector="TextFieldMeters:" destination="PIL-OJ-KFV" eventType="editingChanged" id="c5N-KP-CBZ"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Meters)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAH-Lv-LQr">
-                                <rect key="frame" x="310" y="307" width="49" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(Meters)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAH-Lv-LQr">
+                                <rect key="frame" x="360" y="307" width="49" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="f6L-0c-X65"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -240,13 +243,22 @@
                                 </variation>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TxH-6C-4tu">
-                                <rect key="frame" x="16" y="104" width="558" height="150"/>
+                                <rect key="frame" x="16" y="105" width="558" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="UZL-cD-EZX"/>
                                 </constraints>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Current Distance: 0m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynx-ho-IHp">
+                                <rect key="frame" x="175" y="340" width="250" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Ubq-3a-rti"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTU-f7-g8P">
-                                <rect key="frame" x="526" y="340" width="48" height="30"/>
+                                <rect key="frame" x="526" y="360" width="48" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="EVp-mK-DVu"/>
                                 </constraints>
@@ -264,11 +276,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kav-ks-iic" firstAttribute="baseline" secondItem="sAH-Lv-LQr" secondAttribute="baseline" id="1tV-8F-lSk"/>
+                            <constraint firstItem="eTU-f7-g8P" firstAttribute="top" secondItem="ynx-ho-IHp" secondAttribute="bottom" id="5bs-hw-pf9"/>
                             <constraint firstItem="7zc-xF-ABd" firstAttribute="top" secondItem="TxH-6C-4tu" secondAttribute="bottom" constant="10" id="AwG-sk-hmm"/>
+                            <constraint firstAttribute="centerX" secondItem="ynx-ho-IHp" secondAttribute="centerX" id="CFS-Yi-L61"/>
                             <constraint firstItem="sAH-Lv-LQr" firstAttribute="leading" secondItem="kav-ks-iic" secondAttribute="trailing" constant="10" id="FRB-ch-cJd"/>
                             <constraint firstItem="TxH-6C-4tu" firstAttribute="leading" secondItem="XXL-Dc-5w5" secondAttribute="leadingMargin" id="GRA-Mq-zRI"/>
+                            <constraint firstAttribute="centerX" secondItem="kav-ks-iic" secondAttribute="centerX" constant="-50" id="JY1-IK-ZKV"/>
+                            <constraint firstAttribute="centerX" secondItem="ynx-ho-IHp" secondAttribute="centerX" id="Jck-yf-AL7"/>
+                            <constraint firstAttribute="centerX" secondItem="kav-ks-iic" secondAttribute="centerX" id="LhA-Tx-L4x"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="sAH-Lv-LQr" secondAttribute="trailing" id="PqB-4D-cxQ"/>
+                            <constraint firstItem="ynx-ho-IHp" firstAttribute="top" secondItem="7zc-xF-ABd" secondAttribute="bottom" constant="70" id="RaY-S4-gnk"/>
                             <constraint firstItem="7zc-xF-ABd" firstAttribute="top" secondItem="TxH-6C-4tu" secondAttribute="bottom" constant="10" id="WiB-4u-kwF"/>
                             <constraint firstItem="kav-ks-iic" firstAttribute="top" secondItem="7zc-xF-ABd" secondAttribute="bottom" constant="15" id="XIg-uY-5ua"/>
+                            <constraint firstItem="kav-ks-iic" firstAttribute="leading" secondItem="XXL-Dc-5w5" secondAttribute="leadingMargin" constant="30" id="bPP-3j-yNv"/>
                             <constraint firstItem="TxH-6C-4tu" firstAttribute="top" secondItem="eZw-WZ-ylS" secondAttribute="bottom" constant="10" id="ciU-lv-BQ0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TxH-6C-4tu" secondAttribute="trailing" constant="10" id="d5R-yS-ICI"/>
                             <constraint firstAttribute="centerX" secondItem="7zc-xF-ABd" secondAttribute="centerX" id="grA-U3-dh7"/>
@@ -276,10 +296,22 @@
                             <constraint firstItem="TxH-6C-4tu" firstAttribute="trailing" secondItem="eTU-f7-g8P" secondAttribute="trailing" id="pcI-1W-VTr"/>
                             <constraint firstAttribute="centerX" secondItem="kav-ks-iic" secondAttribute="centerX" constant="50" id="qJK-Ln-6kF"/>
                             <constraint firstAttribute="centerX" secondItem="eZw-WZ-ylS" secondAttribute="centerX" id="rHc-FP-sd9"/>
+                            <constraint firstItem="ynx-ho-IHp" firstAttribute="top" secondItem="kav-ks-iic" secondAttribute="bottom" constant="10" id="waV-OG-dvz"/>
                             <constraint firstItem="eTU-f7-g8P" firstAttribute="top" secondItem="kav-ks-iic" secondAttribute="bottom" constant="10" id="zdX-mP-DVV"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="JY1-IK-ZKV"/>
+                                <exclude reference="bPP-3j-yNv"/>
+                                <exclude reference="qJK-Ln-6kF"/>
+                                <exclude reference="Jck-yf-AL7"/>
+                                <exclude reference="RaY-S4-gnk"/>
+                                <exclude reference="zdX-mP-DVV"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="DistanceLabel" destination="ynx-ho-IHp" id="dSn-dR-XBQ"/>
                         <outlet property="TextFieldDistance" destination="kav-ks-iic" id="M9b-Gk-uB8"/>
                         <outlet property="buttonSave" destination="eTU-f7-g8P" id="LUL-2L-CS0"/>
                         <outlet property="mapImage" destination="TxH-6C-4tu" id="9Ha-Rk-4x5"/>

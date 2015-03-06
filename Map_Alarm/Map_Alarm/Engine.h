@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 @class UITableView, Alarmes, Alarme;
 
 @interface Engine : NSObject
 {
     UITableView* alarmsTableview;
     Alarme* creatingAlarm;
+    CLLocationManager *locationManager;
 }
 
 @property (weak, nonatomic) UITableView *alarmsTableView;

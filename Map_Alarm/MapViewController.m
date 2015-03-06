@@ -35,22 +35,13 @@
     
     self.worldMap.delegate = self;
     
-#ifdef __IPHONE_8_0
-    if(IS_OS_8_OR_LATER) {
-        // Use one or the other, not both. Depending on what you put in info.plist
-        [locationManager requestWhenInUseAuthorization];
-        [locationManager requestAlwaysAuthorization];
-        
-        [locationManager startUpdatingLocation];
-        
-        
-        worldMap.showsUserLocation = YES;
-        [worldMap setMapType:MKMapTypeStandard];
-        [worldMap setZoomEnabled:YES];
-        [worldMap setScrollEnabled:YES];
-        
-    }
-#endif
+    [locationManager startUpdatingLocation];
+    
+    
+    worldMap.showsUserLocation = YES;
+    [worldMap setMapType:MKMapTypeStandard];
+    [worldMap setZoomEnabled:YES];
+    [worldMap setScrollEnabled:YES];
     
     // Do any additional setup after loading the view.
     
@@ -119,32 +110,8 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    CLLocation *location = newLocation;
-    Alarme *nalarme = [ArrayAlarmes instanciaNewAlarme];
-    if ([nalarme destino] != nil) {
-        CLLocationDistance dist = [newLocation distanceFromLocation:[nalarme destino]];
-        if (dist < 500) {
-//            [audioPlayer play];
-//            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-            
-        } else
-        {
-//            [audioPlayer stop];
-        }
-//        NSLog(@"distancia: %f",dist);
 
-    }
-    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-        NSLog(@"%@ - %@", placemarks,error);
-        if(error == nil && [placemarks count] > 0)
-        {
-            placemark = [placemarks lastObject];
-            NSLog(@"%@ %@ \n %@ %@ \n %@ \n %@", placemark.subThoroughfare, placemark.thoroughfare, placemark.postalCode, placemark.locality, placemark.administrativeArea, placemark.country);
-            [buttonNext setEnabled:YES];
-            [buttonNext.layer setBorderColor:[UIColor blueColor].CGColor];
 
-        }
-    }];
 }
 
 - (IBAction)LongPressMapView:(UILongPressGestureRecognizer *)sender {
