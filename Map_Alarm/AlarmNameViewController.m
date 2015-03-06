@@ -21,6 +21,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [buttonNext setEnabled:NO];
+    [buttonNext.layer setCornerRadius:5];
+    [buttonNext.layer setBorderWidth:1];
+    [buttonNext.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [buttonNext setTintColor:[UIColor blueColor]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,9 +50,11 @@
     if([TextFieldName.text length] != 0){
         
         [buttonNext setEnabled:YES];
+        [buttonNext.layer setBorderColor:[UIColor blueColor].CGColor];
         
     } else{
         [buttonNext setEnabled:NO];
+        [buttonNext.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     }
 }
 
