@@ -144,7 +144,17 @@
         if(error == nil && [placemarks count] > 0)
         {
             thePlacemark = [placemarks lastObject];
-            NSString *completeAddress = [NSString stringWithFormat:@"%@ %@ - %@", thePlacemark.subThoroughfare, thePlacemark.thoroughfare, thePlacemark.locality];
+            NSString *subThoroughfare = thePlacemark.subThoroughfare;
+            NSString *thoroughfare = thePlacemark.thoroughfare;
+            NSString *locality= thePlacemark.locality;
+            if (subThoroughfare == nil)
+                subThoroughfare = @"";
+            if (thoroughfare == nil)
+                thoroughfare = @"";
+            if (locality == nil)
+                locality = @"";
+            
+            NSString *completeAddress = [NSString stringWithFormat:@"%@ %@ - %@", subThoroughfare, thoroughfare, locality];
             [nalarme setAddress:completeAddress];
         }
         else
