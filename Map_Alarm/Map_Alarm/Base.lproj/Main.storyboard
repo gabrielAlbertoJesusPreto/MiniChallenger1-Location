@@ -681,16 +681,15 @@
                                     <rect key="frame" x="25" y="76" width="235" height="21"/>
                                 </variation>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1vV-0W-Gwp">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1vV-0W-Gwp">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="182" y="434" width="37" height="37"/>
-                                </variation>
+                                <color key="color" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="edF-64-vwY" secondAttribute="trailing" constant="14" id="3P5-40-3dM"/>
+                            <constraint firstAttribute="centerX" secondItem="1vV-0W-Gwp" secondAttribute="centerX" id="5r6-PF-e4w"/>
                             <constraint firstItem="edF-64-vwY" firstAttribute="top" secondItem="UTz-9d-1Da" secondAttribute="bottom" constant="8" id="9ue-B9-CNe"/>
                             <constraint firstItem="NKW-K5-7dL" firstAttribute="leading" secondItem="ZH3-sl-MEa" secondAttribute="leadingMargin" constant="9" id="C49-Wm-qKL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TDE-Mm-vFb" secondAttribute="trailing" id="ENY-6V-PZv"/>
@@ -699,8 +698,10 @@
                             <constraint firstItem="TDE-Mm-vFb" firstAttribute="leading" secondItem="ZH3-sl-MEa" secondAttribute="leadingMargin" id="OE7-4T-nu8"/>
                             <constraint firstItem="cgb-De-VX3" firstAttribute="top" secondItem="TDE-Mm-vFb" secondAttribute="bottom" id="QhA-ZK-bwC"/>
                             <constraint firstItem="TDE-Mm-vFb" firstAttribute="leading" secondItem="ZH3-sl-MEa" secondAttribute="leadingMargin" id="RA8-yU-j5s"/>
+                            <constraint firstItem="1vV-0W-Gwp" firstAttribute="top" secondItem="nd3-bd-9x7" secondAttribute="bottom" constant="174" id="T2z-VD-OGT"/>
                             <constraint firstItem="NKW-K5-7dL" firstAttribute="leading" secondItem="ZH3-sl-MEa" secondAttribute="leadingMargin" constant="9" id="Txm-bM-NDe"/>
                             <constraint firstItem="TDE-Mm-vFb" firstAttribute="top" secondItem="UTz-9d-1Da" secondAttribute="bottom" constant="42" id="V2y-LJ-xkP"/>
+                            <constraint firstItem="TDE-Mm-vFb" firstAttribute="top" secondItem="edF-64-vwY" secondAttribute="bottom" constant="4" id="Xln-0A-ZDT"/>
                             <constraint firstItem="TDE-Mm-vFb" firstAttribute="top" secondItem="UTz-9d-1Da" secondAttribute="bottom" constant="41" id="f6T-AX-i7L"/>
                             <constraint firstItem="nd3-bd-9x7" firstAttribute="leading" secondItem="ZH3-sl-MEa" secondAttribute="leadingMargin" constant="20" id="fy0-eJ-SOG"/>
                             <constraint firstItem="NKW-K5-7dL" firstAttribute="top" secondItem="UTz-9d-1Da" secondAttribute="bottom" constant="12" id="h0n-bS-Kln"/>
@@ -718,18 +719,19 @@
                                 <exclude reference="1vV-0W-Gwp"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="C49-Wm-qKL"/>
+                                <exclude reference="M7I-M3-uo5"/>
+                                <exclude reference="Txm-bM-NDe"/>
+                                <exclude reference="h0n-bS-Kln"/>
                                 <exclude reference="ENY-6V-PZv"/>
                                 <exclude reference="JXY-Fo-2iz"/>
                                 <exclude reference="OE7-4T-nu8"/>
                                 <exclude reference="RA8-yU-j5s"/>
                                 <exclude reference="V2y-LJ-xkP"/>
+                                <exclude reference="Xln-0A-ZDT"/>
                                 <exclude reference="f6T-AX-i7L"/>
                                 <exclude reference="jYN-pQ-cHr"/>
                                 <exclude reference="km1-qB-byB"/>
-                                <exclude reference="C49-Wm-qKL"/>
-                                <exclude reference="M7I-M3-uo5"/>
-                                <exclude reference="Txm-bM-NDe"/>
-                                <exclude reference="h0n-bS-Kln"/>
                                 <exclude reference="fy0-eJ-SOG"/>
                                 <exclude reference="hCZ-mz-ZmC"/>
                                 <exclude reference="jCr-3I-vFA"/>
@@ -738,17 +740,19 @@
                                 <exclude reference="9ue-B9-CNe"/>
                                 <exclude reference="i4r-2B-b4n"/>
                                 <exclude reference="wY8-iI-UIC"/>
+                                <exclude reference="5r6-PF-e4w"/>
+                                <exclude reference="T2z-VD-OGT"/>
                                 <exclude reference="QhA-ZK-bwC"/>
                                 <exclude reference="i4c-3M-jVQ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
+                                <include reference="M7I-M3-uo5"/>
+                                <include reference="Txm-bM-NDe"/>
                                 <include reference="ENY-6V-PZv"/>
                                 <include reference="RA8-yU-j5s"/>
                                 <include reference="f6T-AX-i7L"/>
-                                <include reference="M7I-M3-uo5"/>
-                                <include reference="Txm-bM-NDe"/>
                                 <include reference="fy0-eJ-SOG"/>
                                 <include reference="kbW-Ij-tF7"/>
                                 <include reference="3P5-40-3dM"/>
@@ -761,17 +765,20 @@
                                 <include reference="1vV-0W-Gwp"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="C49-Wm-qKL"/>
+                                <include reference="h0n-bS-Kln"/>
                                 <include reference="JXY-Fo-2iz"/>
                                 <include reference="OE7-4T-nu8"/>
                                 <include reference="V2y-LJ-xkP"/>
+                                <include reference="Xln-0A-ZDT"/>
                                 <include reference="jYN-pQ-cHr"/>
                                 <include reference="km1-qB-byB"/>
-                                <include reference="C49-Wm-qKL"/>
-                                <include reference="h0n-bS-Kln"/>
                                 <include reference="hCZ-mz-ZmC"/>
                                 <include reference="jCr-3I-vFA"/>
                                 <include reference="9ue-B9-CNe"/>
                                 <include reference="i4r-2B-b4n"/>
+                                <include reference="5r6-PF-e4w"/>
+                                <include reference="T2z-VD-OGT"/>
                                 <include reference="i4c-3M-jVQ"/>
                             </mask>
                         </variation>
