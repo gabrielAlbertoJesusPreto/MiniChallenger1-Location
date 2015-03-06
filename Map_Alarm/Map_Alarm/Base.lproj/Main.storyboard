@@ -339,9 +339,9 @@
                                 <exclude reference="elE-0k-nBg"/>
                                 <exclude reference="0Kz-TP-eiq"/>
                                 <exclude reference="L6v-Ks-Bsj"/>
-                                <exclude reference="TAP-c4-yHS"/>
                                 <exclude reference="GWi-9g-g4t"/>
                                 <exclude reference="bta-K2-mQa"/>
+                                <exclude reference="TAP-c4-yHS"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -681,6 +681,12 @@
                                     <rect key="frame" x="25" y="76" width="235" height="21"/>
                                 </variation>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1vV-0W-Gwp">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="182" y="434" width="37" height="37"/>
+                                </variation>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -708,6 +714,9 @@
                             <constraint firstItem="edF-64-vwY" firstAttribute="top" secondItem="UTz-9d-1Da" secondAttribute="bottom" constant="8" id="wY8-iI-UIC"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="1vV-0W-Gwp"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="ENY-6V-PZv"/>
                                 <exclude reference="JXY-Fo-2iz"/>
@@ -748,6 +757,9 @@
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="1vV-0W-Gwp"/>
+                            </mask>
                             <mask key="constraints">
                                 <include reference="JXY-Fo-2iz"/>
                                 <include reference="OE7-4T-nu8"/>
@@ -766,6 +778,7 @@
                     </view>
                     <connections>
                         <outlet property="buttonNext" destination="edF-64-vwY" id="JPD-16-Zi0"/>
+                        <outlet property="indicator" destination="1vV-0W-Gwp" id="o5q-TI-mvv"/>
                         <outlet property="searchTextField" destination="nd3-bd-9x7" id="5P7-of-Aex"/>
                         <outlet property="worldMap" destination="TDE-Mm-vFb" id="FsI-sc-b5b"/>
                     </connections>
