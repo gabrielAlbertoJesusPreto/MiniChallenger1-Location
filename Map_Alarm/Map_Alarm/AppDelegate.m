@@ -122,11 +122,13 @@
             message.tag = i+100;
             
                     [message show];
+                    
+                    MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
+                    if ([musicPlayer volume] != 0.1f) {
+                        [musicPlayer setVolume:0.1f];
+                    }
+                    
                     [a setAlertTocou:true];
-                }
-                MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
-                if ([musicPlayer volume] != 0.1f) {
-                    [musicPlayer setVolume:0.1f];
                 }
 
                 [audioPlayer play];
