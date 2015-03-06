@@ -16,7 +16,7 @@
                         <constraint firstAttribute="height" constant="43" id="1WZ-FS-K2o"/>
                         <constraint firstAttribute="width" constant="441" id="vhf-WM-epS"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                     <color key="textColor" red="0.99033483639999997" green="0.98232820430000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -24,7 +24,7 @@
                     <rect key="frame" x="120" y="143" width="240" height="184"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.89019614458084106" green="0.19215688109397888" blue="0.12156863510608673" alpha="1" colorSpace="deviceRGB"/>
+            <color key="backgroundColor" red="0.69533979892730713" green="0.89089375734329224" blue="0.88526928424835205" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Y3x-WF-bq2" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="23" id="3UO-Mg-9cu"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="77" id="6eB-JC-Y4d"/>
