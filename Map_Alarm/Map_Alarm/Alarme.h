@@ -32,4 +32,6 @@
 
 -(instancetype) initWithNome: (NSString *) n AndDestino: (CLLocation *) d AndDistance: (NSInteger) dist AndVolume: (float) vol;
 
+-(Alarme *) clone;
+
 @end

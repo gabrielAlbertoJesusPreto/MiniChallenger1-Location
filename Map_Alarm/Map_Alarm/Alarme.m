@@ -39,6 +39,18 @@
     return self;
 }
 
-
+-(Alarme *)clone
+{
+    Alarme *a = [[Alarme alloc] init];
+    [a setNome:nome];
+    [a setDestino:destino];
+    [a setDistance:distance];
+    [a setAddress:address];
+    [a setAlarmSwitch:alarmSwitch];
+    [a setAlertTocou:alertTocou];
+    [a setDisparado:disparado];
+    [a setVolume:volume];
+    return a;
+}
 
 @end
