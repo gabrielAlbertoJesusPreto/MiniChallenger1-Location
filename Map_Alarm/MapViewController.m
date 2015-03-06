@@ -56,8 +56,6 @@
     
     NSLog(@"lOCALITY%@", placemark.locality);
     
-//    [self performSelector:@selector(addressSearch)withObject:nil afterDelay:5.0];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -189,16 +187,28 @@
     }];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [indicator setHidden:true];
+}
+
 - (IBAction)addressSearch:(UITextField *)sender {
     
     
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    
+    indicator.hidden = NO;
+    [indicator startAnimating];
+    
     [geocoder geocodeAddressString:sender.text completionHandler:^(NSArray *placemarks, NSError *error) {
+    
+        
         if (error){
             NSLog(@"%@", error);
             [buttonNext setEnabled:NO];
             [buttonNext.layer setBorderColor:[UIColor lightGrayColor].CGColor];
         } else{
+            
             thePlacemark = [placemarks lastObject];
             MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(thePlacemark.location.coordinate, 250, 250);
             Alarme *nalarme = [ArrayAlarmes instanciaNewAlarme];
@@ -216,7 +226,10 @@
         
         }
         
+        indicator.hidden = YES;
+        [indicator stopAnimating];
     }];
+    
     
 }
 

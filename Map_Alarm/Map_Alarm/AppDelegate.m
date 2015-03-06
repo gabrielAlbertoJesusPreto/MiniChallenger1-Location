@@ -41,6 +41,22 @@
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [audioPlayer setVolume:1.0];
     
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
+    
+    UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    
+    if (notification) {
+        [self showAlarm:notification.alertBody AndIndex: 0 AndTitle:@"Title"];
+        NSLog(@"AppDelegate didFinishLaunchingWithOptions");
+        application.applicationIconBadgeNumber = 0;
+        
+    }
+    
+    [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 
@@ -118,10 +134,27 @@
                 [a setDisparado:true];
                 if (![a alertTocou])
                 {
-                    UIAlertView *message = [[UIAlertView alloc] initWithTitle:[a nome] message:@"Você chegou ao seu destino." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            message.tag = i+100;
-            
-                    [message show];
+                    
+                    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+                    
+                    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+                    
+                    NSDate *now = [NSDate date];
+                    NSDate *dateToFire = [now dateByAddingTimeInterval:0];
+                    
+                    NSLog(@"now time: %@", now);
+                    NSLog(@"fire time: %@", dateToFire);
+                    
+                    localNotification.fireDate = dateToFire;
+                    localNotification.alertBody = @"Você chegou ao seu destino.";
+                    localNotification.soundName =UILocalNotificationDefaultSoundName;
+                    localNotification.applicationIconBadgeNumber = 1; // increment
+                    
+                    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:(100 + i)], @"index", [a nome], @"title", nil];
+                    localNotification.userInfo = infoDict;
+                    
+                    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+                    
                     
                     MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
                     NSLog(@"%f",[a volume]);
@@ -147,7 +180,6 @@
 
 }
 
-
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     
     if (alertView.tag >= 100) {
@@ -162,6 +194,21 @@
     }
 }
 
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    NSNumber *i = [notification.userInfo objectForKey:@"index"];
+    [self showAlarm:notification.alertBody AndIndex: [i integerValue] AndTitle:[notification.userInfo objectForKey:@"title"]];
+    application.applicationIconBadgeNumber = 0;
+    NSLog(@"AppDelegate didReceiveLocalNotification %@", notification.userInfo);
+}
+
+- (void)showAlarm:(NSString *)text AndIndex: (NSInteger) index AndTitle: (NSString *) t {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:t
+                                                        message:text delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    alertView.tag = index;
+    [alertView show];
+}
 
 
 
