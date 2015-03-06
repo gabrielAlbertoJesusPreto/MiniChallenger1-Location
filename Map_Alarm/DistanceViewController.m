@@ -89,13 +89,16 @@
     if([TextFieldDistance.text length] != 0){
         [buttonSave setEnabled:YES];
         [buttonSave.layer setBorderColor:[UIColor blueColor].CGColor];
-        MKCircle *circle = [MKCircle circleWithCenterCoordinate:[[[ArrayAlarmes instanciaNewAlarme] destino] coordinate] radius:[TextFieldDistance.text intValue]];
-        [mapImage addOverlay:circle];
         int i = 250;
         if ([TextFieldDistance.text intValue] > 250) {
             i = [TextFieldDistance.text intValue];
         }
-        [mapImage setRegion:MKCoordinateRegionMakeWithDistance([[[ArrayAlarmes instanciaNewAlarme] destino] coordinate], i, i) animated:YES];
+        if ([TextFieldDistance.text intValue] < 2800000)
+        {
+            MKCircle *circle = [MKCircle circleWithCenterCoordinate:[[[ArrayAlarmes instanciaNewAlarme] destino] coordinate] radius:[TextFieldDistance.text intValue]];
+            [mapImage addOverlay:circle];
+            [mapImage setRegion:MKCoordinateRegionMakeWithDistance([[[ArrayAlarmes instanciaNewAlarme] destino] coordinate], i, i) animated:YES];
+        }
     } else{
         [buttonSave setEnabled:NO];
         [buttonSave.layer setBorderColor:[UIColor lightGrayColor].CGColor];
