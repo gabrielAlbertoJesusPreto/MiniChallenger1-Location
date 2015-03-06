@@ -26,10 +26,11 @@
 #ifdef __IPHONE_8_0
     if(IS_OS_8_OR_LATER) {
         [locationManager requestAlwaysAuthorization];
-        
-        [locationManager startUpdatingLocation];
     }
 #endif
+    
+    [locationManager startUpdatingLocation];
+    [locationManager setPausesLocationUpdatesAutomatically:NO];
     
     NSString *path = [NSString stringWithFormat:@"%@/teste.mp3", [[NSBundle mainBundle] resourcePath]];
     NSURL *soundUrl = [NSURL fileURLWithPath:path];
