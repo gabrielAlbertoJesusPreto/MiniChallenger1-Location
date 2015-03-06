@@ -192,6 +192,7 @@
 - (IBAction)addressSearch:(UITextField *)sender {
     
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    
     [geocoder geocodeAddressString:sender.text completionHandler:^(NSArray *placemarks, NSError *error) {
         if (error){
             NSLog(@"%@", error);
@@ -212,6 +213,7 @@
             NSString *completeAddress = [NSString stringWithFormat:@"%@ %@ \n %@ %@ \n %@ \n %@", thePlacemark.subThoroughfare, thePlacemark.thoroughfare, thePlacemark.postalCode, thePlacemark.locality, thePlacemark.administrativeArea, thePlacemark.country];
             [nalarme setAddress:completeAddress];
         }
+        
         
     }];
     

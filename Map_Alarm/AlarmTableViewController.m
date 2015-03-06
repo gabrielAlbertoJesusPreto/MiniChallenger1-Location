@@ -49,6 +49,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) viewDidAppear:(BOOL)animated{
+
+}
+
+
 #pragma mark - Table view data source
 
 
