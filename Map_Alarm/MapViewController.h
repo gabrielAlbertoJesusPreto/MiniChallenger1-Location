@@ -30,5 +30,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonNext;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
+
 @end
 

@@ -158,8 +158,9 @@
 //
                     
                     MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
-                    if ([musicPlayer volume] != 0.1f) {
-                        [musicPlayer setVolume:0.1f];
+                    NSLog(@"%f",[a volume]);
+                    if ([musicPlayer volume] != [a volume]) {
+                        [musicPlayer setVolume:[a volume]];
                     }
                     
                     [a setAlertTocou:true];

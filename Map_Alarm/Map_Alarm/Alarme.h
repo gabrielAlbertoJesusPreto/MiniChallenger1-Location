@@ -18,6 +18,7 @@
     bool alarmSwitch;
     bool alertTocou;
     bool disparado;
+    float volume;
 }
 
 @property NSString *nome;
@@ -27,7 +28,8 @@
 @property bool alarmSwitch;
 @property bool alertTocou;
 @property bool disparado;
+@property float volume;
 
--(instancetype) initWithNome: (NSString *) n AndDestino: (CLLocation *) d AndDistance: (NSInteger) dist;
+-(instancetype) initWithNome: (NSString *) n AndDestino: (CLLocation *) d AndDistance: (NSInteger) dist AndVolume: (float) vol;
 
 @end

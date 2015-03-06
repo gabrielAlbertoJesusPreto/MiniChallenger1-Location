@@ -18,9 +18,11 @@
     CLPlacemark *thePlacemark;
 }
 
-@synthesize worldMap, searchTextField, buttonNext;
+@synthesize worldMap, searchTextField, buttonNext, indicator;
 
 - (void)viewDidLoad {
+    
+    
     [super viewDidLoad];
     locationManager = [[CLLocationManager alloc] init];
     [locationManager setDelegate:self];
@@ -50,13 +52,11 @@
     }
 #endif
     
-    NSString *path = [NSString stringWithFormat:@"%@/teste.mp3", [[NSBundle mainBundle] resourcePath]];
-    NSURL *soundUrl = [NSURL fileURLWithPath:path];
-    audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:soundUrl error:nil];
-    
     // Do any additional setup after loading the view.
     
     NSLog(@"lOCALITY%@", placemark.locality);
+    
+//    [self performSelector:@selector(addressSearch)withObject:nil afterDelay:5.0];
     
 }
 
@@ -191,6 +191,7 @@
 
 - (IBAction)addressSearch:(UITextField *)sender {
     
+    
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     
     [geocoder geocodeAddressString:sender.text completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -212,6 +213,8 @@
             //set address Alarme
             NSString *completeAddress = [NSString stringWithFormat:@"%@ %@ \n %@ %@ \n %@ \n %@", thePlacemark.subThoroughfare, thePlacemark.thoroughfare, thePlacemark.postalCode, thePlacemark.locality, thePlacemark.administrativeArea, thePlacemark.country];
             [nalarme setAddress:completeAddress];
+            
+        
         }
         
         
