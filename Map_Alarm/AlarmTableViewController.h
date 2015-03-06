@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "AlarmTableViewCell.h"
 #import "ArrayAlarmes.h"
+#import "Engine.h"
 @class Alarme;
 
 @interface AlarmTableViewController : UITableViewController
 {
     ArrayAlarmes *alarms;
+    Engine *engine;
 }
 
 - (IBAction)editButton:(id)sender;

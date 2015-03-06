@@ -33,7 +33,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rua da Consolação, 200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V92-p7-8bk">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Rua da Consolação, 200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V92-p7-8bk">
                                             <rect key="frame" x="13" y="47" width="469" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -45,11 +45,11 @@
                                                 <action selector="ChangeSwitch:" destination="Diq-Se-QEr" eventType="valueChanged" id="Naj-mr-W4L"/>
                                             </connections>
                                         </switch>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="895m (200m)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKl-sg-dCg">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="895m (200m)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKl-sg-dCg">
                                             <rect key="frame" x="482" y="48" width="100" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="EZh-IA-zWj"/>
-                                                <constraint firstAttribute="width" constant="100" id="hmn-CB-0Jo"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="hmn-CB-0Jo"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,7 +63,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="kKl-sg-dCg" firstAttribute="bottom" secondItem="V92-p7-8bk" secondAttribute="bottom" id="Gth-hK-leD"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="kKl-sg-dCg" secondAttribute="trailing" constant="10" id="Hv5-z0-zst"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="kKl-sg-dCg" secondAttribute="trailing" priority="999" constant="10" id="Hv5-z0-zst"/>
                                         <constraint firstItem="XtC-kJ-9tW" firstAttribute="leading" secondItem="f2J-Pb-7GJ" secondAttribute="trailing" id="K0n-nV-eoh"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="kKl-sg-dCg" secondAttribute="bottom" id="O4i-YZ-i3S"/>
                                         <constraint firstItem="kKl-sg-dCg" firstAttribute="leading" secondItem="V92-p7-8bk" secondAttribute="trailing" id="Vgt-fu-jdz"/>

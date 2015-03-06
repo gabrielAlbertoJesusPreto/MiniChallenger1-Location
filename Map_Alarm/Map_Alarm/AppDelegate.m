@@ -126,6 +126,7 @@
         Alarme *a = [alarms1 alarmeAtIndex: i];
         NSLog(@"index %lu,, name: %@ switch: %i", (unsigned long)i, [a nome], [a alarmSwitch]);
         CLLocationDistance dist = [newLocation distanceFromLocation:[a destino]];
+        [[[a cell] distanceLabel] setText:[NSString stringWithFormat:@"%lim (%lim)",(long)dist, (long)[a distance]]];
         if ([a alertTocou] && dist > [a distance]){
             [a setAlarmSwitch:true];
             [a setAlertTocou:false];

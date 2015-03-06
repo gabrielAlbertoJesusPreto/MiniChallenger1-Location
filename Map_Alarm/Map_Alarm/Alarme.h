@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class CLLocation;
+@class CLLocation, AlarmTableViewCell;
 
 @interface Alarme : NSObject
 {
@@ -19,6 +19,7 @@
     bool alertTocou;
     bool disparado;
     float volume;
+    AlarmTableViewCell *cell;
 }
 
 @property NSString *nome;
@@ -29,6 +30,7 @@
 @property bool alertTocou;
 @property bool disparado;
 @property float volume;
+@property AlarmTableViewCell *cell;
 
 -(instancetype) initWithNome: (NSString *) n AndDestino: (CLLocation *) d AndDistance: (NSInteger) dist AndVolume: (float) vol;
 

@@ -31,6 +31,8 @@
     [self.tableView insertSubview:label atIndex:0];
     
     alarms = [ArrayAlarmes instancia];
+    engine = [Engine instancia];
+    [engine setAlarmsTableView:self.tableView];
 }
 
 
@@ -77,7 +79,7 @@
     [[cell alarmNameLabel] setText: [[alarms alarmeAtIndex:indexPath.row] nome]];
     [[cell addressLabel] setText: [[alarms alarmeAtIndex:indexPath.row] address]];
     [cell setIndex: indexPath.row];
-
+    [[alarms alarmeAtIndex:indexPath.row] setCell:cell];
     
     return cell;
 }
