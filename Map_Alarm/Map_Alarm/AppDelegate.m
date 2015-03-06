@@ -26,10 +26,11 @@
 #ifdef __IPHONE_8_0
     if(IS_OS_8_OR_LATER) {
         [locationManager requestAlwaysAuthorization];
-        
-        [locationManager startUpdatingLocation];
     }
 #endif
+    
+    [locationManager startUpdatingLocation];
+    [locationManager setPausesLocationUpdatesAutomatically:NO];
     
     NSString *path = [NSString stringWithFormat:@"%@/teste.mp3", [[NSBundle mainBundle] resourcePath]];
     NSURL *soundUrl = [NSURL fileURLWithPath:path];
@@ -108,28 +109,29 @@
         Alarme *a = [alarms1 alarmeAtIndex: i];
         NSLog(@"index %lu,, name: %@ switch: %i", (unsigned long)i, [a nome], [a alarmSwitch]);
         CLLocationDistance dist = [newLocation distanceFromLocation:[a destino]];
-        if ([a alarmSwitch])
-        if (dist <= [a distance]) {
-            [a setDisparado:true];
-            if (![a alertTocou])
-            {
-                UIAlertView *message = [[UIAlertView alloc] initWithTitle:[a nome] message:@"Você chegou ao seu destino." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        if ([a alertTocou] && dist > [a distance]){
+            [a setAlarmSwitch:true];
+            [a setAlertTocou:false];
+        }
+        if ([a alarmSwitch]){
+            if (dist <= [a distance]) {
+                [a setDisparado:true];
+                if (![a alertTocou])
+                {
+                    UIAlertView *message = [[UIAlertView alloc] initWithTitle:[a nome] message:@"Você chegou ao seu destino." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             message.tag = i+100;
             
-                [message show];
-                [a setAlertTocou:true];
-            }
-            MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
-            if ([musicPlayer volume] != 0.4f) {
-                [musicPlayer setVolume:0.4f];
-            }
+                    [message show];
+                    [a setAlertTocou:true];
+                }
+                MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
+                if ([musicPlayer volume] != 0.1f) {
+                    [musicPlayer setVolume:0.1f];
+                }
 
-            [audioPlayer play];
-            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-        }
-        else
-        {
-            [a setAlarmSwitch:true];
+                [audioPlayer play];
+                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+            }
         }
         if ([a disparado]) {
             b = true;
