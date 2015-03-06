@@ -21,15 +21,12 @@
     [super viewDidLoad];
     alarms = [ArrayAlarmes instancia];
     newAlarm = [ArrayAlarmes instanciaNewAlarme];
-    // Do any additional setup after loading the view.
+    
     [buttonSave setEnabled:NO];
     [buttonSave.layer setCornerRadius:5];
     [buttonSave.layer setBorderWidth:1];
     [buttonSave.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [buttonSave setTintColor:[UIColor blueColor]];
-
-    
-    
 }
 
 -(void) viewDidAppear:(BOOL)animated{
@@ -44,22 +41,11 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [TextFieldDistance resignFirstResponder];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)TextFieldMeters:(id)sender {
     
@@ -74,12 +60,7 @@
 
 - (IBAction)ButtonSave:(id)sender {
     [newAlarm setDistance:[[TextFieldDistance text] integerValue]];
-    
-    Alarme *a = [[Alarme alloc] initWithNome:[newAlarm nome] AndDestino:[newAlarm destino] AndDistance:[newAlarm distance] AndVolume:[newAlarm volume]];
-    [a setAddress:[newAlarm address]];
-    
-    
-    [alarms addAlarme: a];
+    [alarms addAlarme: [newAlarm clone]];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
