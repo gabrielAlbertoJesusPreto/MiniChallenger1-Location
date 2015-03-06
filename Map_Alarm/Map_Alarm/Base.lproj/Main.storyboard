@@ -356,6 +356,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="SliderVolume" destination="fVk-lq-1xI" id="sqM-4u-eCQ"/>
                         <outlet property="TextFieldName" destination="I7l-mz-4PF" id="OyP-Ur-iOs"/>
                         <outlet property="buttonNext" destination="ngI-qN-Dxv" id="D2l-Le-kO2"/>
                     </connections>
@@ -633,6 +634,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="322" y="72" width="48" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="TouchUpButtonNext:" destination="dNR-q3-iYF" eventType="touchUpInside" id="Ube-mx-xzB"/>
                                     <segue destination="PIL-OJ-KFV" kind="show" identifier="setDistance" id="S5v-T8-0KN"/>
@@ -647,7 +651,7 @@
                                     <constraint firstAttribute="width" constant="286" id="tPw-ms-QBk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Kv5-jd-Rek"/>
@@ -791,7 +795,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kx8-8b-yLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="psw-ZJ-ghq">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.10000000000000001" id="psw-ZJ-ghq">
                     <connections>
                         <action selector="LongPressMapView:" destination="dNR-q3-iYF" id="k8X-P0-aZd"/>
                     </connections>

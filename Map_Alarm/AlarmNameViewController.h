@@ -11,6 +11,7 @@
 @interface AlarmNameViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldName;
 @property (weak, nonatomic) IBOutlet UIButton *buttonNext;
+@property (weak, nonatomic) IBOutlet UISlider *SliderVolume;
 - (IBAction)textFieldChanged:(id)sender;
 
 - (IBAction)ButtonNameNext:(id)sender;

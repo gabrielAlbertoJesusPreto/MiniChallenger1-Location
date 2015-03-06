@@ -15,7 +15,7 @@
 
 @implementation AlarmNameViewController
 
-@synthesize TextFieldName, buttonNext;
+@synthesize TextFieldName, buttonNext, SliderVolume;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,7 +62,7 @@
     
     Alarme *nalarme = [ArrayAlarmes instanciaNewAlarme];
     [nalarme setNome:[TextFieldName text]];
-    
+    [nalarme setVolume:[SliderVolume value]];
 }
 
 

@@ -10,7 +10,7 @@
 
 @implementation Alarme
 
-@synthesize nome, destino, distance, alarmSwitch, alertTocou, address, disparado;
+@synthesize nome, destino, distance, volume, alarmSwitch, alertTocou, address, disparado;
 
 -(instancetype)init
 {
@@ -21,11 +21,12 @@
         alarmSwitch = true;
         alertTocou = false;
         disparado = false;
+        volume = 1.0f;
     }
     return self;
 }
 
--(instancetype)initWithNome:(NSString *)n AndDestino: (CLLocation *)d AndDistance:(NSInteger) dist
+-(instancetype)initWithNome:(NSString *)n AndDestino: (CLLocation *)d AndDistance:(NSInteger) dist AndVolume:(float) vol;
 {
     self = [super init];
     if (self) {
@@ -33,6 +34,7 @@
         destino = d;
         distance = dist;
         alarmSwitch = true;
+        volume = vol;
     }
     return self;
 }
