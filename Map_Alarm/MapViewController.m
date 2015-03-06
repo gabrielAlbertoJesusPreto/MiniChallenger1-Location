@@ -177,7 +177,7 @@
         if(error == nil && [placemarks count] > 0)
         {
             thePlacemark = [placemarks lastObject];
-            NSString *completeAddress = [NSString stringWithFormat:@"%@ %@ - %@ - %@ - %@", thePlacemark.subThoroughfare, thePlacemark.thoroughfare, thePlacemark.locality, thePlacemark.administrativeArea, thePlacemark.country];
+            NSString *completeAddress = [NSString stringWithFormat:@"%@ %@ - %@", thePlacemark.subThoroughfare, thePlacemark.thoroughfare, thePlacemark.locality];
             [nalarme setAddress:completeAddress];
         }
         else

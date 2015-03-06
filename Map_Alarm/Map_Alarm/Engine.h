@@ -7,7 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+@class UITableView, Alarmes, Alarme;
 
 @interface Engine : NSObject
+{
+    UITableView* alarmsTableview;
+    Alarme* creatingAlarm;
+}
+
+@property (weak, nonatomic) UITableView *alarmsTableView;
+@property (nonatomic) Alarme *creatingAlarm;
+
++(Engine *) instancia;
 
 @end

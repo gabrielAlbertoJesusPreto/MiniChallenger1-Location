@@ -10,4 +10,16 @@
 
 @implementation Engine
 
+static Engine * instanciaEngine = nil;
+
+@synthesize alarmsTableView, creatingAlarm;
+
++(Engine *) instancia
+{
+    if (instanciaEngine == nil) {
+        instanciaEngine = [[Engine alloc] init];
+    }
+    return instanciaEngine;
+}
+
 @end

@@ -56,6 +56,7 @@
     
     [self.window makeKeyAndVisible];
     
+    engine = [Engine instancia];
     
     return YES;
 }

@@ -13,6 +13,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "Engine.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
 {
@@ -21,6 +22,7 @@
     AVAudioPlayer *audioPlayer;
     AVPlayer *audioPlayer1;
     UIBackgroundTaskIdentifier *backgroundTask;
+    Engine *engine;
 }
 
 @property (strong, nonatomic) UIWindow *window;
