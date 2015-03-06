@@ -18,6 +18,7 @@
     bool alarmSwitch;
     bool alertTocou;
     bool disparado;
+    NSInteger volume;
 }
 
 @property NSString *nome;
@@ -27,6 +28,7 @@
 @property bool alarmSwitch;
 @property bool alertTocou;
 @property bool disparado;
+@property NSInteger volume;
 
 -(instancetype) initWithNome: (NSString *) n AndDestino: (CLLocation *) d AndDistance: (NSInteger) dist;
 
