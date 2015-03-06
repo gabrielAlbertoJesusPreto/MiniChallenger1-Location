@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     UILabel *label = [[UILabel alloc] init];
     [label setTextColor:[UIColor lightGrayColor]];
     [label setText:@"No alarms found.\nTo add one press '+'"];
@@ -54,7 +55,14 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     UILabel *label = [[self.tableView subviews] objectAtIndex:0];
-    [label setHidden:([[alarms count] integerValue] != 0)];
+    if([[alarms count] integerValue] == 0){
+        [label setHidden:false];
+        [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    } else {
+        [label setHidden:true];
+        [tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+    }
+    
     return [[alarms count] integerValue];
 }
 

@@ -23,8 +23,11 @@
     newAlarm = [ArrayAlarmes instanciaNewAlarme];
     // Do any additional setup after loading the view.
     [buttonSave setEnabled:NO];
-    
-    
+    [buttonSave.layer setCornerRadius:5];
+    [buttonSave.layer setBorderWidth:1];
+    [buttonSave.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [buttonSave setTintColor:[UIColor blueColor]];
+
     
     
 }
@@ -62,8 +65,10 @@
     
     if([TextFieldDistance.text length] != 0){
         [buttonSave setEnabled:YES];
+        [buttonSave.layer setBorderColor:[UIColor blueColor].CGColor];
     } else{
         [buttonSave setEnabled:NO];
+        [buttonSave.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     }
 }
 

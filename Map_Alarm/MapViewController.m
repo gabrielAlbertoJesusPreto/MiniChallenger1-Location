@@ -26,6 +26,10 @@
     [locationManager setDelegate:self];
     placemark = [[CLPlacemark alloc] initWithPlacemark:thePlacemark];
     [buttonNext setEnabled:NO];
+    [buttonNext.layer setCornerRadius:5];
+    [buttonNext.layer setBorderWidth:1];
+    [buttonNext.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [buttonNext setTintColor:[UIColor blueColor]];
     
     self.worldMap.delegate = self;
     
@@ -139,6 +143,8 @@
             placemark = [placemarks lastObject];
             NSLog(@"%@ %@ \n %@ %@ \n %@ \n %@", placemark.subThoroughfare, placemark.thoroughfare, placemark.postalCode, placemark.locality, placemark.administrativeArea, placemark.country);
             [buttonNext setEnabled:YES];
+            [buttonNext.layer setBorderColor:[UIColor blueColor].CGColor];
+
         }
     }];
 }
@@ -160,6 +166,8 @@
     [nalarme setDestino:location];
     
     [buttonNext setEnabled:YES];
+    [buttonNext.layer setBorderColor:[UIColor blueColor].CGColor];
+
 
 
 }
@@ -188,6 +196,7 @@
         if (error){
             NSLog(@"%@", error);
             [buttonNext setEnabled:NO];
+            [buttonNext.layer setBorderColor:[UIColor lightGrayColor].CGColor];
         } else{
             thePlacemark = [placemarks lastObject];
             MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(thePlacemark.location.coordinate, 250, 250);
@@ -197,6 +206,7 @@
             [self.worldMap setRegion:region animated:YES];
             [self addAnnotation:thePlacemark];
             [buttonNext setEnabled:YES];
+            [buttonNext.layer setBorderColor:[UIColor blueColor].CGColor];
             
             //set address Alarme
             NSString *completeAddress = [NSString stringWithFormat:@"%@ %@ \n %@ %@ \n %@ \n %@", thePlacemark.subThoroughfare, thePlacemark.thoroughfare, thePlacemark.postalCode, thePlacemark.locality, thePlacemark.administrativeArea, thePlacemark.country];
@@ -214,6 +224,8 @@
     point.subtitle = [placemark.addressDictionary objectForKey:@"City"];
     [self.worldMap addAnnotation: point];
     [buttonNext setEnabled:YES];
+    [buttonNext.layer setBorderColor:[UIColor blueColor].CGColor];
+
 }
 
 
@@ -233,6 +245,8 @@
         
     }
     [buttonNext setEnabled:YES];
+    [buttonNext.layer setBorderColor:[UIColor blueColor].CGColor];
+
     return nil;
 }
 
