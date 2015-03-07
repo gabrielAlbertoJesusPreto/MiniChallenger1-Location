@@ -10,6 +10,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ArrayAlarmes.h"
+#import "alarme.h"
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>

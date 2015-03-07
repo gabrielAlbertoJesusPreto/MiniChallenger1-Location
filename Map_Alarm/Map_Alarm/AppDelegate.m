@@ -146,7 +146,7 @@
                     NSLog(@"fire time: %@", dateToFire);
                     
                     localNotification.fireDate = dateToFire;
-                    localNotification.alertBody = @"Você chegou ao seu destino.";
+                    localNotification.alertBody = @"Wake up!\n You're getting closer to your destination!";
                     localNotification.soundName =UILocalNotificationDefaultSoundName;
                     localNotification.applicationIconBadgeNumber = 1; // increment
                     
@@ -184,7 +184,7 @@
     
     if (alertView.tag >= 100) {
         if (buttonIndex == 0) {
-            Alarme *a = [alarms1 alarmeAtIndex: alertView.tag-100];
+            Alarme *a = [alarms1 alarmeAtIndex: alertView.tag-1001];
             [audioPlayer stop];
             AudioServicesPlayAlertSound(0);
             [a setDisparado:false];
