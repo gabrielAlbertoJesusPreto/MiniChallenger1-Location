@@ -184,7 +184,7 @@
     
     if (alertView.tag >= 100) {
         if (buttonIndex == 0) {
-            Alarme *a = [alarms1 alarmeAtIndex: alertView.tag-1001];
+            Alarme *a = [alarms1 alarmeAtIndex: alertView.tag-100];
             [audioPlayer stop];
             AudioServicesPlayAlertSound(0);
             [a setDisparado:false];
