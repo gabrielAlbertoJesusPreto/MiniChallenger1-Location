@@ -8,11 +8,15 @@
 
 #import "Engine.h"
 
+
+
 @implementation Engine
 
 static Engine * instanciaEngine = nil;
 
-@synthesize alarmsTableView, creatingAlarm;
+@synthesize alarmsTableView, creatingAlarm, alarms, locationManager;
+
+static Alarme* instancianewalarme = nil;
 
 +(Engine *) instancia
 {
@@ -26,10 +30,20 @@ static Engine * instanciaEngine = nil;
 {
     self = [super init];
     if (self) {
-
+        alarms = [[ArrayAlarmes alloc] init];
+        creatingAlarm = [[Alarme alloc] init];
 
     }
     return self;
 }
+
++ (Alarme *)instanciaNewAlarme
+{
+    if (instancianewalarme == nil) {
+//        instancianewalarme = [[Alarme alloc] init];
+    }
+    return instancianewalarme;
+}
+
 
 @end

@@ -5,9 +5,9 @@
 //  Created by Gabriel Alberto de Jesus Preto on 02/03/15.
 //  Copyright (c) 2015 Lidia Chou. All rights reserved.
 //
-
 #import <Foundation/Foundation.h>
-#import "Alarme.h"
+
+@class Alarme;
 
 @interface ArrayAlarmes : NSObject
 {
@@ -16,8 +16,6 @@
 
 @property NSMutableArray *arrayAlarmes;
 
-+ (ArrayAlarmes*)instancia;
-
 -(void)addAlarmes: (NSMutableArray *) alarms;
 -(void)addAlarme: (Alarme*)alarme;
 -(void)removeAlarmeAtIndex: (NSInteger)i;
@@ -25,7 +23,5 @@
 -(NSNumber *)count;
 
 -(NSMutableArray *) getarray;
-
-+ (Alarme*)instanciaNewAlarme;
 
 @end

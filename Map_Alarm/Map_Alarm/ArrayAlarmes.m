@@ -8,13 +8,10 @@
 
 #import "ArrayAlarmes.h"
 
+
 @implementation ArrayAlarmes
 
 @synthesize arrayAlarmes;
-
-static ArrayAlarmes *instaciaAlarme = nil;
-
-static Alarme* instancianewalarme = nil;
 
 -(instancetype)init{
     self = [super init];
@@ -22,13 +19,6 @@ static Alarme* instancianewalarme = nil;
         mutableArrayAlarmes = [[NSMutableArray alloc]init];
     }
     return self;
-}
-
-+(ArrayAlarmes*)instancia{
-    if(instaciaAlarme == nil){
-        instaciaAlarme = [[ArrayAlarmes alloc]init];
-    }
-    return instaciaAlarme;
 }
 
 -(void)addAlarmes:(NSMutableArray*)alarms
@@ -57,14 +47,6 @@ static Alarme* instancianewalarme = nil;
 -(NSMutableArray *) getarray
 {
     return mutableArrayAlarmes;
-}
-
-+ (Alarme *)instanciaNewAlarme
-{
-    if (instancianewalarme == nil) {
-        instancianewalarme = [[Alarme alloc] init];
-    }
-    return instancianewalarme;
 }
 
 @end

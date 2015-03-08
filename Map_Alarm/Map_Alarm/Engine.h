@@ -8,18 +8,27 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-@class UITableView, Alarmes, Alarme;
+#import "ArrayAlarmes.h"
+#import "Alarme.h"
+//#import "AlarmTableViewCell.h"
+
+@class UITableView;
 
 @interface Engine : NSObject
 {
     UITableView* alarmsTableview;
     Alarme* creatingAlarm;
     CLLocationManager *locationManager;
+    ArrayAlarmes* alarms;
 }
 
 @property (weak, nonatomic) UITableView *alarmsTableView;
 @property (nonatomic) Alarme *creatingAlarm;
+@property ArrayAlarmes *alarms;
+@property CLLocationManager *locationManager;
 
 +(Engine *) instancia;
+
++ (Alarme*)instanciaNewAlarme;
 
 @end

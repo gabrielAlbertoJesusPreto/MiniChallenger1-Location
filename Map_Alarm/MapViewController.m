@@ -45,8 +45,6 @@
     
     // Do any additional setup after loading the view.
     
-    NSLog(@"lOCALITY%@", placemark.locality);
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,38 +69,27 @@
     
     switch (status) {
         case kCLAuthorizationStatusNotDetermined: {
-            NSLog(@"User still thinking..");
         } break;
         case kCLAuthorizationStatusDenied: {
-            NSLog(@"User hates you");
         } break;
         case kCLAuthorizationStatusAuthorizedWhenInUse: {
-            NSLog(@"kCLAuthorizationStatusAuthorizedWhenInUse");
-            //Encontrar as coordenadas de localização atual
             CLLocationCoordinate2D loc = [[manager location] coordinate];
             
-            //Determinar região com as coordenadas de localização atual e os limites N/S e L/O no zoom em metros
             MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
             
-            //Mudar a região atual para visualização de forma animada
             [worldMap setRegion:region animated:YES ];
         } break;
         case kCLAuthorizationStatusAuthorizedAlways: {
-            NSLog(@"kCLAuthorizationStatusAuthorizedAlways");
-            [locationManager startUpdatingLocation]; //Will update location immediately
-            //Encontrar as coordenadas de localização atual
+            [locationManager startUpdatingLocation];
             CLLocationCoordinate2D loc = [[manager location] coordinate];
             
-            //Determinar região com as coordenadas de localização atual e os limites N/S e L/O no zoom em metros
             MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
             
-            //Mudar a região atual para visualização de forma animada
             [worldMap setRegion:region animated:YES ];
 
             
         } break;
         default:{
-            NSLog(@"default");
         } break;
     }
 }
@@ -126,9 +113,9 @@
     [worldMap removeAnnotations:[worldMap annotations]];
     [self.worldMap addAnnotation:point1];
     CLLocation *location = [[CLLocation alloc] initWithLatitude:tapPoint.latitude longitude:tapPoint.longitude];
-//    NSLog(@"%f, %f", tapPoint.latitude, tapPoint.longitude);
-    Alarme *nalarme = [ArrayAlarmes instanciaNewAlarme];
-    [nalarme setDestino:location];
+    Engine *e = [Engine instancia];
+    Alarme *n = [e creatingAlarm];
+    [n setDestino:location];
     
     [buttonNext setEnabled:YES];
     [buttonNext.layer setBorderColor:[UIColor blueColor].CGColor];
@@ -139,8 +126,9 @@
 
 - (IBAction)TouchUpButtonNext:(id)sender {
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    Alarme *nalarme = [ArrayAlarmes instanciaNewAlarme];
-    [geocoder reverseGeocodeLocation: [nalarme destino] completionHandler:^(NSArray *placemarks, NSError *error) {
+    Engine *e = [Engine instancia];
+    Alarme *n = [e creatingAlarm];
+    [geocoder reverseGeocodeLocation: [n destino] completionHandler:^(NSArray *placemarks, NSError *error) {
         if(error == nil && [placemarks count] > 0)
         {
             thePlacemark = [placemarks lastObject];
@@ -155,10 +143,11 @@
                 locality = @"";
             
             NSString *completeAddress = [NSString stringWithFormat:@"%@ %@ - %@", subThoroughfare, thoroughfare, locality];
-            [nalarme setAddress:completeAddress];
+            [n setAddress:completeAddress];
         }
         else
         {
+            [n setAddress:@"(Address not found)"];
             NSLog(@"%@ - %@", placemarks,error);
         }
     }];
@@ -181,15 +170,17 @@
     
         
         if (error){
-            NSLog(@"%@", error);
+            UIAlertView *alerterror = [[UIAlertView alloc] initWithTitle:@"ERROR" message: error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alerterror show];
             [buttonNext setEnabled:NO];
             [buttonNext.layer setBorderColor:[UIColor lightGrayColor].CGColor];
         } else{
             
             thePlacemark = [placemarks lastObject];
             MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(thePlacemark.location.coordinate, 250, 250);
-            Alarme *nalarme = [ArrayAlarmes instanciaNewAlarme];
-            [nalarme setDestino:thePlacemark.location];
+            Engine *e = [Engine instancia];
+            Alarme *n = [e creatingAlarm];
+            [n setDestino:thePlacemark.location];
             [worldMap removeAnnotations:[worldMap annotations]];
             [self.worldMap setRegion:region animated:YES];
             [self addAnnotation:thePlacemark];
@@ -198,7 +189,7 @@
             
             //set address Alarme
             NSString *completeAddress = [NSString stringWithFormat:@"%@ %@ \n %@ %@ \n %@ \n %@", thePlacemark.subThoroughfare, thePlacemark.thoroughfare, thePlacemark.postalCode, thePlacemark.locality, thePlacemark.administrativeArea, thePlacemark.country];
-            [nalarme setAddress:completeAddress];
+            [n setAddress:completeAddress];
             
         
         }

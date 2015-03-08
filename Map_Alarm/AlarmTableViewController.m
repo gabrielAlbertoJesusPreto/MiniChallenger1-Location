@@ -30,7 +30,6 @@
                              label.bounds.size.height);
     [self.tableView insertSubview:label atIndex:0];
     
-    alarms = [ArrayAlarmes instancia];
     engine = [Engine instancia];
     [engine setAlarmsTableView:self.tableView];
 }
@@ -61,6 +60,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    ArrayAlarmes *alarms = [engine alarms];
     UILabel *label = [[self.tableView subviews] objectAtIndex:0];
     if([[alarms count] integerValue] == 0){
         [label setHidden:false];
@@ -74,6 +74,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ArrayAlarmes *alarms = [engine alarms];
     AlarmTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"alarmTableCell" forIndexPath:indexPath];
     
     [[cell alarmNameLabel] setText: [[alarms alarmeAtIndex:indexPath.row] nome]];
@@ -121,6 +122,7 @@
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ArrayAlarmes *alarms = [engine alarms];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //remove the deleted object from your data source.
         //If your data source is an NSMutableArray, do this

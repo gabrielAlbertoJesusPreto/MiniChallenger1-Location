@@ -59,10 +59,10 @@
 }
 
 - (IBAction)ButtonNameNext:(id)sender {
-    
-    Alarme *nalarme = [ArrayAlarmes instanciaNewAlarme];
-    [nalarme setNome:[TextFieldName text]];
-    [nalarme setVolume:[SliderVolume value]];
+    Engine *e = [Engine instancia];
+    Alarme *n = [e creatingAlarm];
+    [n setNome:[TextFieldName text]];
+    [n setVolume:[SliderVolume value]];
 }
 
 

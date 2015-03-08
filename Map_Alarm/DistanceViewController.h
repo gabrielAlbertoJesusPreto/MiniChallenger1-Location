@@ -9,17 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
-#import "Alarme.h"
-#import "ArrayAlarmes.h"
+#import "Engine.h"
 
 @interface DistanceViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 {
     CLLocationManager *locationManager;
     CLGeocoder *geocoder;
     CLPlacemark *placemark;
-        
-    Alarme *newAlarm;
-    ArrayAlarmes *alarms;
+    
 }
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldDistance;
 @property (weak, nonatomic) IBOutlet UIButton *buttonSave;

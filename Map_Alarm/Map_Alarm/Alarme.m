@@ -8,9 +8,10 @@
 
 #import "Alarme.h"
 
+
 @implementation Alarme
 
-@synthesize nome, destino, distance, volume, alarmSwitch, alertTocou, address, disparado;
+@synthesize nome, destino, distance, volume, alarmSwitch, alertTocou, address, disparado, cell;
 
 -(instancetype)init
 {
@@ -51,6 +52,15 @@
     [a setDisparado:disparado];
     [a setVolume:volume];
     return a;
+}
+
+-(void) updateDist: (long) dist
+{
+    [[cell distanceLabel] setText:[NSString stringWithFormat:@"%lim (%lim)",(long)dist, (long) distance]];
+}
+
+-(void) updateAddress{
+    [[cell addressLabel] setText:address];
 }
 
 @end

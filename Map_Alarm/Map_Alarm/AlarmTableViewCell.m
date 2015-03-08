@@ -10,6 +10,8 @@
 
 @implementation AlarmTableViewCell
 
+@class ArrayAlarmes, Alarme;
+
 @synthesize index;
 
 - (void)awakeFromNib {
@@ -24,11 +26,14 @@
 }
 
 - (IBAction)ChangeSwitch:(UISwitch *)sender {
-    ArrayAlarmes *as = [ArrayAlarmes instancia];
+    Engine *e = [Engine instancia];
+    ArrayAlarmes *as = [e alarms];
     Alarme *a = [as alarmeAtIndex:index];
+    
     [a setAlarmSwitch:sender.on];
-    NSLog(@"index: %li, switch: %i", (long)index, [a alarmSwitch]);
+    
     if (sender.on) {
+        [[e locationManager] setDesiredAccuracy:kCLLocationAccuracyBest];
         [self setBackgroundColor:[UIColor whiteColor]];
         [a setAlertTocou:false];
     }

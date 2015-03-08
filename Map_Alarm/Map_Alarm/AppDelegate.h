@@ -9,21 +9,18 @@
 #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
 #import <UIKit/UIKit.h>
-#import "ArrayAlarmes.h"
-#import "alarme.h"
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "Engine.h"
-#import "AlarmTableViewCell.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
 {
-    ArrayAlarmes *alarms1;
     CLLocationManager *locationManager;
     AVAudioPlayer *audioPlayer;
     AVPlayer *audioPlayer1;
     UIBackgroundTaskIdentifier *backgroundTask;
+    CLPlacemark *thePlacemark;
     Engine *engine;
 }
 

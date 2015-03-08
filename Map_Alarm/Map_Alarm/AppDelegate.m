@@ -17,9 +17,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    alarms1 = [ArrayAlarmes instancia];
+    engine = [Engine instancia];
     
     locationManager = [[CLLocationManager alloc] init];
+    [engine setLocationManager:locationManager];
     [locationManager setDelegate:self];
     
 #ifdef __IPHONE_8_0
@@ -54,8 +55,6 @@
     
     [self.window makeKeyAndVisible];
     
-    engine = [Engine instancia];
-    
     return YES;
 }
 
@@ -78,8 +77,8 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    
-    [[NSUserDefaults standardUserDefaults] setObject:[alarms1 getarray] forKey:@"alarms"];
+    ArrayAlarmes *alarms = [engine alarms];
+    [[NSUserDefaults standardUserDefaults] setObject:[alarms getarray] forKey:@"alarms"];
 }
 
 
@@ -96,17 +95,12 @@
     
     switch (status) {
         case kCLAuthorizationStatusNotDetermined: {
-            NSLog(@"User still thinking..");
         } break;
         case kCLAuthorizationStatusDenied: {
-            NSLog(@"User hates you");
         } break;
         case kCLAuthorizationStatusAuthorizedWhenInUse: {
-            NSLog(@"kCLAuthorizationStatusAuthorizedWhenInUse");
-            //Encontrar as coordenadas de localização atual
         } break;
         case kCLAuthorizationStatusAuthorizedAlways: {
-            NSLog(@"kCLAuthorizationStatusAuthorizedAlways");
             [locationManager startUpdatingLocation]; //Will update location immediately
             
         } break;
@@ -118,18 +112,53 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    //NSLog(@"%f, %f", loc.latitude, loc.longitude);
+    Engine *e = [Engine instancia];
+    ArrayAlarmes *as = [e alarms];
+    if ([[as count] intValue] == 0)
+    {
+        [locationManager setDesiredAccuracy:kCLLocationAccuracyThreeKilometers];
+        return;
+    }
+    
+    long shortestDistance = LONG_MAX;
     bool b = false;
-    for (NSInteger i = 0; i < [[alarms1 count] intValue]; i++) {
-        Alarme *a = [alarms1 alarmeAtIndex: i];
-        NSLog(@"index %lu,, name: %@ switch: %i", (unsigned long)i, [a nome], [a alarmSwitch]);
+    for (NSInteger i = 0; i < [[as count] intValue]; i++) {
+        Alarme *a = [as alarmeAtIndex: i];
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        if ([[a address] isEqualToString:@"(Address not found)"])
+        [geocoder reverseGeocodeLocation: [a destino] completionHandler:^(NSArray *placemarks, NSError *error) {
+            if(error == nil && [placemarks count] > 0)
+            {
+                
+                thePlacemark = [placemarks lastObject];
+                NSString *subThoroughfare = thePlacemark.subThoroughfare;
+                NSString *thoroughfare = thePlacemark.thoroughfare;
+                NSString *locality= thePlacemark.locality;
+                if (subThoroughfare == nil)
+                    subThoroughfare = @"";
+                if (thoroughfare == nil)
+                    thoroughfare = @"";
+                if (locality == nil)
+                    locality = @"";
+                
+                NSString *completeAddress = [NSString stringWithFormat:@"%@ %@ - %@", subThoroughfare, thoroughfare, locality];
+                [a setAddress:completeAddress];
+                [a updateAddress];
+            }
+        }];
+        
         CLLocationDistance dist = [newLocation distanceFromLocation:[a destino]];
-        [[[a cell] distanceLabel] setText:[NSString stringWithFormat:@"%lim (%lim)",(long)dist, (long)[a distance]]];
+        
+        [a updateDist:dist];
+        
         if ([a alertTocou] && dist > [a distance]){
             [a setAlarmSwitch:true];
             [a setAlertTocou:false];
         }
         if ([a alarmSwitch]){
+            if (dist < shortestDistance) {
+                shortestDistance = dist - [a distance];
+            }
             if (dist <= [a distance]) {
                 [a setDisparado:true];
                 if (![a alertTocou])
@@ -141,9 +170,6 @@
                     
                     NSDate *now = [NSDate date];
                     NSDate *dateToFire = [now dateByAddingTimeInterval:0];
-                    
-                    NSLog(@"now time: %@", now);
-                    NSLog(@"fire time: %@", dateToFire);
                     
                     localNotification.fireDate = dateToFire;
                     localNotification.alertBody = @"Wake up!\n You're getting closer to your destination!";
@@ -157,7 +183,6 @@
                     
                     
                     MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
-                    NSLog(@"%f",[a volume]);
                     if ([musicPlayer volume] != [a volume]) {
                         [musicPlayer setVolume:[a volume]];
                     }
@@ -177,19 +202,28 @@
     if (!b) {
         [audioPlayer stop];
     }
+    
+    if (shortestDistance < 10) {
+        [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    } else if (shortestDistance < 100) {
+        [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+    } else if (shortestDistance < 3000) {
+        [locationManager setDesiredAccuracy:kCLLocationAccuracyKilometer];
+    } else {
+        [locationManager setDesiredAccuracy:kCLLocationAccuracyThreeKilometers];
+    }
 
 }
 
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    
+    ArrayAlarmes *alarms = [engine alarms];
     if (alertView.tag >= 100) {
         if (buttonIndex == 0) {
-            Alarme *a = [alarms1 alarmeAtIndex: alertView.tag-100];
+            Alarme *a = [alarms alarmeAtIndex: alertView.tag-100];
             [audioPlayer stop];
             AudioServicesPlayAlertSound(0);
             [a setDisparado:false];
             [a setAlarmSwitch:false];
-            NSLog(@"%li",alertView.tag-100);
         }
     }
 }
@@ -198,7 +232,6 @@
     NSNumber *i = [notification.userInfo objectForKey:@"index"];
     [self showAlarm:notification.alertBody AndIndex: [i integerValue] AndTitle:[notification.userInfo objectForKey:@"title"]];
     application.applicationIconBadgeNumber = 0;
-    NSLog(@"AppDelegate didReceiveLocalNotification %@", notification.userInfo);
 }
 
 - (void)showAlarm:(NSString *)text AndIndex: (NSInteger) index AndTitle: (NSString *) t {

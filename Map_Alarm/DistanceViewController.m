@@ -19,8 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    alarms = [ArrayAlarmes instancia];
-    newAlarm = [ArrayAlarmes instanciaNewAlarme];
     
     [buttonSave setEnabled:NO];
     [buttonSave.layer setCornerRadius:5];
@@ -38,11 +36,13 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated{
+    Engine *e = [Engine instancia];
+    Alarme *n = [e creatingAlarm];
     [mapImage setMapType:MKMapTypeStandard];
-    [mapImage setRegion:MKCoordinateRegionMakeWithDistance([[[ArrayAlarmes instanciaNewAlarme] destino] coordinate], 250, 250) animated:NO];
+    [mapImage setRegion:MKCoordinateRegionMakeWithDistance([[n destino] coordinate], 250, 250) animated:NO];
     MKPointAnnotation *point1 = [[MKPointAnnotation alloc] init];
     
-    point1.coordinate = [[[ArrayAlarmes instanciaNewAlarme] destino] coordinate];
+    point1.coordinate = [[n destino] coordinate];
     
     [mapImage addAnnotation:point1];
 }
@@ -65,7 +65,9 @@
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    CLLocationDistance dist = [[userLocation location] distanceFromLocation:[newAlarm destino]];
+    Engine *e = [Engine instancia];
+    Alarme *n = [e creatingAlarm];
+    CLLocationDistance dist = [[userLocation location] distanceFromLocation:[n destino]];
     [DistanceLabel setText:[NSString stringWithFormat:@"Current Distance: %im", (int)dist]];
 }
 
@@ -81,6 +83,8 @@
 
 - (IBAction)TextFieldMeters:(id)sender {
     [mapImage removeOverlays:[mapImage overlays]];
+    Engine *e = [Engine instancia];
+    Alarme *n = [e creatingAlarm];
     if (![self isStringNumeric:TextFieldDistance.text]) {
         [buttonSave setEnabled:NO];
         [buttonSave.layer setBorderColor:[UIColor lightGrayColor].CGColor];
@@ -95,9 +99,9 @@
         }
         if ([TextFieldDistance.text intValue] < 2800000)
         {
-            MKCircle *circle = [MKCircle circleWithCenterCoordinate:[[[ArrayAlarmes instanciaNewAlarme] destino] coordinate] radius:[TextFieldDistance.text intValue]];
+            MKCircle *circle = [MKCircle circleWithCenterCoordinate:[[n destino] coordinate] radius:[TextFieldDistance.text intValue]];
             [mapImage addOverlay:circle];
-            [mapImage setRegion:MKCoordinateRegionMakeWithDistance([[[ArrayAlarmes instanciaNewAlarme] destino] coordinate], i, i) animated:YES];
+            [mapImage setRegion:MKCoordinateRegionMakeWithDistance([[n destino] coordinate], i, i) animated:YES];
         }
     } else{
         [buttonSave setEnabled:NO];
@@ -106,8 +110,11 @@
 }
 
 - (IBAction)ButtonSave:(id)sender {
-    [newAlarm setDistance:[[TextFieldDistance text] integerValue]];
-    [alarms addAlarme: [newAlarm clone]];
+    Engine *e = [Engine instancia];
+    Alarme *n = [e creatingAlarm];
+    ArrayAlarmes *as = [e alarms];
+    [n setDistance:[[TextFieldDistance text] integerValue]];
+    [as addAlarme: [n clone]];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

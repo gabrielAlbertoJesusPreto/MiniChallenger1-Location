@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AlarmTableViewCell.h"
 @class CLLocation, AlarmTableViewCell;
 
 @interface Alarme : NSObject
@@ -35,5 +36,8 @@
 -(instancetype) initWithNome: (NSString *) n AndDestino: (CLLocation *) d AndDistance: (NSInteger) dist AndVolume: (float) vol;
 
 -(Alarme *) clone;
+
+-(void) updateDist:(long) dist;
+-(void) updateAddress;
 
 @end
