@@ -85,8 +85,7 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSLog(@"didFailWithError: %@", error);
-    UIAlertView *errorAlert = [[UIAlertView alloc]
-                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
 }
 
@@ -206,12 +205,15 @@
     if (shortestDistance < 10) {
         [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     } else if (shortestDistance < 100) {
-        [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+        [locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
     } else if (shortestDistance < 3000) {
+        [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+    } else if (shortestDistance < 10000)  {
         [locationManager setDesiredAccuracy:kCLLocationAccuracyKilometer];
     } else {
         [locationManager setDesiredAccuracy:kCLLocationAccuracyThreeKilometers];
     }
+    [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
 
 }
 
