@@ -20,12 +20,16 @@
     Alarme* creatingAlarm;
     CLLocationManager *locationManager;
     ArrayAlarmes* alarms;
+    bool editing;
+    NSInteger indexEditing;
 }
 
 @property (weak, nonatomic) UITableView *alarmsTableView;
 @property (nonatomic) Alarme *creatingAlarm;
 @property ArrayAlarmes *alarms;
 @property CLLocationManager *locationManager;
+@property bool editing;
+@property NSInteger indexEditing;
 
 +(Engine *) instancia;
 

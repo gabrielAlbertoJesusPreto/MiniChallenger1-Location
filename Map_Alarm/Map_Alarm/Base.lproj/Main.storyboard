@@ -78,6 +78,7 @@
                                     <outlet property="addressLabel" destination="V92-p7-8bk" id="HqV-jL-51J"/>
                                     <outlet property="alarmNameLabel" destination="f2J-Pb-7GJ" id="dZX-rw-lv9"/>
                                     <outlet property="distanceLabel" destination="kKl-sg-dCg" id="ayg-B1-zF2"/>
+                                    <segue destination="JJU-Kt-jct" kind="show" identifier="clickcell" id="8pN-72-2mk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -439,4 +440,7 @@
             <point key="canvasLocation" x="-962" y="152"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8pN-72-2mk"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -19,6 +19,7 @@
 -(void)addAlarmes: (NSMutableArray *) alarms;
 -(void)addAlarme: (Alarme*)alarme;
 -(void)removeAlarmeAtIndex: (NSInteger)i;
+-(void)replaceAlarmAtIndex: (NSInteger) i WithAlarm:(Alarme*) a;
 -(Alarme*)alarmeAtIndex: (NSInteger)i;
 -(NSNumber *)count;
 

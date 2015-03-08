@@ -25,6 +25,15 @@
     [buttonNext.layer setBorderWidth:1];
     [buttonNext.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [buttonNext setTintColor:[UIColor blueColor]];
+    Engine *e = [Engine instancia];
+    Alarme *n = [e creatingAlarm];
+    if ([e editing]) {
+        [TextFieldName setText:[n nome]];
+        [SliderVolume setValue:[n volume]];
+        [buttonNext setEnabled:YES];
+        [buttonNext.layer setBorderColor:[UIColor blueColor].CGColor];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

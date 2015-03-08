@@ -32,6 +32,7 @@
     
     engine = [Engine instancia];
     [engine setAlarmsTableView:self.tableView];
+    [engine setEditing:false];
 }
 
 
@@ -51,7 +52,7 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated{
-
+    [self.tableView reloadData];
 }
 
 
@@ -138,8 +139,16 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"clickcell"])
+    {
+        [engine setEditing:true];
+        ArrayAlarmes *as = [engine alarms];
+        AlarmTableViewCell *cell = sender;
+        Alarme *a = [as alarmeAtIndex:[cell index]];
+        [engine setCreatingAlarm:[a clone]];
+        [[engine creatingAlarm] setCell:[a cell]];
+        [engine setIndexEditing:[cell index]];
+    }
 }
 
 

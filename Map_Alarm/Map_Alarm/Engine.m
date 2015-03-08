@@ -14,7 +14,7 @@
 
 static Engine * instanciaEngine = nil;
 
-@synthesize alarmsTableView, creatingAlarm, alarms, locationManager;
+@synthesize alarmsTableView, creatingAlarm, alarms, locationManager, editing, indexEditing;
 
 static Alarme* instancianewalarme = nil;
 
@@ -32,6 +32,7 @@ static Alarme* instancianewalarme = nil;
     if (self) {
         alarms = [[ArrayAlarmes alloc] init];
         creatingAlarm = [[Alarme alloc] init];
+        editing = false;
 
     }
     return self;

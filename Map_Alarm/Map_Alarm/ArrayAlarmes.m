@@ -36,6 +36,11 @@
     [mutableArrayAlarmes removeObjectAtIndex:i];
 }
 
+-(void)replaceAlarmAtIndex:(NSInteger)i WithAlarm:(Alarme*) a
+{
+    [mutableArrayAlarmes replaceObjectAtIndex:i withObject:a];
+}
+
 -(Alarme*)alarmeAtIndex: (NSInteger)i{
     return [mutableArrayAlarmes objectAtIndex:i];
 }

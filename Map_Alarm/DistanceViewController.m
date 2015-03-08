@@ -32,7 +32,14 @@
     [locationManager setDelegate:self];
     [mapImage setShowsUserLocation:TRUE];
     [locationManager startUpdatingLocation];
+    Engine *e = [Engine instancia];
+    Alarme *n = [e creatingAlarm];
     
+    if ([e editing]) {
+        [TextFieldDistance setText:[NSString stringWithFormat:@"%li", (long)[n distance]]];
+        [buttonSave setEnabled:YES];
+        [buttonSave.layer setBorderColor:[UIColor blueColor].CGColor];
+    }
 }
 
 -(void) viewDidAppear:(BOOL)animated{
@@ -114,8 +121,16 @@
     Alarme *n = [e creatingAlarm];
     ArrayAlarmes *as = [e alarms];
     [n setDistance:[[TextFieldDistance text] integerValue]];
-    [as addAlarme: [n clone]];
+    
+    if ([e editing]) {
+        Alarme *a = [n clone];
+        [as replaceAlarmAtIndex:[e indexEditing] WithAlarm:a];
+    } else {
+        [as addAlarme: [n clone]];
+    }
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
+    [e setEditing:false];
 }
 
 @end

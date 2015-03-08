@@ -40,11 +40,21 @@
     
     worldMap.showsUserLocation = YES;
     [worldMap setMapType:MKMapTypeStandard];
+    
     [worldMap setZoomEnabled:YES];
     [worldMap setScrollEnabled:YES];
     
-    // Do any additional setup after loading the view.
+    Engine *e = [Engine instancia];
+    Alarme *n = [e creatingAlarm];
     
+    if ([e editing]) {
+        MKPointAnnotation *p = [[MKPointAnnotation alloc] init];
+        [p setCoordinate:[n destino].coordinate];
+        [worldMap removeAnnotations:[worldMap annotations]];
+        [worldMap addAnnotation:p];
+        [buttonNext setEnabled:YES];
+        [buttonNext.layer setBorderColor:[UIColor blueColor].CGColor];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

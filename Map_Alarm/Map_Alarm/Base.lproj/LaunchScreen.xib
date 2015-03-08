@@ -20,7 +20,7 @@
                     <color key="textColor" red="0.99033483639999997" green="0.98232820430000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="iconLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="Y3x-WF-bq2">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iconLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="Y3x-WF-bq2">
                     <rect key="frame" x="120" y="143" width="240" height="184"/>
                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                         <rect key="frame" x="150" y="128" width="181" height="180"/>
