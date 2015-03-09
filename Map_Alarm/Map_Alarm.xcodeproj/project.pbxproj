@@ -437,7 +437,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Map_Alarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Map_Alarm;
 			};
 			name = Debug;
 		};
@@ -447,7 +447,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Map_Alarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Map_Alarm;
 			};
 			name = Release;
 		};
@@ -465,7 +465,7 @@
 				);
 				INFOPLIST_FILE = Map_AlarmTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Map_AlarmTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Map_Alarm.app/Map_Alarm";
 			};
 			name = Debug;
@@ -480,7 +480,7 @@
 				);
 				INFOPLIST_FILE = Map_AlarmTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Map_AlarmTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Map_Alarm.app/Map_Alarm";
 			};
 			name = Release;
