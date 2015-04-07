@@ -15,10 +15,16 @@
 
 @implementation DistanceViewController
 
-@synthesize TextFieldDistance, buttonSave, mapImage, DistanceLabel;
+@synthesize TextFieldDistance, buttonSave, mapImage, numericDistLabel, distLabel, howFarLabel, metersLabel, currDistLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [distLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Distance", nil)]];
+    [howFarLabel setText:[NSString stringWithFormat:NSLocalizedString(@"How far from there to sound the alarm?", nil)]];
+    [metersLabel setText:[NSString stringWithFormat:NSLocalizedString(@"(Meters)", nil)]];
+    [buttonSave setTitle:[NSString stringWithFormat:NSLocalizedString(@"Save", nil)] forState:UIControlStateNormal];
+    [currDistLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Current distance:", nil)]];
     
     [buttonSave setEnabled:NO];
     [buttonSave.layer setCornerRadius:5];
@@ -68,9 +74,8 @@
     Engine *e = [Engine instancia];
     Alarme *n = [e creatingAlarm];
     CLLocationDistance dist = [[userLocation location] distanceFromLocation:[n destino]];
-    [DistanceLabel setText:[NSString stringWithFormat:@"Current Distance: %im", (int)dist]];
+    [numericDistLabel setText:[NSString stringWithFormat:@"%im", (int)dist]];
 }
-
 
 
 -(BOOL)isStringNumeric:(NSString *)s

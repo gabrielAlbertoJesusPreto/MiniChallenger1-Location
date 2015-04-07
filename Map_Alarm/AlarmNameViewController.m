@@ -15,11 +15,16 @@
 
 @implementation AlarmNameViewController
 
-@synthesize TextFieldName, buttonNext, SliderVolume;
+@synthesize TextFieldName, buttonNext, SliderVolume, nameAlarmLabel, volumeLabel, nextOutlet;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [nameAlarmLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Name your alarm:", nil)]];
+    [volumeLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Volume:", nil)]];
+    [nextOutlet setTitle:[NSString stringWithFormat:NSLocalizedString(@"Next", nil)] forState:UIControlStateNormal];
+    
     [buttonNext setEnabled:NO];
     [buttonNext.layer setCornerRadius:5];
     [buttonNext.layer setBorderWidth:1];

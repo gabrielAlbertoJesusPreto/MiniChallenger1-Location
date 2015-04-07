@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  Map_Alarm
+
+  Created by Lidia Chou on 4/7/15.
+  Copyright (c) 2015 Lidia Chou. All rights reserved.
+*/
+
+"Alarm" = "Alarm";
+"No alarms found.\nTo add one press '+'" = "No alarms found.\nTo add one press '+'";
+"Edit" = "Edit";
+"Delete" = "Delete";
+
+"Name your alarm:" = "Name your alarm:";
+"Volume:" = "Volume:";
+"Next" = "Next";
+
+"Back" = "Back";
+"Where do you want to go?" = "Where do you want to go?";
+"Enter address or press to select location" = "Enter address or prss to select location";
+"(Address not found)" = "(Address not found)";
+
+"Distance" = "Distance";
+"How far from there to sound the alarm?" = "How far from there to sound the alarm?";
+"(Meters)" = "(Meters)";
+"Current distance:" = "Current distance:";
+"Save" = "Save";
+
+"Wake up!\n You're getting closer to your destination!" = "Wake up!\n You're getting closer to your destination!";
+"Error" = "Error";
+"Failed to get Your Location" = "Failed to get Your Location";

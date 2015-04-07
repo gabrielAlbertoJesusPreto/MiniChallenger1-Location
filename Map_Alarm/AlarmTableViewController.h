@@ -14,6 +14,7 @@
 {
     Engine *engine;
 }
+@property (weak, nonatomic) IBOutlet UINavigationItem *navTitle;
 
 - (IBAction)editButton:(id)sender;
 

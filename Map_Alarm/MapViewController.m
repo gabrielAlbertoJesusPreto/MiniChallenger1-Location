@@ -18,12 +18,16 @@
     CLPlacemark *thePlacemark;
 }
 
-@synthesize worldMap, searchTextField, buttonNext, indicator;
+@synthesize worldMap, searchTextField, buttonNext, indicator, whereLabel;
 
 - (void)viewDidLoad {
     
-    
     [super viewDidLoad];
+    
+    [whereLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Where do you want to go?", nil)]];
+    [buttonNext setTitle:[NSString stringWithFormat:NSLocalizedString(@"Next", nil)] forState:UIControlStateNormal];
+    [searchTextField setPlaceholder:[NSString stringWithFormat:NSLocalizedString(@"Enter address or press to select location", nil)]];
+    
     locationManager = [[CLLocationManager alloc] init];
     [locationManager setDelegate:self];
     placemark = [[CLPlacemark alloc] initWithPlacemark:thePlacemark];
@@ -147,7 +151,7 @@
         }
         else
         {
-            [n setAddress:@"(Address not found)"];
+            [n setAddress:[NSString stringWithFormat:NSLocalizedString(@"(Address not found)", nil)]];
             NSLog(@"%@ - %@", placemarks,error);
         }
     }];

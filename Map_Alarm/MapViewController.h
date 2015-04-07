@@ -22,6 +22,9 @@
     AVAudioPlayer *audioPlayer;
 }
 @property (weak, nonatomic) IBOutlet MKMapView *worldMap;
+
+@property (weak, nonatomic) IBOutlet UILabel *whereLabel;
+
 - (IBAction)LongPressMapView:(UILongPressGestureRecognizer *)sender;
 - (IBAction)TouchUpButtonNext:(id)sender;
 

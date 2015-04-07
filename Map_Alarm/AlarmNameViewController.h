@@ -10,6 +10,11 @@
 #import "Engine.h"
 
 @interface AlarmNameViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UILabel *nameAlarmLabel;
+@property (weak, nonatomic) IBOutlet UILabel *volumeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *nextOutlet;
+
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldName;
 @property (weak, nonatomic) IBOutlet UIButton *buttonNext;
 @property (weak, nonatomic) IBOutlet UISlider *SliderVolume;

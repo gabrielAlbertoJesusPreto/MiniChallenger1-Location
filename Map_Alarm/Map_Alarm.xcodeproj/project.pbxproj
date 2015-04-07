@@ -18,6 +18,7 @@
 		02B2808A1AA4AFD8001B4B01 /* AlarmNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B280891AA4AFD8001B4B01 /* AlarmNameViewController.m */; };
 		02B2808D1AA4AFF2001B4B01 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B2808C1AA4AFF2001B4B01 /* MapViewController.m */; };
 		02B280901AA4B010001B4B01 /* DistanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B2808F1AA4B010001B4B01 /* DistanceViewController.m */; };
+		02BF8F661AD412BD00722E4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02BF8F681AD412BD00722E4D /* Localizable.strings */; };
 		5E54EDB21AA5FDBA00683A0C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E54EDB11AA5FDBA00683A0C /* AVFoundation.framework */; };
 		5E54EDB41AA5FDC400683A0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E54EDB31AA5FDC400683A0C /* UIKit.framework */; };
 		5E54EDB61AA5FDCE00683A0C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E54EDB51AA5FDCE00683A0C /* CoreGraphics.framework */; };
@@ -63,6 +64,10 @@
 		02B2808C1AA4AFF2001B4B01 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = ../MapViewController.m; sourceTree = "<group>"; };
 		02B2808E1AA4B010001B4B01 /* DistanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DistanceViewController.h; path = ../DistanceViewController.h; sourceTree = "<group>"; };
 		02B2808F1AA4B010001B4B01 /* DistanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DistanceViewController.m; path = ../DistanceViewController.m; sourceTree = "<group>"; };
+		02BF8F641AD4129400722E4D /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
+		02BF8F651AD4129400722E4D /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		02BF8F671AD412BD00722E4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		02BF8F691AD414A400722E4D /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5E54EDB11AA5FDBA00683A0C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5E54EDB31AA5FDC400683A0C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5E54EDB51AA5FDCE00683A0C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -139,6 +144,7 @@
 				02B2808C1AA4AFF2001B4B01 /* MapViewController.m */,
 				02B2808E1AA4B010001B4B01 /* DistanceViewController.h */,
 				02B2808F1AA4B010001B4B01 /* DistanceViewController.m */,
+				02BF8F681AD412BD00722E4D /* Localizable.strings */,
 				02B280541AA483E5001B4B01 /* Main.storyboard */,
 				02B280571AA483E5001B4B01 /* Images.xcassets */,
 				02B280591AA483E5001B4B01 /* LaunchScreen.xib */,
@@ -264,6 +270,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pt,
 			);
 			mainGroup = 02B2803E1AA483E5001B4B01;
 			productRefGroup = 02B280481AA483E5001B4B01 /* Products */;
@@ -281,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02BF8F661AD412BD00722E4D /* Localizable.strings in Resources */,
 				5E54EDBB1AA5FED600683A0C /* teste.mp3 in Resources */,
 				02B280561AA483E5001B4B01 /* Main.storyboard in Resources */,
 				02B2805B1AA483E5001B4B01 /* LaunchScreen.xib in Resources */,
@@ -338,6 +346,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				02B280551AA483E5001B4B01 /* Base */,
+				02BF8F641AD4129400722E4D /* pt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -346,8 +355,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				02B2805A1AA483E5001B4B01 /* Base */,
+				02BF8F651AD4129400722E4D /* pt */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		02BF8F681AD412BD00722E4D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02BF8F671AD412BD00722E4D /* en */,
+				02BF8F691AD414A400722E4D /* pt */,
+			);
+			name = Localizable.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
