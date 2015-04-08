@@ -20,7 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [distLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Distance", nil)]];
+    [self.navigationItem setTitle:[NSString stringWithFormat:NSLocalizedString(@"Distance", nil)]];
+    
+    [distLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Chosen place:", nil)]];
     [howFarLabel setText:[NSString stringWithFormat:NSLocalizedString(@"How far from there to sound the alarm?", nil)]];
     [metersLabel setText:[NSString stringWithFormat:NSLocalizedString(@"(Meters)", nil)]];
     [buttonSave setTitle:[NSString stringWithFormat:NSLocalizedString(@"Save", nil)] forState:UIControlStateNormal];

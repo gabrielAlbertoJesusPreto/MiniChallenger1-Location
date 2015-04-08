@@ -21,6 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self.navigationItem setTitle:[NSString stringWithFormat:NSLocalizedString(@"Name", nil)]];
+    
     [nameAlarmLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Name your alarm:", nil)]];
     [volumeLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Volume:", nil)]];
     [nextOutlet setTitle:[NSString stringWithFormat:NSLocalizedString(@"Next", nil)] forState:UIControlStateNormal];

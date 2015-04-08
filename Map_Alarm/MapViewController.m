@@ -24,6 +24,8 @@
     
     [super viewDidLoad];
     
+    [self.navigationItem setTitle:[NSString stringWithFormat:NSLocalizedString(@"Spot", nil)]];
+    
     [whereLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Where do you want to go?", nil)]];
     [buttonNext setTitle:[NSString stringWithFormat:NSLocalizedString(@"Next", nil)] forState:UIControlStateNormal];
     [searchTextField setPlaceholder:[NSString stringWithFormat:NSLocalizedString(@"Enter address or press to select location", nil)]];
@@ -64,7 +66,7 @@
 {
     NSLog(@"didFailWithError: %@", error);
     UIAlertView *errorAlert = [[UIAlertView alloc]
-                               initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Error", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"Failed to get your yocation", nil)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                               initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Error", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"Failed to get your location", nil)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
 }
 

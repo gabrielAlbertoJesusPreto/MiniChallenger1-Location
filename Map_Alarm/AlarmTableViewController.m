@@ -14,12 +14,12 @@
 
 @implementation AlarmTableViewController
 
-@synthesize navTitle;
+@synthesize navTitle, editButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [navTitle setTitle:[NSString stringWithFormat:NSLocalizedString(@"Alarm", nil)]];
+    [navTitle setTitle:[NSString stringWithFormat:NSLocalizedString(@"Alarms", nil)]];
     
     UILabel *label = [[UILabel alloc] init];
     [label setTextColor:[UIColor lightGrayColor]];
