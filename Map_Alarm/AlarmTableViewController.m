@@ -14,7 +14,7 @@
 
 @implementation AlarmTableViewController
 
-@synthesize navTitle, editButton;
+@synthesize navTitle, editOutlet;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -152,12 +152,16 @@
     {
         [super setEditing:NO animated:NO];
         [self refreshControl];
+        [editOutlet setTitle:[NSString stringWithFormat:NSLocalizedString(@"Edit", nil)]];
+
         
     }
     else
     {
         [super setEditing:YES animated:YES];
         [self  refreshControl];
+        [editOutlet setTitle:[NSString stringWithFormat:NSLocalizedString(@"Done", nil)]];
+
     }
     
 }

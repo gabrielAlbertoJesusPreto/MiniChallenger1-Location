@@ -79,7 +79,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Alarms" id="7RE-5l-eTi">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="edit" id="tWT-HE-Iqb">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" style="plain" id="tWT-HE-Iqb">
                             <connections>
                                 <action selector="editButton:" destination="2pi-PA-hOw" id="l4b-1N-Rml"/>
                             </connections>
@@ -91,7 +91,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="editButton" destination="tWT-HE-Iqb" id="xqp-sO-h7G"/>
+                        <outlet property="editOutlet" destination="tWT-HE-Iqb" id="1C4-yt-tVs"/>
                         <outlet property="navTitle" destination="7RE-5l-eTi" id="vhK-eW-mBm"/>
                         <outlet property="searchDisplayController" destination="QPZ-Qg-Irg" id="kUh-CP-wsI"/>
                     </connections>
