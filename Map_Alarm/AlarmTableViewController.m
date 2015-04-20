@@ -14,6 +14,8 @@
 
 @implementation AlarmTableViewController
 
+UILabel *label;
+
 @synthesize navTitle, editOutlet;
 
 - (void)viewDidLoad {
@@ -21,7 +23,7 @@
     
     [navTitle setTitle:[NSString stringWithFormat:NSLocalizedString(@"Alarms", nil)]];
     
-    UILabel *label = [[UILabel alloc] init];
+    label = [[UILabel alloc] init];
     [label setTextColor:[UIColor lightGrayColor]];
     [label setText:[NSString stringWithFormat: NSLocalizedString(@"No alarms found.\nTo add one press '+'", nil) ]];
     label.numberOfLines = 2;
@@ -40,12 +42,17 @@
 
 -(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-    UILabel *label = [[self.tableView subviews] objectAtIndex:0];
+    label = [[self.tableView subviews] objectAtIndex:0];
     label.frame = CGRectMake((size.width - label.bounds.size.width) / 2.0f,
                              (size.height - label.bounds.size.height) / 2.0f,
                              label.bounds.size.width,
                              label.bounds.size.height);
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,7 +71,6 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     ArrayAlarmes *alarms = [engine alarms];
-    UILabel *label = [[self.tableView subviews] objectAtIndex:0];
     if([[alarms count] integerValue] == 0){
         [label setHidden:false];
         [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -88,11 +94,7 @@
     return cell;
 }
 
-
-
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 
