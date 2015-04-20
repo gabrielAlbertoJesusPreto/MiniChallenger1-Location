@@ -32,26 +32,17 @@
     [buttonNext.layer setBorderWidth:1];
     [buttonNext.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [buttonNext setTintColor:[UIColor blueColor]];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [TextFieldName resignFirstResponder];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)textFieldChanged:(id)sender {
     if([TextFieldName.text length] != 0){
