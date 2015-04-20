@@ -85,7 +85,7 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSLog(@"didFailWithError: %@", error);
-    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Error", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"Failed to get your location", nil)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
 }
 
@@ -171,7 +171,7 @@
                     NSDate *dateToFire = [now dateByAddingTimeInterval:0];
                     
                     localNotification.fireDate = dateToFire;
-                    localNotification.alertBody = @"Wake up!\n You're getting closer to your destination!";
+                    localNotification.alertBody = [NSString stringWithFormat:NSLocalizedString(@"Wake up!\n You're getting closer to your destination!", nil)];
                     localNotification.soundName =UILocalNotificationDefaultSoundName;
                     localNotification.applicationIconBadgeNumber = 1; // increment
                     

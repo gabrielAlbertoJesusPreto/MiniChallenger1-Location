@@ -1,0 +1,43 @@
+
+/* Class = "UILabel"; text = "Volume:"; ObjectID = "4Kt-kf-1wx"; */
+"4Kt-kf-1wx.text" = "Volume:";
+
+/* Class = "UINavigationItem"; title = "Alarm"; ObjectID = "7RE-5l-eTi"; */
+"7RE-5l-eTi.title" = "Alarm";
+
+/* Class = "UILabel"; text = "How far from there to sound the alarm?"; ObjectID = "7zc-xF-ABd"; */
+"7zc-xF-ABd.text" = "How far from there to sound the alarm?";
+
+/* Class = "UILabel"; text = "Where do you want to go?"; ObjectID = "NKW-K5-7dL"; */
+"NKW-K5-7dL.text" = "Where do you want to go?";
+
+/* Class = "UILabel"; text = "Rua da Consolação, 200"; ObjectID = "V92-p7-8bk"; */
+"V92-p7-8bk.text" = "Rua da Consolação, 200";
+
+/* Class = "UILabel"; text = "Name your alarm:"; ObjectID = "dZP-2T-Zsq"; */
+"dZP-2T-Zsq.text" = "Name your alarm:";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "eTU-f7-g8P"; */
+"eTU-f7-g8P.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Distance"; ObjectID = "eZw-WZ-ylS"; */
+"eZw-WZ-ylS.text" = "Distance";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "edF-64-vwY"; */
+"edF-64-vwY.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "Mackenzie"; ObjectID = "f2J-Pb-7GJ"; */
+"f2J-Pb-7GJ.text" = "Mackenzie";
+
+/* Class = "UILabel"; text = "895m (200m)"; ObjectID = "kKl-sg-dCg"; */
+"kKl-sg-dCg.text" = "895m (200m)";
+
+/* Class = "UITextField"; placeholder = "Enter address or press to select location"; ObjectID = "nd3-bd-9x7"; */
+"nd3-bd-9x7.placeholder" = "Enter address or press to select location";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "ngI-qN-Dxv"; */
+"ngI-qN-Dxv.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "(Meters)"; ObjectID = "sAH-Lv-LQr"; */
+"sAH-Lv-LQr.text" = "(Meters)";
+

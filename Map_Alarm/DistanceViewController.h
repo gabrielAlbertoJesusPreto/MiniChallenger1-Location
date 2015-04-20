@@ -18,10 +18,16 @@
     CLPlacemark *placemark;
     
 }
+
+@property (weak, nonatomic) IBOutlet UILabel *distLabel;
+@property (weak, nonatomic) IBOutlet UILabel *howFarLabel;
+@property (weak, nonatomic) IBOutlet UILabel *metersLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currDistLabel;
+
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldDistance;
 @property (weak, nonatomic) IBOutlet UIButton *buttonSave;
 @property (weak, nonatomic) IBOutlet MKMapView *mapImage;
-@property (weak, nonatomic) IBOutlet UILabel *DistanceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numericDistLabel;
 
 - (IBAction)TextFieldMeters:(id)sender;
 - (IBAction)ButtonSave:(id)sender;

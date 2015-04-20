@@ -14,13 +14,16 @@
 
 @implementation AlarmTableViewController
 
+@synthesize navTitle, editOutlet;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [navTitle setTitle:[NSString stringWithFormat:NSLocalizedString(@"Alarms", nil)]];
     
     UILabel *label = [[UILabel alloc] init];
     [label setTextColor:[UIColor lightGrayColor]];
-    [label setText:@"No alarms found.\nTo add one press '+'"];
+    [label setText:[NSString stringWithFormat: NSLocalizedString(@"No alarms found.\nTo add one press '+'", nil) ]];
     label.numberOfLines = 2;
     [label setTextAlignment: NSTextAlignmentCenter];
     [label sizeToFit];
@@ -149,12 +152,16 @@
     {
         [super setEditing:NO animated:NO];
         [self refreshControl];
+        [editOutlet setTitle:[NSString stringWithFormat:NSLocalizedString(@"Edit", nil)]];
+
         
     }
     else
     {
         [super setEditing:YES animated:YES];
         [self  refreshControl];
+        [editOutlet setTitle:[NSString stringWithFormat:NSLocalizedString(@"Done", nil)]];
+
     }
     
 }
