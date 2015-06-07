@@ -40,6 +40,7 @@
     else
     {
         [self setBackgroundColor:[UIColor lightGrayColor]];
+        [a stop];
     }
 }
 @end

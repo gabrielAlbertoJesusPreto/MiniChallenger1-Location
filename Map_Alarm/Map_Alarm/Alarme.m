@@ -8,7 +8,6 @@
 
 #import "Alarme.h"
 
-
 @implementation Alarme
 
 @synthesize nome, destino, distance, volume, alarmSwitch, alertTocou, address, disparado, cell;
@@ -24,12 +23,22 @@
         disparado = false;
         volume = 1.0f;
     }
+    
+    NSString *path = [NSString stringWithFormat:@"%@/teste.mp3", [[NSBundle mainBundle] resourcePath]];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    
+    NSError *error;
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    
+    if (audioPlayer == nil) {
+        NSLog(@"%@", [error description]);
+    }
     return self;
 }
 
 -(instancetype)initWithNome:(NSString *)n AndDestino: (CLLocation *)d AndDistance:(NSInteger) dist AndVolume:(float) vol;
 {
-    self = [super init];
+    self = [self init];
     if (self) {
         nome = [NSString stringWithString:n];
         destino = d;
@@ -61,6 +70,18 @@
 
 -(void) updateAddress{
     [[cell addressLabel] setText:address];
+}
+
+-(void) disparar{
+    disparado = true;
+    [audioPlayer setVolume:volume];
+    [audioPlayer prepareToPlay];
+    [audioPlayer play];
+}
+
+-(void) stop{
+    [audioPlayer stop];
+    NSLog(@"teste");
 }
 
 @end

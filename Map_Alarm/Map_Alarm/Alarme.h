@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AlarmTableViewCell.h"
+#import <AVFoundation/AVFoundation.h>
 @class CLLocation, AlarmTableViewCell;
 
 @interface Alarme : NSObject
@@ -21,6 +22,7 @@
     bool disparado;
     float volume;
     AlarmTableViewCell *cell;
+    AVAudioPlayer *audioPlayer;
 }
 
 @property NSString *nome;
@@ -39,5 +41,7 @@
 
 -(void) updateDist:(long) dist;
 -(void) updateAddress;
+-(void) disparar;
+-(void) stop;
 
 @end

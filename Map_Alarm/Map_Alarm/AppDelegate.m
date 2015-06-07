@@ -35,10 +35,11 @@
     NSURL *soundUrl = [NSURL fileURLWithPath:path];
     audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:soundUrl error:nil];
 
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+//    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategory error:nil];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionDuckOthers error:nil];
+    [AVAudioSession sharedInstance];
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    [audioPlayer setVolume:1.0];
+//    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
@@ -111,97 +112,94 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-//    Engine *e = [Engine instancia];
-//    ArrayAlarmes *as = [e alarms];
-//    if ([[as count] intValue] == 0)
-//    {
-//        [locationManager setDesiredAccuracy:kCLLocationAccuracyThreeKilometers];
-//        return;
-//    }
-//    
-//    long shortestDistance = LONG_MAX;
-//    bool b = false;
-//    for (NSInteger i = 0; i < [[as count] intValue]; i++) {
-//        Alarme *a = [as alarmeAtIndex: i];
-//        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-//        if ([[a address] isEqualToString:@"(Address not found)"])
-//        [geocoder reverseGeocodeLocation: [a destino] completionHandler:^(NSArray *placemarks, NSError *error) {
-//            if(error == nil && [placemarks count] > 0)
-//            {
-//                
-//                thePlacemark = [placemarks lastObject];
-//                NSString *subThoroughfare = thePlacemark.subThoroughfare;
-//                NSString *thoroughfare = thePlacemark.thoroughfare;
-//                NSString *locality= thePlacemark.locality;
-//                if (subThoroughfare == nil)
-//                    subThoroughfare = @"";
-//                if (thoroughfare == nil)
-//                    thoroughfare = @"";
-//                if (locality == nil)
-//                    locality = @"";
-//                
-//                NSString *completeAddress = [NSString stringWithFormat:@"%@ %@ - %@", subThoroughfare, thoroughfare, locality];
-//                [a setAddress:completeAddress];
-//                [a updateAddress];
-//            }
-//        }];
-//        
-//        CLLocationDistance dist = [newLocation distanceFromLocation:[a destino]];
-//        
-//        [a updateDist:dist];
-//        
-//        if ([a alertTocou] && dist > [a distance]){
-//            [a setAlarmSwitch:true];
-//            [a setAlertTocou:false];
-//        }
-//        if ([a alarmSwitch]){
-//            if (dist < shortestDistance) {
-//                shortestDistance = dist - [a distance];
-//            }
-//            if (dist <= [a distance]) {
-//                [a setDisparado:true];
-//                if (![a alertTocou])
-//                {
-//                    
-//                    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-//                    
-//                    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-//                    
-//                    NSDate *now = [NSDate date];
-//                    NSDate *dateToFire = [now dateByAddingTimeInterval:0];
-//                    
-//                    localNotification.fireDate = dateToFire;
-//                    localNotification.alertBody = [NSString stringWithFormat:NSLocalizedString(@"Wake up!\n You're getting closer to your destination!", nil)];
-//                    localNotification.soundName =UILocalNotificationDefaultSoundName;
-//                    localNotification.applicationIconBadgeNumber = 1; // increment
-//                    
-//                    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:(100 + i)], @"index", [a nome], @"title", nil];
-//                    localNotification.userInfo = infoDict;
-//                    
-//                    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-//                    
-//                    
-//                    MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
-//                    if ([musicPlayer volume] != [a volume]) {
-//                        [musicPlayer setVolume:[a volume]];
-//                    }
-//                    
-//                    [a setAlertTocou:true];
-//                }
-//
-//                [audioPlayer play];
-//                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-//            }
-//        }
-//        if ([a disparado]) {
-//            b = true;
-//        }
-//    }
-//    
-//    if (!b) {
-//        [audioPlayer stop];
-//    }
-//    
+    Engine *e = [Engine instancia];
+    ArrayAlarmes *as = [e alarms];
+    if ([[as count] intValue] == 0)
+    {
+        [locationManager setDesiredAccuracy:kCLLocationAccuracyThreeKilometers];
+        return;
+    }
+    
+    long shortestDistance = LONG_MAX;
+    bool b = false;
+    for (NSInteger i = 0; i < [[as count] intValue]; i++) {
+        Alarme *a = [as alarmeAtIndex: i];
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        if ([[a address] isEqualToString:@"(Address not found)"])
+        [geocoder reverseGeocodeLocation: [a destino] completionHandler:^(NSArray *placemarks, NSError *error) {
+            if(error == nil && [placemarks count] > 0)
+            {
+                
+                thePlacemark = [placemarks lastObject];
+                NSString *subThoroughfare = thePlacemark.subThoroughfare;
+                NSString *thoroughfare = thePlacemark.thoroughfare;
+                NSString *locality= thePlacemark.locality;
+                if (subThoroughfare == nil)
+                    subThoroughfare = @"";
+                if (thoroughfare == nil)
+                    thoroughfare = @"";
+                if (locality == nil)
+                    locality = @"";
+                
+                NSString *completeAddress = [NSString stringWithFormat:@"%@ %@ - %@", subThoroughfare, thoroughfare, locality];
+                [a setAddress:completeAddress];
+                [a updateAddress];
+            }
+        }];
+        
+        CLLocationDistance dist = [newLocation distanceFromLocation:[a destino]];
+        
+        [a updateDist:dist];
+        
+        if ([a alertTocou] && dist > [a distance]){
+            [a setAlarmSwitch:true];
+            [a setAlertTocou:false];
+        }
+        if ([a alarmSwitch]){
+            if (dist < shortestDistance) {
+                shortestDistance = dist - [a distance];
+            }
+            if (dist <= [a distance]) {
+                [a setDisparado:true];
+                if (![a alertTocou])
+                {
+                    
+                    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+                    
+                    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+                    
+                    NSDate *now = [NSDate date];
+                    NSDate *dateToFire = [now dateByAddingTimeInterval:0];
+                    
+                    localNotification.fireDate = dateToFire;
+                    localNotification.alertBody = [NSString stringWithFormat:NSLocalizedString(@"Wake up!\n You're getting closer to your destination!", nil)];
+                    localNotification.soundName =UILocalNotificationDefaultSoundName;
+                    localNotification.applicationIconBadgeNumber = 1; // increment
+                    
+                    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:(100 + i)], @"index", [a nome], @"title", nil];
+                    localNotification.userInfo = infoDict;
+                    
+                    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+                    
+                    
+                    MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
+                    if ([musicPlayer volume] != [a volume]) {
+                        [musicPlayer setVolume:[a volume]];
+                    }
+                    
+                    [a setAlertTocou:true];
+                }
+
+                [a disparar];
+                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+            }
+        } else {
+            if ([a disparado]) {
+                [a stop];
+            }
+        }
+    }
+    
 //    if (shortestDistance < 10) {
 //        [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
 //    } else if (shortestDistance < 100) {
@@ -226,6 +224,7 @@
             AudioServicesPlayAlertSound(0);
             [a setDisparado:false];
             [a setAlarmSwitch:false];
+            [a stop];
         }
     }
 }
@@ -243,6 +242,7 @@
                                               otherButtonTitles:nil];
     alertView.tag = index;
     [alertView show];
+    NSLog(@"teste1");
 }
 
 
