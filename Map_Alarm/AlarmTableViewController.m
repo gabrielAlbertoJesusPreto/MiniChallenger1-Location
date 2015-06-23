@@ -7,6 +7,7 @@
 //
 
 #import "AlarmTableViewController.h"
+#import "AlarmSingleton.h"
 
 @interface AlarmTableViewController ()
 
@@ -37,6 +38,8 @@ UILabel *label;
     
     engine = [Engine instancia];
     [engine setAlarmsTableView:self.tableView];
+    [engine.alarms addAlarmes: [[AlarmSingleton sharedInstance] todosAlarmes] ];
+    
 }
 
 
@@ -90,6 +93,7 @@ UILabel *label;
     [[cell addressLabel] setText: [[alarms alarmeAtIndex:indexPath.row] address]];
     [cell setIndex: indexPath.row];
     [[alarms alarmeAtIndex:indexPath.row] setCell:cell];
+    [[cell statusSwitch] setOn:[[alarms alarmeAtIndex:indexPath.row] alarmSwitch]];
     
     return cell;
 }
@@ -132,6 +136,7 @@ UILabel *label;
         //remove the deleted object from your data source.
         //If your data source is an NSMutableArray, do this
         //NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+        [[AlarmSingleton sharedInstance] remover: [alarms alarmeAtIndex:indexPath.row]];
         [alarms removeAlarmeAtIndex:indexPath.row];
         [tableView deselectRowAtIndexPath:indexPath animated:UITableViewRowAnimationLeft];
         [tableView reloadData]; // tell table to refresh now

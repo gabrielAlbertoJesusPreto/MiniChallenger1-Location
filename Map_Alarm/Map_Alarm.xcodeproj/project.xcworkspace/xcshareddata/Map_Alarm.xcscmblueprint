@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "22F0F441C70F7A523BA1FFDF325FB8E9B5472ED9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "22F0F441C70F7A523BA1FFDF325FB8E9B5472ED9" : 0,
+    "6AA99EC485D6F4A8E191900DE4B590C6B9A5C1CD" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CAEED3F1-D6AB-4C0F-8EC0-589509510CF6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "22F0F441C70F7A523BA1FFDF325FB8E9B5472ED9" : "Map%20Alarme",
+    "6AA99EC485D6F4A8E191900DE4B590C6B9A5C1CD" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Map_Alarm",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Map_Alarm\/Map_Alarm.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/gabrielAlbertoJesusPreto\/MiniChallenger1-Location.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "22F0F441C70F7A523BA1FFDF325FB8E9B5472ED9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/EvandroViva\/Objective-C-Exercicios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6AA99EC485D6F4A8E191900DE4B590C6B9A5C1CD"
+    }
+  ]
+}

@@ -7,6 +7,9 @@
 //
 
 #import "ArrayAlarmes.h"
+#import "AlarmSingleton.h"
+#import "Alarme.h"
+#import "AlarmRealm.h"
 
 
 @implementation ArrayAlarmes
@@ -21,19 +24,32 @@
     return self;
 }
 
--(void)addAlarmes:(NSMutableArray*)alarms
+-(void)addAlarmes:(NSArray*)alarms
 {
     for (int i = 0; i < (int)[alarms count]; i++) {
-        [self addAlarme:[alarms objectAtIndex:i]];
+        AlarmRealm *b = [alarms objectAtIndex:i];
+        Alarme *a = [[Alarme alloc] init];
+        a.nome = b.name;
+        a.destino = [[CLLocation alloc] initWithLatitude:b.latitude longitude:b.longitude];
+        a.volume = b.volume;
+        a.address = b.address;
+        a.distance = b.distance;
+        a.alarmSwitch = false;
+        
+        [mutableArrayAlarmes addObject:a];
     }
 }
 
 -(void)addAlarme: (Alarme*)alarme{
     [mutableArrayAlarmes addObject:alarme];
+    [[AlarmSingleton sharedInstance] salvarAlarm: alarme];
 }
 
--(void)removeAlarmeAtIndex: (NSInteger)i{
+-(void)removeAlarmeAtIndex: (NSInteger) i {
+    Alarme *a = [mutableArrayAlarmes objectAtIndex:i];
+    [[AlarmSingleton sharedInstance] remover:a];
     [mutableArrayAlarmes removeObjectAtIndex:i];
+    
 }
 
 -(Alarme*)alarmeAtIndex: (NSInteger)i{
@@ -48,5 +64,7 @@
 {
     return mutableArrayAlarmes;
 }
+
+
 
 @end

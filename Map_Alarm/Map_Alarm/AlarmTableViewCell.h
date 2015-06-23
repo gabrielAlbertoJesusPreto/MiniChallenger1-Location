@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *alarmNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *statusSwitch;
 - (IBAction)ChangeSwitch:(UISwitch *)sender;
 
 @end

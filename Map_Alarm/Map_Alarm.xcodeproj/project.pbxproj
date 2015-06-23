@@ -30,6 +30,9 @@
 		5E6018CC1AA48C0400037E45 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6018CB1AA48C0400037E45 /* CoreLocation.framework */; };
 		906C958A1AAA4BF30078F692 /* Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = 906C95891AAA4BF30078F692 /* Engine.m */; };
 		90C079891AA73F6A00FD904E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C079881AA73F6A00FD904E /* MediaPlayer.framework */; };
+		90C7231E1B39E410004EFCDB /* AlarmRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C7231D1B39E410004EFCDB /* AlarmRealm.m */; };
+		90C723221B39E536004EFCDB /* AlarmSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C723211B39E536004EFCDB /* AlarmSingleton.m */; };
+		90C723241B39F3B4004EFCDB /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C723231B39F3B4004EFCDB /* libc++.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,11 @@
 		906C95881AAA4BF30078F692 /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
 		906C95891AAA4BF30078F692 /* Engine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Engine.m; sourceTree = "<group>"; };
 		90C079881AA73F6A00FD904E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		90C7231C1B39E410004EFCDB /* AlarmRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmRealm.h; sourceTree = "<group>"; };
+		90C7231D1B39E410004EFCDB /* AlarmRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmRealm.m; sourceTree = "<group>"; };
+		90C723201B39E536004EFCDB /* AlarmSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmSingleton.h; sourceTree = "<group>"; };
+		90C723211B39E536004EFCDB /* AlarmSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmSingleton.m; sourceTree = "<group>"; };
+		90C723231B39F3B4004EFCDB /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libc++.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,7 @@
 				5E54EDB81AA5FDDD00683A0C /* Foundation.framework in Frameworks */,
 				5E54EDB61AA5FDCE00683A0C /* CoreGraphics.framework in Frameworks */,
 				5E54EDB41AA5FDC400683A0C /* UIKit.framework in Frameworks */,
+				90C723241B39F3B4004EFCDB /* libc++.dylib in Frameworks */,
 				02C029581AD54A6600577380 /* Realm.framework in Frameworks */,
 				5E54EDB21AA5FDBA00683A0C /* AVFoundation.framework in Frameworks */,
 				5E6018CC1AA48C0400037E45 /* CoreLocation.framework in Frameworks */,
@@ -112,6 +121,7 @@
 		02B2803E1AA483E5001B4B01 = {
 			isa = PBXGroup;
 			children = (
+				90C723231B39F3B4004EFCDB /* libc++.dylib */,
 				901535D51AA8FBC3006E5E5E /* Frameworks */,
 				02B280491AA483E5001B4B01 /* Map_Alarm */,
 				02B280631AA483E5001B4B01 /* Map_AlarmTests */,
@@ -148,6 +158,7 @@
 				5E6018C41AA4877300037E45 /* Alarme.m */,
 				5E6018C61AA4888B00037E45 /* ArrayAlarmes.h */,
 				5E6018C71AA4888B00037E45 /* ArrayAlarmes.m */,
+				90C7231F1B39E4E0004EFCDB /* Realm */,
 				906C95881AAA4BF30078F692 /* Engine.h */,
 				906C95891AAA4BF30078F692 /* Engine.m */,
 				02B280571AA483E5001B4B01 /* Images.xcassets */,
@@ -205,6 +216,25 @@
 				5E6018C91AA48BF500037E45 /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		90C7231B1B39E348004EFCDB /* Entidades */ = {
+			isa = PBXGroup;
+			children = (
+				90C7231C1B39E410004EFCDB /* AlarmRealm.h */,
+				90C7231D1B39E410004EFCDB /* AlarmRealm.m */,
+			);
+			name = Entidades;
+			sourceTree = "<group>";
+		};
+		90C7231F1B39E4E0004EFCDB /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				90C723201B39E536004EFCDB /* AlarmSingleton.h */,
+				90C723211B39E536004EFCDB /* AlarmSingleton.m */,
+				90C7231B1B39E348004EFCDB /* Entidades */,
+			);
+			name = Realm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +349,8 @@
 				02B2808A1AA4AFD8001B4B01 /* AlarmNameViewController.m in Sources */,
 				02B280751AA49748001B4B01 /* AlarmTableViewCell.m in Sources */,
 				906C958A1AAA4BF30078F692 /* Engine.m in Sources */,
+				90C7231E1B39E410004EFCDB /* AlarmRealm.m in Sources */,
+				90C723221B39E536004EFCDB /* AlarmSingleton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +483,10 @@
 				);
 				INFOPLIST_FILE = Map_Alarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = Map_Alarm;
 			};
 			name = Debug;
@@ -465,6 +501,10 @@
 				);
 				INFOPLIST_FILE = Map_Alarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = Map_Alarm;
 			};
 			name = Release;
