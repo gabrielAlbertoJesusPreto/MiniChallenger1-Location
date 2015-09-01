@@ -23,15 +23,16 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string></string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>No WakeUp a sua localização é usada para saber quando os usuários estão se aproximando do destino. Esta localização não é compartilhada.</string>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>location</string>
-		<string>audio</string>
 		<string>App plays audio</string>
+		<string>audio</string>
+		<string>fetch</string>
+		<string>location</string>
 	</array>
+	<key>UIApplicationExitsOnSuspend</key>
+	<false/>
 	<key>UILaunchStoryboardName</key>
 	<string></string>
 	<key>UIMainStoryboardFile</key>

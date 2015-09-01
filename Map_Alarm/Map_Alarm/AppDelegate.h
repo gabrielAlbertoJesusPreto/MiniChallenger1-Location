@@ -13,6 +13,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "Engine.h"
+#import "LocationShareModel.h"
+
+
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
 {
@@ -24,7 +28,19 @@
     Engine *engine;
 }
 
+@property (strong,nonatomic) LocationShareModel * shareModel;
+
+@property (nonatomic) CLLocationCoordinate2D myLastLocation;
+@property (nonatomic) CLLocationAccuracy myLastLocationAccuracy;
+
+@property (nonatomic) CLLocationCoordinate2D myLocation;
+@property (nonatomic) CLLocationAccuracy myLocationAccuracy;
+
+
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSString *currentLocation;
+@property (strong, nonatomic) NSString *currentTemperature;
+@property (nonatomic, strong) NSString *temperature;
 
 
 @end

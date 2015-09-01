@@ -33,6 +33,7 @@
 		90C7231E1B39E410004EFCDB /* AlarmRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C7231D1B39E410004EFCDB /* AlarmRealm.m */; };
 		90C723221B39E536004EFCDB /* AlarmSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C723211B39E536004EFCDB /* AlarmSingleton.m */; };
 		90C723241B39F3B4004EFCDB /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C723231B39F3B4004EFCDB /* libc++.dylib */; };
+		B10BE3C51B8DE32300529148 /* LocationShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B10BE3C41B8DE32300529148 /* LocationShareModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,8 @@
 		90C723201B39E536004EFCDB /* AlarmSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmSingleton.h; sourceTree = "<group>"; };
 		90C723211B39E536004EFCDB /* AlarmSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmSingleton.m; sourceTree = "<group>"; };
 		90C723231B39F3B4004EFCDB /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libc++.dylib"; sourceTree = "<group>"; };
+		B10BE3C31B8DE32300529148 /* LocationShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationShareModel.h; sourceTree = "<group>"; };
+		B10BE3C41B8DE32300529148 /* LocationShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationShareModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				5E54EDB91AA5FEBA00683A0C /* Sound */,
 				02B2804E1AA483E5001B4B01 /* AppDelegate.h */,
 				02B2804F1AA483E5001B4B01 /* AppDelegate.m */,
+				B10BE3C31B8DE32300529148 /* LocationShareModel.h */,
+				B10BE3C41B8DE32300529148 /* LocationShareModel.m */,
 				02B280701AA49623001B4B01 /* AlarmTableViewController.h */,
 				02B280711AA49623001B4B01 /* AlarmTableViewController.m */,
 				02B280731AA49748001B4B01 /* AlarmTableViewCell.h */,
@@ -345,6 +350,7 @@
 				02B2808D1AA4AFF2001B4B01 /* MapViewController.m in Sources */,
 				02B280501AA483E5001B4B01 /* AppDelegate.m in Sources */,
 				02B2804D1AA483E5001B4B01 /* main.m in Sources */,
+				B10BE3C51B8DE32300529148 /* LocationShareModel.m in Sources */,
 				5E6018C81AA4888B00037E45 /* ArrayAlarmes.m in Sources */,
 				02B2808A1AA4AFD8001B4B01 /* AlarmNameViewController.m in Sources */,
 				02B280751AA49748001B4B01 /* AlarmTableViewCell.m in Sources */,
